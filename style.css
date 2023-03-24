@@ -1,0 +1,83 @@
+*{
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Raleway", sans-serif;
+    font-size:15px;
+}
+
+.top{
+    position: fixed;
+    width: 100%;   
+    background-color: #fff;
+    /* overflow: hidden; */
+    /* z-index: 1; */
+}
+
+.tab{
+    letter-spacing: 4px ;
+}
+
+.hov{
+    padding: 20px 16px;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.hov:hover{
+    color:#000!important;
+    background-color:#ccc!important
+}
+
+.shift-rit{
+    float: right !important;
+}
+
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/mac.jpg");
+    min-height: 100%;
+  }
+
+  .grayscale-min{
+    filter:grayscale(0%);
+}
+
+.mid-left{
+    position: absolute;
+    top: 30%;
+    left: 0%;
+}
+
+.Jumbo{
+    font-size: 64px !important;
+}
+
+.large{
+    font-size: 18px !important;
+}
+
+.white{
+    background-color: #fff;
+    color: #000;
+}
+
+.opaciti{
+    opacity: 0.6;
+}
+
+.padd-large{
+    padding: 12px 24px !important;
+}
+
+.margin-top{
+    margin-top: 16px;
+}
+
+p{
+    margin: 15px 0px;
+}
