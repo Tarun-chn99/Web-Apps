@@ -220,7 +220,7 @@ p{
 }
 
 .animate-zoom {
-    animation:animatezoom 0.6s
+    animation:animatezoom 0.6s;
 }
 
 @keyframes animatezoom
