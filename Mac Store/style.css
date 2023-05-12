@@ -3,12 +3,6 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: "Raleway", sans-serif;
-    font-size:15px;
-    line-height: 1.8;
-}
-
 h1,h2,h3,h4,h5,h6{
     font-family:"Segoe UI",Arial,sans-serif;
     font-weight: 400;
@@ -46,11 +40,87 @@ h1,h2,h3,h4,h5,h6{
     float: right !important;
 }
 
+@media (max-width:600px){
+     .hide-small{
+    display:none!important
+    }
+    .hov{
+        padding: 4px 8px;
+        display: inline-block;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        line-height: 1;
+    }
+
+    .Jumbo{
+        font-size: 12px !important;
+    }
+    .large{
+        font-size: 5px !important;
+    }
+    .margin-top{
+        margin-top: 4px;
+    }
+    p{
+        margin: 5px 0px;
+    }
+    .padd-large{
+        padding: 4px 6px !important;
+    }
+    .button{
+        padding: 4px 8px;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        
+    }
+    body{
+        font-family: "Raleway", sans-serif;
+        font-size:8px;
+        line-height: 1;
+    }
+}
+
+@media (min-width:601px){
+    .visible-small{
+        display: none !important;
+    }
+    body{
+        font-family: "Raleway", sans-serif;
+        font-size:15px;
+        line-height: 1.8;
+    }
+    .Jumbo{
+        font-size: 64px !important;
+    }
+    
+    .large{
+        font-size: 18px !important;
+    }    
+    .margin-top{
+        margin-top: 16px;
+    }
+    p{
+        margin: 18px 0px;
+    }
+    .padd-large{
+        padding: 12px 24px !important;
+    }
+    .button{
+        padding: 8px 16px;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        
+    }
+}
+
 .bgimg-1 {
     background-position: center;
     background-size: cover;
-    background-image: url("/mac.jpg");
+    background-image: url("/Mac Store/Photos/Front/mac.jpg");
     min-height: 100%;
+    width: 100%;
   }
 
   .grayscale-min{
@@ -61,14 +131,6 @@ h1,h2,h3,h4,h5,h6{
     position: absolute;
     top: 30%;
     left: 0%;
-}
-
-.Jumbo{
-    font-size: 64px !important;
-}
-
-.large{
-    font-size: 18px !important;
 }
 
 .xlarge{
@@ -84,17 +146,6 @@ h1,h2,h3,h4,h5,h6{
     opacity: 0.6;
 }
 
-.padd-large{
-    padding: 12px 24px !important;
-}
-
-.margin-top{
-    margin-top: 16px;
-}
-
-p{
-    margin: 18px 0px;
-}
 
 .bottom-left{
     position: absolute;
@@ -146,13 +197,7 @@ p{
     color: #fff;
 }
 
-.button{
-    padding: 8px 16px;
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
-    
-}
+
 
 .block{
     display: block;

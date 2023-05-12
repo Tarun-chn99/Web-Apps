@@ -1,10 +1,12 @@
+<!--                                Mac Store                          -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/Mac Store/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +16,7 @@
 
     <div class="top card">
 
-                <a href="#Logo" class="tab hov">LOGO</a>
+                <a href="/Mac Store/start.html" class="tab hov">LOGO</a>
 
                 <div class="shift-rit">
                 <a href="#About" class="hov">ABOUT</a>
@@ -24,11 +26,13 @@
                 <a href="#Contact" class="hov"><i class="fa fa-envelope"></i> CONTACT</a>
                 </div>
 
+                
+
     </div>
 
     <!--                   img                  -->
 
-    <div class="bgimg-1  " id="Home" style="filter: grayscale(45%);">
+    <div class="bgimg-1  " id="Home">
 
         <div class="mid-left" style="padding: 48px; color: #fff;">
             <span class="Jumbo">Start something that matters</span><br><br><br><br>
@@ -49,6 +53,7 @@
     </div>
 
     <!--                    About                   -->
+
     <div class="container" id="About">
 
         <h3 class="txt-center" style="font-size: 24px;">ABOUT THE COMPANY</h3>
@@ -94,7 +99,7 @@
                 <p><a href="#work" class="black button "><i class="fa fa-th"></i> View Our Works</a></p>
             </div>
             <div class="shift-lft half row-padd">
-                <img src="/phone_buildings.jpg" alt="Buildings" width="700" height="394" >
+                <img src="/Mac Store/Photos/work/phone_buildings.jpg" alt="Buildings" width="700" height="394" >
             </div>
         </div>
     </div>
@@ -110,7 +115,7 @@
 
             <div class="quarter row-padd shift-lft">
                 <div class="card">
-                <img src="/first.jpg" alt="John" style="width: 100%;">
+                <img src="/Mac Store/Photos/Team/first.jpg" alt="John" style="width: 100%;">
                 <div style="padding: 8px 16px;">
                     <h3 class="xlarge">John Doe</h3>
                     <p class="large opaciti">CEO & Founder</p>
@@ -122,7 +127,7 @@
 
             <div class="quarter row-padd shift-lft">
                 <div class="card">
-                <img src="/sec.jpg" alt="Anja" style="width: 100%;">
+                <img src="/Mac Store/Photos/Team/sec.jpg" alt="Anja" style="width: 100%;">
                 <div style="padding: 8px 16px;">
                     <h3 class="xlarge">Anja Doe</h3>
                     <p class="large opaciti">Art Director</p>
@@ -134,7 +139,7 @@
 
             <div class="quarter row-padd shift-lft ">
                 <div class="card">
-                <img src="/third.jpg" alt="Mike" style="width: 100%;">
+                <img src="/Mac Store/Photos/Team/third.jpg" alt="Mike" style="width: 100%;">
                 <div style="padding: 8px 16px;">
                     <h3 class="xlarge">Mike Ross</h3>
                     <p class="large opaciti">Web Designer</p>
@@ -146,7 +151,7 @@
 
             <div class="quarter row-padd shift-lft " >
                 <div class="card">
-                <img src="/forth.jpg" alt="Dan" style="width: 100%;">
+                <img src="/Mac Store/Photos/Team/forth.jpg" alt="Dan" style="width: 100%;">
                 <div style="padding: 8px 16px;">
                     <h3 class="xlarge">Dan Star</h3>
                     <p class="large opaciti">Designer</p>
@@ -192,32 +197,47 @@
 
         <div class="cont row-padd" style="margin-top: 64px;">
 
-                <div class="quarter row-padd shift-lft">
-                <img src="/q1.jpg" alt="Microphone" style="width: 100%;" onclick="onClick(this)" class="hover-opacity">
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q1.jpg" alt="Microphone" style="width: 100%;" onclick="onClick(this)" >
+                <div id="first1" class="overlay" ><p class="pic-1" >MIC</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q2.jpg" alt="Phone" style="width: 100%;" onclick="onClick(this)" class="hover-opacity">
+                
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q2.jpg" alt="Phone" style="width: 100%;" onclick="onClick(this)" class="hover-opacity">
+                <div id="first1" class="overlay" ><p class="pic-1" >IPHONE</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q3.jpg" alt="Drone" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q3.jpg" alt="Drone" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >DRONE</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q4.jpg" alt="Soundbox" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q4.jpg" alt="Soundbox" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >SOUNDBOX</p></div>
                 </div>
         </div>
 
         <div class="cont row-padd" style="margin-top: 16px;">
-                <div class="quarter row-padd shift-lft">
-                <img src="/q5.jpg" alt="Tablet" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q5.jpg" alt="Tablet" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >TABLET</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q6.jpg" alt="Camera" style="width: 100%; " class="hover-opacity" onclick="onClick(this)">
+
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q6.jpg" alt="Camera" style="width: 100%; " class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >CAMERA</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q7.jpg" alt="Typewriter" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q7.jpg" alt="Typewriter" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >TYPEWRITER</p></div>
                 </div>
-                <div class="quarter row-padd shift-lft">
-                <img src="/q8.jpg" alt="Tableturner" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                
+                <div class="quarter row-padd shift-lft pos-rel source">
+                <img src="/Mac Store/Photos/work/q8.jpg" alt="Tableturner" style="width: 100%;" class="hover-opacity" onclick="onClick(this)">
+                <div id="first1" class="overlay" ><p class="pic-1" >TABLE TURNER</p></div>
                 </div>
         </div>
         
@@ -357,14 +377,14 @@
             <p><button class="button black" style="font-size: 15px; padding: 12px 16px !important;"><i class="fa fa-paper-plane"></i> SEND MESSAGE</button></p>
         </form>
         
-        <img src="/map.jpg" alt="map" style="margin-top: 64px; filter: grayscale(45%); width: 100%;">
+        <img src="/Mac Store/Photos/Front/map.jpg" alt="map" style="margin-top: 64px; filter: grayscale(25); width: 100%;">
     </div>
 
     <!--                        Last                        -->
 
     <footer class="cont padding-48 txt-center black" >
 
-        <a href="#Home" class="button light-gray" ><i class="fa fa-arrow-up w3-margin-right"></i>   To the top</a>
+        <a href="#Home" class="button light-gray" ><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
         <p class="xlarge ">
             <i class="fa fa-facebook-official opaciti"></i>
             <i class="fa fa-instagram opaciti"></i>
