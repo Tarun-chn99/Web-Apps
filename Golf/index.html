@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tina Golf Club</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="/Golf/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+    
+    
+    <!--                    Navbar                  -->
+
+    <div class="top pos-rel">
+        <div class="navbar">
+            
+            <div class="cont" style="margin:0px 350px; height: 80px;">
+                
+                <div class="shift-lft navbar-items-cont">
+                    <img class="brand-logo" src="/Golf/images/logo.png" alt="Golf Logo" height="60%" width="40%">
+                    <span style="color:white">Tiya <br> <small style="font-size: 10px;">GOLF CLUB</small>
+                    </span>
+                </div>
+
+                <div class="shift-rit navbar-items-cont"  >
+                    <a href="#Home" class="buttn alink active" >Home</a>
+                    <a href="#About" class="buttn alink" >About</a>
+                    <a href="#Membership" class="buttn alink" >Membership</a>
+                    <a href="#Events" class="buttn alink" >Events</a>
+                    <a href="#ContactUs" class="buttn alink" >Contact Us</a>
+
+                    <div class="pos-rel" id="pages-link">
+
+                        <a href="#Pages" class="buttn" >Pages</a>
+                        <div class="pages-dropdown">
+                            <ul>
+                                <li><a class="buttn" href="">Event Listing</a></li>
+                                <li><a class="buttn" href="">Event Detail</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    
+                    <a href="#Login" class="buttn " id="mem-login" onclick="openLogin()" style="margin-left: 32px;">Member Login</a>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+
+            <!--                    Member Login                        -->
+
+            <div class="login-window cont" id="Login">
+                
+                <div class="member-login-background " id="black-background">
+                </div>
+                
+                <div class="member-login flex-container pos-rel" style="flex-direction: column;">
+                    
+                    <p style="height:auto; color: black;"><b>Member Login</b> <a onclick="close()" href="" class="shift-rit" id="rotate" style="text-decoration: none; color: black;">X</a></p>
+
+                    <form action="" class="margin-16" style="flex-grow: 15;">
+                        <label for="membership-no">Membership No.</label><br>
+                        <input type="text" name="membership-no" id="membership-no" placeholder="11002560"><br><br>
+                        <label for="password">Password</label><br>
+                        <input type="password" name="password" id="password" placeholder="Password"><br>
+                        <br>
+                        <input  style="width: 20px;" type="checkbox" id="checkbox" name="checkbox" value="checkbox">
+                        <label for="checkbox">Remember me</label><br>
+
+                        <p class="txt-center" style="margin-top: 28px !important;"><button class="hover-red">Login</button></p>
+                        <p class="txt-center margin-16"><a href="#yel" class="whit yellow-hover" style=" transition: 0.2s ease; font-size: 16px; color:black; text-decoration: none;">Forgotten password?</a></p></p>
+                    </form>
+
+                    <p class="txt-center margin-16 white" style="flex-grow: 1;"><b>Any Questions?</b><a href="#yel" class="whit yellow-hover" style=" transition: 0.2s ease; font-size: 16px; color:black; text-decoration: none; margin-left: 16px;"> 010-020-0340</a></p></p>
+                    <div style="position: absolute; bottom: -0.5%; left: 0%; right: 0%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <div class="cont pos-rel" style="height: 940px; width: 100%; overflow: hidden;" id="Home">
+        <img src="/Golf/images/golf car.jpg" alt="Golf Place" height="100%" width="100%">
+        <div class="image-blue-sheet"></div>
+        
+        <div class="vector-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+        </div>
+
+        <div class="cont front-content">
+
+            <div class="shift-lft row-padd section-2">
+
+                <h2 class="whit" style="font-size: 36px;">Welcome to the club</h2><br>
+                <span class="whit" style="font-size: 36px;"><b>Tiya is </b><span style="font-weight: bolder; font-size: 36px; color: #F2CC8F;">Modern</span></span><br><br>
+                <p><a href="#ourstory" class="buttn yellow-buttn hover-red" style="padding:12px 24px !important; border-radius: 25px; font-size: 15px;"><b>Our Story</b></a><a href="" class="whit" style="font-size: 16px; margin-left: 16px; text-decoration: none;"><b>Become a member</b></a></p>
+
+            </div>
+
+            <div class="shift-lft row-padd section-2">
+                <iframe class="player" width="600" height="345" src="https://www.youtube.com/embed/MGNgbNGOzh8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+
+        <div class="vector-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+
+    </div>
+
+    <!--                       About Section                    -->
+
+    <div class="container" id="About" style="background-color: white!important;">
+
+        <h2 class="font-36 txt-center">About Tiya</h2>
+
+        <div class="cont margin-top64" style="width:100%" >
+
+            <div class="section-2 row-padd shift-lft " style="padding-right: 160px;">
+                <h3 class="font-28"><b>Tiya Club History</b></h3>
+                <p><b>Since 1984</b>, Tiya is ranked #8 in the top 10 golf courses in the world. Tiya is Bootstrap 5 HTML CSS template for golf clubs. Anyone can modify and use this layout for commercial purposes.</p>
+                <p>Tiya Golf Club is 100% free CSS template provided by TemplateMo website. Please tell your friends about our website. Thank you for visiting.</p>
+            </div>
+
+            <div class="section-3 row-padd shift-lft">
+                
+                <div class="img-container">
+                    <img src="/Golf/images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" alt="Michael" width="100%">
+                    <div class="social-apps" >
+                        <p>
+                          <a href=""><i class="fa fa-twitter"></i></a>
+                          <a href=""><i class="fa fa-whatsapp"></i></a>
+                        </p>
+                    </div>
+                </div>
+
+                <p style="padding: 0px 8px;">
+                    <span class="shift-lft " style="font-size: 20px;"><b>Michael</b></span>
+                    <span class="shift-rit">Founder</span>
+                </p>
+            </div>
+
+            <div class="section-3 row-padd shift-lft">
+                
+                <div class="img-container">
+                <img src="/Golf/images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg" alt="Michael" width="100%">
+                <div class="social-apps" >
+                    <p>
+                      <a href=""><i class="fa fa-twitter"></i></a>
+                      <a href=""><i class="fa fa-whatsapp"></i></a>
+                    </p>
+                </div>
+                </div>
+                
+                <p style="padding: 0px 8px;">
+                    <span class="shift-lft " style="font-size: 20px;"><b>Sandy</b></span>
+                    <span class="shift-rit">Co-Founder</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!--                    Subscribe section                   -->
+
+    <div class="cont pos-rel" style="height:940px; width: 100%; overflow: hidden;">
+        <img src="/Golf/images/frederik-rosar-NDSZcCfnsbY-unsplash.jpg" alt="" height="100%" width="100%">
+        <div class="vector-1">
+            <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+        </div>
+
+        <div class="subscribe-form">
+            <h2 class="font-36" style="margin-bottom: 10px;">Get our newsletter</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore.</p>
+            
+                <form class="subs-buttn" action="">
+                    <i class="fa fa-envelope" style="font-size: 18px; margin: 0px 8px;"></i>
+                    <input class="shift" type="text" name="" id="" placeholder="Email Address">
+                    <button class="buttn yellow-buttn hover-red" style="padding: 12px 24px !important; border-radius: 25px; font-size: 18px;">Subscribe</button>
+                </form>
+                        
+        </div>
+
+        <div class="vector-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+       
+    </div>
+
+    <!--                    Membership                  -->
+
+    <div class="container" id="Membership" style="background-color: white!important;">
+        <h2 class="txt-center font-36">Membership at Tiya</h2>
+
+        <div class="flex-container margin-top64">
+
+            <div class="section-2 row-padd">
+                <h3 style="font-size: 24px ;">Membership Fees</h3>
+
+                <table >
+
+                    <tr style="background-color:rgb(61 64 91); color: white;">
+                        <th style="width:25% !important; border-top-left-radius: 25px;">Yearly Access</th>
+                        <th>T1 $420</th>
+                        <th>T2 $640</th>
+                        <th style="border-top-right-radius: 25px;">T3 $860</th>
+                    </tr>
+                    <tr class="">
+                        <td class="lft"><b>Golf Insurance</b></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="lft"><b>Club Facilities</b></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="lft"><b>Country Club</b></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="lft"><b>Weekend</b></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="lft"><b>Premium Courses</b></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="lft"><b>Pro's Networking</b></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="red-tick"><i style="font-size:12px;color: #f4f5f5;"><b>x</b></i></span></td>
+                        <td><span class="green-tick"><i class="fa fa-check" style="color: #f4f5f5;"></i></span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-2" style="padding: 0px 64px;">
+
+                <h3 style="font-size: 24px;">Please join us!</h3>
+                
+                <form action="" class="member-form">
+                    <h2 class="white">Become a member</h2>
+                    <br>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" placeholder="Email Address" required>
+                    <input type="text" placeholder="Comments" required style="height:30%; border-radius: 20px;">
+                    <input type="submit" placeholder="Submit" class="white yellow-buttn hover-red">
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--                    Events                   -->
+
+    <div class="container" style="background-color: #F4F1DE; " id="Events">
+
+        <h2 class="font-36">Upcoming Events</h2>
+
+        <div class="flex-container margin-top64">
+            
+            <div class="green-box txt-center">
+                <h1>24</h1>
+                <p class="white">Feb 2048</p>
+            </div>
+
+            <div style="border-radius: 25px; width: 35%; height: 40%; margin: 0px 10px;">
+                <img src="/Golf/images/professional-golf-player.jpg" alt="" height="100%" width="100%">
+            </div>
+
+            <div style="height: 40%; width: 45%; margin-left: 10px;">
+                <h3 class="font-24">Private activities</h3><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <br>
+                <hr>
+                <div class="flex-container" style="padding-top:16px; height: 100%;">
+
+                    <div class="section-2">
+                        <p><b>Location:</b><span style="margin-left: 48px;">National Center, NYC</span></p>
+                        <p><b>Ticket:</b><span style="margin-left: 65px;">$250</span></p>
+                    </div>
+
+                    <div class="flex-container section-2" style="align-items: center; justify-content: right;">
+                        <a href="#buy" class="buttn yellow-buttn hover-red" style="padding:12px 24px !important; border-radius: 25px; font-size: 15px;">Buy Ticket</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="flex-container" style="background-color: white; padding: 32px; margin: 32px -32px; border-radius: 25px;">
+            
+            <div class="green-box txt-center">
+                <h1>28</h1>
+                <p class="white">Feb 2048</p>
+            </div>
+
+            <div style="border-radius: 25px; width: 35%; height: 40%; margin: 0px 10px;">
+                <img src="/Golf/images/girl-taking-selfie-with-friends-golf-field.jpg" alt="" height="100%" width="100%">
+            </div>
+
+            <div style="height: 40%; width: 45%; margin-left: 10px;">
+                <h3 class="font-24">Group tournament activities</h3><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <br>
+                <hr>
+                <div class="flex-container" style="padding-top:16px; height: 100%;">
+
+                    <div class="section-2">
+                        <p><b>Location:</b><span style="margin-left: 48px;">National Center, NYC</span></p>
+                        <p><b>Ticket:</b><span style="margin-left: 65px;">$350</span></p>
+                    </div>
+                    <div class="flex-container section-2" style="align-items: center; justify-content: right;">
+                        <a href="#buy" class="buttn yellow-buttn hover-red" style="padding:12px 24px !important; border-radius: 25px; font-size: 15px;">Buy Ticket</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <!--                    Contact                       -->
+
+    <div class="container" id="ContactUs" style="background-color: white!important;">
+
+        <h2 class="font-36">Contact Tiya</h2>
+        <div class="flex-container" style="justify-content: space-between;">
+
+            <div class="" style="width: 35%;">
+                <form action="" class="contact-form" style="height:300px;">
+                    <div class="flex-container" style="width:100%; justify-content: space-between;">
+                        <input type="text" placeholder="Full Name" style="width: 49% !important;">
+                        <input type="text" placeholder="Email Address"style="width: 49% !important;">
+                    </div>
+                    <input type="text" placeholder="Message" style="height: 30%;">
+                    <input class="yellow-buttn hover-red" type="submit" placeholder="Submit Form">
+                </form>
+            </div>
+
+            <div class="pos-rel" style="width: 50%;">
+                <img src="/Golf/images/WorldMap.svg" alt="map" height="100%" width="100%">
+
+                <div class="txt-center" style="position: absolute; top: 40%; left: 40%; ">
+                    <div style="padding:16px; background-color: rgb(61 64 91); border-top-right-radius:25px;border-top-left-radius:25px;">
+                        <p class="white" ><b>London, United Kingdom</b></p>
+                        <p class="white" >(020) 010-020-0340</p>
+                        <p class="white" >info@company.com</p>
+                    </div>
+                    <a class="buttn txt-center white" id="yel" href="Directions" style="border-bottom-left-radius:25px; border-bottom-right-radius:25px;padding: 16px !important;; width:100%; background-color: rgb(206, 79, 79) ;">Directions</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pos-rel" style="height: 500px;" style="background-color: rgb(255, 255, 255)!important;">
+        <div class="flex-container margin-top64" style="margin:0px 350px" style="background-color: white!important;">
+            
+                <div class="section-2" >
+                    <div class="flex-container" style="height:50px;">
+                        <img src="/Golf/images/logo.png" alt="" height="100%"style="filter: invert(1); filter:brightness(0);">
+                        <span class="flex-container" style="align-self: center;  flex-direction: column; margin-left: 10px;">
+                            <b>Tiya's</b>
+                            <small>Golf Club</small>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="section-2" >
+                    <p class="font-24"><b>Join Us</b></p>
+                    <div class="flex-container">
+                        <div class="location-box" style="width: 50%;">
+                            <p style=" border-bottom: 0.5px solid gray;"><span><b>Mon-Fri</b></span>6:00 AM - 6:00 PM</p>
+                            <p><span><b>Sat-Sun</b></span> 6:30 AM - 8:30 PM</p>
+                        </div>
+                        <div style="margin-left: 50px;">
+                            <!-- <p> -->
+                                <a class="contact-icon" href="#insta"><i class="fa fa-instagram "></i></a>
+                                <a class="contact-icon" href="#twitter"><i class="fa fa-twitter"></i></a>
+                                <a class="contact-icon" href="#whatsapp"><i class="fa fa-whatsapp"></i></a>
+                            <!-- </p> -->
+                            <p style="margin-top: 28px;">Design: <a class="onhover" href="" style="text-decoration: none;">TemplateMo</a></p>
+                        </div>
+                    </div>
+                    <p class="" style="margin-top: 16px;">Copyright © 2048 Tiya Golf Club</p>
+                </div>
+        </div>
+        <svg  style="position:absolute; bottom:0px; z-index:-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        
+    </div>
+
+    <!--                    Script                   -->
+
+    <script>
+
+        let prevScrollPosition = window.pageYOffset;
+        const containerElements = document.getElementsByClassName("container");
+        const linkElements = document.getElementsByClassName("alink");
+        
+        let homePos = document.getElementById("Home").offsetTop;        
+        let aboutPos = containerElements[0].offsetTop;
+        let membership_Pos = containerElements[1].offsetTop;
+        let eventsPos = containerElements[2].offsetTop;
+        let contactUsPos = containerElements[3].offsetTop;
+
+        function clearActive(){
+            let i;
+            for(i = 0; i < linkElements.length; i++){
+                linkElements[i].className = linkElements[i].className.replace(" active","");
+            }
+        }
+
+        window.onscroll =  function() {
+
+            let currentScrollPos = window.pageYOffset;
+
+
+            
+
+            clearActive();
+            if(homePos <= currentScrollPos && currentScrollPos < aboutPos)
+                linkElements[0].className += " active";
+            else if(aboutPos <= currentScrollPos && currentScrollPos < membership_Pos)
+                linkElements[1].className += " active";
+            else if(membership_Pos <= currentScrollPos && currentScrollPos < eventsPos)
+                linkElements[2].className += " active";
+            else if(eventsPos <= currentScrollPos && currentScrollPos < contactUsPos)
+                linkElements[3].className += " active";
+            else if(currentScrollPos >= contactUsPos)
+                linkElements[4].className += " active";
+
+        }
+
+        function openLogin(){
+            document.getElementById("Login").style.display = 'block';
+        }
+
+        function close(){
+            document.getElementById("Login").style.display = 'none';
+        }
+
+    </script>
+    
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!--                            Architect                           -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BR Architect</title>
+    <link rel="stylesheet" href="/BR Architect/style.css">
+</head>
+<body>
+
+    
+    <div id="start">
+        <div class="navbar">
+            <a href="/BR Architect/index.html" class="buttn black"><b>BR</b> Architects</a>
+            <div class="shift-rit">
+                <a href="#Projects" class="alink buttn black">Projects</a>
+                <a href="#About" class="alink buttn black">About</a>
+                <a href="#Contact" class="alink buttn black">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container padd-row" style="margin-top: 60px;">
+        <img src="/BR Architect/Photos/architect.jpg" alt="" class="pos-rel" style="height:90%; width: 100%;">
+        <p class="img-center"><span class="br white">BR</span> Architects</p>
+    </div>
+
+    <!--                        Project                         -->
+
+    <div id="project" class="container" style="padding: 64px 8px; ">
+
+        <h2 class="bottom-margin-16">Projects</h2>
+        <hr>
+        <p id="inner" class="white txt-center" style="padding:16px;" ></p>
+        <div class="top-64">
+            
+            <div class="cont" style="margin: 0px -8px;">
+
+                <div class="pos-rel mini shift-lft">
+                    <img class="imgs" id="1" src="/BR Architect/Photos/house.jpg" alt="" onclick="slide(this)" height="100%" width="100%">
+                    <span class="buttn white">Summer House</span>
+                </div>
+                <div class="pos-rel mini shift-lft">
+                    <img class="imgs" id="2" src="/BR Architect/Photos/house2.jpg" alt="" onclick="slide(this)" height="100%"width="100%">
+                    <span class="buttn white">Brick House</span> 
+                </div>
+                <div class="pos-rel mini shift-lft">
+                    <img class="imgs" id="3" src="/BR Architect/Photos/house3.jpg" alt="" onclick="slide(this)" height="100%"width="100%">
+                    <span class="buttn white">Renovated</span>
+                </div>
+                <div class="pos-rel mini shift-lft">
+                    <img class="imgs" id="4" src="/BR Architect/Photos/house4.jpg" alt="" onclick="slide(this)" height="100%"width="100%">
+                    <span class="buttn white">Barn House</span>
+                </div>                
+
+            </div>
+            <div class="cont" style="margin: 0px -8px">
+                
+                <div class="pos-rel mini shift-lft"" >
+                    <img class="imgs" id="5" src="/BR Architect/Photos/house5.jpg" alt="" onclick="slide(this)" height="100%"width="100%">
+                    <span class="buttn white">Summer House</span>
+                </div>
+                <div class="pos-rel mini shift-lft"">
+                    <img  class="imgs" id="6" src="/BR Architect/Photos/house6.jpg" alt="" onclick="slide(this)" height="100%"width="100%">
+                    <span class="buttn white">Brick House</span>
+                </div>  
+                <div class="pos-rel mini shift-lft"">
+                    <img class="imgs" id="7" src="/BR Architect/Photos/house6 - Copy.jpg" alt="" onclick="slide(this)"  height="100%"width="100%">
+                    <span class="buttn white">Renovated</span>
+                </div>
+                <div class="pos-rel mini shift-lft"">
+                    <img class="imgs" id="8" src="/BR Architect/Photos/house7.jpg" alt="" onclick="slide(this);" height="100%"width="100%">
+                    <span class="buttn white">Barn House</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="slideshow01" class="slideshow-container" >
+        <div style="width:600px; margin: auto;">
+            <img id="img-1" class="image" style="width: 100%; transition: 0.6;">
+        </div>
+        <div style="position: absolute; top: 0%; right: 0%;">
+            <span class="nav-button" onclick="theclose();">X</span>
+        </div>
+
+        <a class="nextArr nav-button" onclick="navSlide(1)"><b>&#10095;</b></a>
+        <a class="prevArr nav-button" onclick="navSlide(-1)"><b>&#10094;</b></a>
+        
+        <div class=" dot-cont txt-center">
+            <p>
+                <span class="dot" onclick="currentSlide(1)"> </span>
+                <span class="dot" onclick="currentSlide(2)"> </span>
+                <span class="dot" onclick="currentSlide(3)"> </span>
+                <span class="dot" onclick="currentSlide(4)"> </span>
+                <span class="dot" onclick="currentSlide(5)"> </span>
+                <span class="dot" onclick="currentSlide(6)"> </span>
+                <span class="dot" onclick="currentSlide(7)"> </span>
+                <span class="dot" onclick="currentSlide(8)"> </span> 
+            </p>
+
+        </div>
+    </div> 
+
+    <script>
+
+
+        const linkElements = document.getElementsByClassName("container");
+        const alinkElements = document.getElementsByClassName("alink");
+
+
+
+        function replaceString(){
+
+            let i;
+            for(i=0; i<alinkElements.length; ++i){
+                alinkElements[i].className = alinkElements[i].className.replace(" currentLink","");
+            }
+        }
+
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("start").style.top= "0";
+            } else {
+                document.getElementById("start").style.top = "-60px";
+            }
+            prevScrollpos = currentScrollPos;
+
+            replaceString();
+
+            let proj = linkElements[1].offsetTop;
+            let abt = linkElements[2].offsetTop;
+            let contct = linkElements[3].offsetTop;
+
+            if(currentScrollPos > proj && abt > currentScrollPos)
+            alinkElements[0].className += " currentLink";
+            else if(currentScrollPos > abt && currentScrollPos < contct)
+            alinkElements[1].className += " currentLink";
+            else if(currentScrollPos > contct)
+            alinkElements[2].className += " currentLink";
+        }
+
+
+        
+
+        
+
+        indexElement = 1;
+        
+        function navSlide(x){
+            indexElement = indexElement + x;
+            slideShow(indexElement);
+        }
+
+        function currentSlide(x){
+            indexElement=x;
+            slideShow(indexElement);
+        }
+
+
+        function slideShow(element) {
+
+            let i;
+            let photo = document.getElementsByClassName("imgs");
+            let dots = document.getElementsByClassName("dot");
+            
+            if(element > photo.length){ 
+                element = 1;
+                indexElement = 1; 
+            }
+            if(element < 1) {
+                element = photo.length;  
+                indexElement = photo.length;              
+            } 
+
+            document.getElementById("img-1").src = photo[element-1].src;
+            
+            for(i=0; i<dots.length; ++i){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+
+            dots[element-1].className += " active"; 
+        }
+
+
+        function slide(element){
+
+            let dots = document.getElementsByClassName("dot");
+            for(i=0; i<dots.length; ++i){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+            let pos = element.id;
+            indexElement = Number(pos);
+            dots[pos-1].className += " active";
+            document.getElementById("img-1").src = element.src;
+            document.getElementById("slideshow01").style.display="Block";
+            // document.getElementById("project").style.filter = blur("16px");  Don't know why it is not blurring the background.
+         }
+        
+     
+        function theclose(){
+        document.getElementById("slideshow01").style.display='none';
+        }
+
+    </script>
+
+
+
+
+
+    <!--                        About                       -->
+
+    <div class="container">
+
+        <div class="padd-row">
+        <h2 class="bottom-margin-16">About</h2>
+        <hr>
+
+        <p class="top-margin-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="cont top-64">
+           
+            <div class="shift-lft team ">
+                <img src="/BR Architect/Photos/team1.jpg" alt="John" style="filter: grayscale(50%);" width="100%">
+                    <h3>John Doe</h3>
+                    <p style="opacity:0.6">CEO & Founder</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                    <p><a href="" class="buttn">Contact</a></p>
+            </div>
+            <div class="shift-lft team ">
+                <img src="/BR Architect/Photos/team2.jpg" alt="John" style="filter: grayscale(50%);"width="100%">
+                <div>
+                    <h3>Jane Doe</h3>
+                    <p style="opacity:0.6">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                    <a href="" class="buttn ">Contact</a>
+                </div>
+            </div>
+            <div class="shift-lft team ">
+                <img src="/BR Architect/Photos/team3.jpg" alt="John" style="filter: grayscale(50%);" width="100%">
+                <div>
+                    <h3>Mike Ross</h3>
+                    <p style="opacity:0.6">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                    <a href="" class="buttn " >Contact</a>
+                </div>
+            </div>
+            <div class="shift-lft team ">
+                <img src="/BR Architect/Photos/team4.jpg" alt="John" style="filter: grayscale(50%);" width="100%">
+                <div>
+                    <h3>Dan Star</h3>
+                    <p style="opacity:0.6">Architect</p>
+                    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                    <a href="" class="buttn ">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--                            Contact                         -->
+
+    <div class="container padd-64">
+        <h3 class="bottom-margin-16">Contact</h3>
+        <hr style="opacity: 0.6">
+        <p class="bottom-margin-16">Lets get in touch and talk about your next project</p>
+
+        <form action="/BR Architect/index.html">
+            <input class="in" type="text" name="Name" id="" placeholder="Name" required>
+            <input class="in" type="text" placeholder="Email" required>
+            <input class="in" type="text" placeholder="Subject" required>
+            <input class="in" type="text" placeholder="Comment" required>
+            <input type="submit" value="SEND MESSAGE" class="buttn white top-margin-16">
+        </form>
+
+    </div>
+
+    <div class="container padd-64">
+        <img src="/BR Architect/Photos/map.jpg" alt="map" width="100%" style="filter: grayscale(50%)">
+    </div>
+
+    <div class="white padd-64" style="text-align: center;">
+        <p>Powered by <a href="" class="white">w3.css</a></p>
+    </div>
+
+
+
+
+
+</body>
+</html>

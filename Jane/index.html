@@ -1,0 +1,312 @@
+
+<!--                            BAND                            -->
+
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAND</title>
+    
+    <link rel="stylesheet" href="/Jane/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+<!--                    Nav bar                     -->
+
+    <div id="start">
+        <div class="navbar">
+            
+                <a href="#home" class="alink activeLink">HOME</a>
+                <a href="#band" class="alink">BAND</a>
+                <a href="#tour" class="alink">TOUR</a>
+                <a href="#contact" class="alink">CONTACT</a>
+
+                <div class="dropdown-hover">
+                    <a href="#more" >MORE <i class="fa fa-caret-down"></i></a>        
+                    <div class="drop-down" style="width: 200px;">
+                        <a href="">Merchandise</a>
+                        <a href="">Extras</a>
+                        <a href="">Media</a>
+                    </div>
+                </div>
+                <a href="#search" class="shift-rit" id="search"><i class="fa fa-search"style="font-size: 22px;"></i></a>
+        </div>
+    </div>
+
+
+<!--                    Image                       -->
+
+    <div id="home" class="pos-rel cnt" style="height: 100%;">
+        
+        <div class="pos-rel myslides fade">
+            <img src="/Jane/chicago.jpg" alt="" height="100%" width="100%">
+            <div class="desc">
+                <h3>Chicago</h3>
+                <p><b>Thank you, Chicago - A night we won't forget.</b></p>
+            </div>
+        </div>
+        
+        <div class="pos-rel myslides fade">
+            <img src="/Jane/la.jpg" alt="" height="100%" width="100%">
+            <div class="desc">
+                <h3>Los Angles</h3>
+                <p><b>We had the best time playing at Venice Beach!</b></p>
+            </div>
+        </div>
+        
+        <div class="pos-rel myslides fade">
+            <img src="/Jane/ny.jpg" alt="" height="100%" width="100%">
+            <div class="desc">
+                <h3>New York</h3>
+                <p><b>The atmosphere in New York is lorem ipsum.</b></p>
+            </div>
+        </div>
+
+        <a class="prev nav-button" onclick="plusSlides2(-1)"><b>&#10094;</b></a>
+        <a class="next nav-button" onclick="plusSlides2(1)"><b>&#10095;</b></a>
+        
+        <p class="dot-cont">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </p>
+
+    </div>
+
+
+<!--                        The Band                        -->
+
+    <div class="container cont black cnt" id="band">
+
+        <h2 class="spacing">THE BAND</h2>
+        <p style="opacity: 0.6;"><i><b>We love music</b></i></p>
+        <p class="top-16" style="text-align: justify;">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <div class="top-64 bottom-64 ">
+            <div class="shift-lft section-3">
+                <p>Name</p>
+                <img src="/Jane/bandmember.jpg" alt="" width="60%">
+            </div>
+            <div class="shift-lft section-3">
+                <p>Name</p>
+                <img src="/Jane/bandmember.jpg" alt="" width="60%">
+            </div>
+            <div class="shift-lft section-3">
+                <p>Name</p>
+                <img src="/Jane/bandmember.jpg" alt="" width="60%">
+            </div>
+        </div>
+        
+    </div>
+
+    <!--                        Tour Dates                              -->
+
+    <div class="container cont white cnt" id="tour">
+
+        <h2 class="spacing">TOUR DATES</h2>
+        <p style="opacity: 0.6;"><i>Remember to book your tickets!</i></p>
+        <div class="top-64">
+            <ul class="tour" style="list-style-type: none; padding: 0px;">
+                <li>September  <span class="red">Sold Out</span></li>
+                <li>October  <span class="red">Sold Out</span></li>
+                <li>November <span class="white" id="icon">3</span></li>
+            </ul>
+        </div>
+
+        <div style="margin: 64px -8px;">
+            
+            <div class="section-3 shift-lft padd-8" style="background-color: black;">
+                <img class="tour-img" src="/Jane/newyork.jpg" alt="NY" style="width: 100%;">
+                <div class="padd-16 black" style="text-align: left;">
+                    <p><b>New York</b></p>
+                    <p style="opacity: 0.6;">Fri 27 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut 
+                        rutrum sed vitae justo.</p>
+                    <a href="" class="top-16 buttn white">Buy Tickets</a>
+                </div>
+            </div>
+            <div class="section-3 shift-lft padd-8" style="background-color: black;">
+                <img class="tour-img" src="/Jane/paris.jpg" alt="NY" style="width: 100%;">
+                <div class="padd-16 black" style="text-align: left;">
+                    <p><b>Paris</b></p>
+                    <p style="opacity: 0.6;">Sat 28 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut 
+                        rutrum sed vitae justo.</p>
+                    <a href="" class="top-16 buttn white">Buy Tickets</a>
+                </div>
+            </div>
+            <div class="section-3 shift-lft padd-8" style="background-color: black;">
+                <img class="tour-img" src="/Jane/sanfran.jpg" alt="NY" style="width: 100%;">
+                <div class="padd-16 black" style="text-align: left;">
+                    <p><b>San Francisco</b></p>
+                    <p style="opacity: 0.6;">Sun 29 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut 
+                        rutrum sed vitae justo.</p>
+                    <a href="" class="top-16 buttn white">Buy Tickets</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--                    Contact                         -->
+    
+    <div class=" container cont cnt" id="contact">
+        <h2 class="spacing">CONTACT</h2>
+        <p style="opacity: 0.6;"><i>Fan? Drop a note!</i></p>
+
+        <div class="top-64">
+            
+            <div class="col-2 shift-lft padd-side8" style="text-align: left;">
+                <p><i class="fa fa-map-marker"></i> Chicago, US</p>
+                <p><i class="fa fa-phone"></i> Phone: +00 151515</p>
+                <p><i class="fa fa-envelope"></i> Email: mail@mail.com</p>
+            </div>
+            <div class="col-2 shift-lft padd-side8" style="text-align: left;">
+                <form>
+                    <div class="container" style="margin:0 -8px 8px -8px">
+                        <div class="col-2 shift-lft padd-side8">
+                            <input type="text" placeholder="Name" class="in">
+                        </div>
+                        <div class="col-2 shift-lft padd-side8">
+                            <input type="text" placeholder="Email" class="in">
+                        </div>
+                    </div>
+                        <input type="text" placeholder="Message" class="in ">
+                        <input type="submit" class="buttn white shift-rit top-16" value="SEND">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!--                    Last                     -->
+
+    <img src="/Jane/map.jpg" alt="map" width="100%" style="filter: grayscale(25%);">
+    <div class="cont" style="background-color: #f1f1f1; color: #000;">
+        <p class="end">  
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <br><br>
+            Powered by <a href="">w3.css</a>
+        </p>
+
+    </div>
+
+    <script>
+
+        const alinkElements = document.getElementsByClassName("alink");
+        const containerElements = document.getElementsByClassName("cnt");
+        const navBarElement =  document.getElementsByClassName("navbar");
+
+        function replaceString(){
+
+            let i;
+            for(i=0; i<alinkElements.length; ++i){
+                alinkElements[i].className = alinkElements[i].className.replace(" activeLink","");
+            }
+            navBarElement[0].className = navBarElement[0].className.replace(" activeBar","");
+        }
+
+
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+
+            var currentScrollPos = window.pageYOffset;
+            // if (prevScrollpos > currentScrollPos) {
+            //     document.getElementById("start").style.top = "0";
+                
+            // } else {
+            //     document.getElementById("start").style.top = "-60px";
+            // }
+            prevScrollpos = currentScrollPos;
+
+            replaceString();
+
+            let home = containerElements[0].offsetTop;
+            let band = containerElements[1].offsetTop;
+            let tour = containerElements[2].offsetTop;
+            let contact = containerElements[3].offsetTop;
+
+
+            if(currentScrollPos >= home && currentScrollPos < band){
+            alinkElements[0].className += " activeLink";}
+            
+            else if(currentScrollPos >= band && currentScrollPos < tour){
+            alinkElements[1].className += " activeLink";
+            navBarElement[0].className += " activeBar";
+            }
+            
+            else if(currentScrollPos >= tour && currentScrollPos < contact){
+            alinkElements[2].className += " activeLink";}
+
+            else{ 
+            alinkElements[3].className += " activeLink";
+            navBarElement[0].className += " activeBar";
+            }
+        }
+
+        let slideindex = 1;
+        showSlides();
+        setInterval(auto,3000);
+
+        function auto(){
+            plusSlides(1);
+            showSlides();
+        }
+
+        function plusSlides(x){
+        slideindex+=x;            
+        }
+
+        function plusSlides2(x){
+            slideindex+=x;
+            showSlides();
+        }
+
+        function currentSlide(x){
+            slideindex=x;
+            showSlides();
+        }
+
+        function showSlides(){
+
+            let i;
+            let slides = document.getElementsByClassName("myslides");
+            let dots = document.getElementsByClassName("dot");
+            if(slideindex<1) slideindex=slides.length;
+            if(slideindex>slides.length) slideindex=1;
+
+            for(i = 0; i < slides.length; ++i){
+                slides[i].style.display="none";
+            }
+            for(i=0;i<dots.length;++i){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+
+            slides[slideindex-1].style.display="block";
+            dots[slideindex-1].className += " active";
+            
+        }
+        
+
+    </script>
+
+
+
+
+
+</body>
+</html>
+
