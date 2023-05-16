@@ -7,8 +7,6 @@ html{
     font-size: 16px;   
     font-family: "Lato", sans-serif;
     color: #212529;
-
-    /* background-color: white; */
 }
 
 .light-green{
@@ -163,8 +161,8 @@ p{
 
 .flex-container{
     display: flex;
-    flex-wrap: wrap;
-    align-self: center;
+    /* flex-wrap: wrap; */
+    /* align-self: center; */
 }
 
 .onhover-light-green:hover{
