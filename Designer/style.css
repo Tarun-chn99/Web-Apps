@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+html{
+    font-size: 16px;
+    font-family: "Poppins","Lato", sans-serif;
+    color: #212529;
+}
+
+p{
+    margin: 1rem 0rem;
+    font-size: 1rem;
+    color: #7a7a7a;
+}
+
+h2{
+    font-size: 2.75rem;
+    color: #212529;
+    font-weight: 800;
+    letter-spacing: 0.125rem;
+}
+
+h4{
+    font-size: 1.25rem;
+    color: #212529;
+    font-weight: 700;
+}
+
+h6{
+    font-size: 1.15rem;
+    color: #212529;
+}
+
+.orange{
+    color: #ff565b;
+}
+
+.white{
+    color: #ffffff;
+}
+
+.black{
+    color: #212529;
+}
+
+.gray{
+    color: #7a7a7a;
+}
+
+.bg-black{
+    background-color: #212529;
+}
+
+.bg-orange{
+    background-color: #ff565b;
+}
+
+.bg-white{
+    background-color: #ffffff;
+}
+
+.onhover-bgcolor-black:hover{
+    background-color: #212529;
+}
+
+.onhover-bgcolor-orange:hover{
+    background-color: #ff565b;
+}
+
+.onhover-txt-color-white:hover{
+    color: #ffffff;
+}
+
+.onhover-txt-color-orange:hover{
+    color: #ff565b;
+}
+
+.shift-lft{
+    float: left;
+}
+
+.shift-rit{
+    float: right;
+}
+
+.pos-rel{
+    position: relative;
+}
+
+.margin-tb1{
+    margin: 1rem 0rem;
+}
+
+.margin-tb2{
+    margin: 2rem 0rem;
+}
+
+.margin-tb3{
+    margin: 3rem 0rem;
+}
+
+.margin-tb4{
+    margin: 4rem 0rem;
+}
+
+.padd-1{
+    padding: 1rem;
+}
+
+.padd-2{
+    padding: 2rem;
+}
+
+.padd-lr1{
+    padding: 0rem 1rem;
+}
+
+.padd-lr1-half{
+    padding: 0rem 0.5rem;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont::after, .cont::before{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.container{
+    margin-top: 4rem;
+    padding: 4rem 6rem 0rem;
+}
+
+.buttn{
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: 0.6s;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+@media only screen and (min-width:1000px){
+
+}
+
+@media only screen and (max-width:1000px){
+
+}
+
+/*                    Nav-Bar                  */
+
+.top-bar{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    z-index: 99;
+    background-color: transparent;
+    padding: 0.75rem 0rem;
+}
+
+.nav-bar{
+    justify-content: space-between;
+    width: 75%;
+    margin: auto;
+    letter-spacing: 0.0625rem;
+}
+
+.center-element{
+    position:absolute;
+    top: 35%;
+    left: 30%;
+    width: 40%;
+    text-align: center;
+}
+
+.filter-form{
+    position: absolute;
+    bottom: -20%;
+    left: 15%;
+    background-color: white;
+    padding: 4rem;
+    border-radius: 0.5rem;
+    width: 70%;
+}
+
+label{
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin: 2rem 0rem;
+}
+
+select,input{
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0rem;
+    display: block;
+}
+
+.filter-form div{
+    flex-grow: 1 1 auto;
+}
