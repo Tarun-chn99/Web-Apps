@@ -4,115 +4,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Menu/pract.css">    
+    <link rel="stylesheet" href="/zay/style.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
+
+    
     *,::after,::before{
       margin: 0%;
       box-sizing: border-box;
     }
+    /* .box {
+            display: flex;
+            align-items: stretch;
+            height: 200px;
+            width: 400px;
+            border: 2px solid black;
+            flex-wrap: nowrap;
+            justify-items: start;
+          }
+    .box div{
+      border: 2px solid blue;
+      flex: 0 1 10px;
+    } */
 
-    .col3{
-    width: 33.33333%;
-  }
-  .product{
-    padding: 1rem !important;
-}
-.featured-product{
+    .box>* {
+            float: left;
+        }
 
-padding: 0.5rem 1rem;
+        .box {
+          display: flex;
+        }
+    
 
-}
-.bg-color-white{
-    background-color: white;
-}
-.shift-lft{
-    float: left;
-}
-.shift-rit{
-    float: right;
-}
-.cont::after, .cont::before{
-    content: "";
-    display: table;
-    clear: both;
-}
-.margin-top64{
-    margin: 4rem 0rem !important;
-}
-.flex-container{
-    display: flex;
-    flex-wrap: wrap;
-    align-self: center;
-}
+
+    
+
+
   </style>
 
 </head>
 <body>
 
-  <div class="flex-container prod2" style="height: 100vh !important; background-color: #5575a9; overflow: hidden;">
-
-    <div class="col3 product expand2" style="height: 100%; background-color: #2d343f; ">
-        <img src="/zay/img/feature_prod_01.jpg" alt="Laser Pen" width="100%">
-        <div class="featured-product bg-color-white" >
-
-            <p style="height: 1rem;">
-                <span class="shift-lft">
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star-o star"></span>
-                    <span class="fa fa-star-o star"></span>
-                </span>
-                <span class="shift-rit">$240.00</span>
-            </p><br>
-            <h2 class="cont" style="font-weight: lighter;">Gym Weight</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.</p>
-            <p>Reviews (24)</p>
-        </div>
-    </div>
-    <div class="col3 product expand2" style="height: 100%; background-color: #2d343f; ">
-        <img src="/zay/img/feature_prod_02.jpg" alt="Laser Pen" width="100%" >
-        <div class="featured-product bg-color-white" >
-
-            <p style="height: 1rem;">
-                <span class="shift-lft">
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star-o star"></span>
-                    <span class="fa fa-star-o star"></span>
-                </span>
-                <span class="shift-rit">$240.00</span>
-            </p><br>
-            <h2 class="cont" style="font-weight: lighter;">Cloud Nike Shoes</h2>
-            <p>Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.</p>
-            <p>Reviews (48)</p>
-        </div>
-    </div>
-    <div class="col3 product expand2"style="height: 100%; background-color: #2d343f; ">
-        <img src="/zay/img/feature_prod_03.jpg" alt="Laser Pen" width="100%" >
-        <div class="featured-product bg-color-white" >
-
-            <p style="height: 1rem;">
-                <span class="shift-lft">
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star star"></span>
-                    <span class="fa fa-star-o star"></span>
-                    <span class="fa fa-star-o star"></span>
-                </span>
-                <span class="shift-rit">$240.00</span>
-            </p><br>
-            <h2 class="cont" style="font-weight: lighter;">Summer Addides Shoes</h2>
-            <p>Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.</p>
-            <p>Reviews (74)</p>
-        </div>
-    </div>
-
-</div>
-
+  <div class="box">
+    <div>One</div>
+    <div>Two</div>
+    <div>Two</div>
+    
+  </div>
 
 </body>
 </html>
