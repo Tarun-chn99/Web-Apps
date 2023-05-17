@@ -19,13 +19,13 @@ h2{
     font-size: 2.75rem;
     color: #212529;
     font-weight: 800;
-    letter-spacing: 0.125rem;
+    letter-spacing: 0.05rem;
 }
 
 h4{
     font-size: 1.25rem;
     color: #212529;
-    font-weight: 700;
+    font-weight: 750;
 }
 
 h6{
@@ -208,6 +208,7 @@ select,input{
     border-radius: 0.5rem;
     margin: 1rem 0rem;
     display: block;
+    border: 1px solid #7a7a7a;
 }
 
 .filter-form div{
