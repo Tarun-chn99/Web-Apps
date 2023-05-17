@@ -16,7 +16,7 @@ p{
 }
 
 h2{
-    font-size: 2.75rem;
+    font-size: 2.125rem;
     color: #212529;
     font-weight: 800;
     letter-spacing: 0.05rem;
@@ -105,6 +105,10 @@ h6{
     margin: 4rem 0rem;
 }
 
+.padd-lft4{
+    padding-left: 4rem;
+}
+
 .padd-1{
     padding: 1rem;
 }
@@ -117,6 +121,10 @@ h6{
     padding: 0rem 1rem;
 }
 
+.padd-lr2{
+    padding: 0rem 4rem;
+}
+
 .padd-lr1-half{
     padding: 0rem 0.5rem;
 }
@@ -124,6 +132,7 @@ h6{
 .flex-container{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .cont::after, .cont::before{
@@ -152,12 +161,40 @@ h6{
     text-align: center;
 }
 
+.col2{
+    width: 49.99999%;
+}
+
 @media only screen and (min-width:1000px){
+
+    .toggle{
+        display: none;
+    }
+
+    .menu{
+        display:block
+    }
 
 }
 
 @media only screen and (max-width:1000px){
 
+    .toggle{
+        display: block;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .expand{
+        width: 100% !important;
+    }
+
+    img.front{
+        height: 150vh;
+    }
+    
 }
 
 /*                    Nav-Bar                  */
@@ -168,13 +205,13 @@ h6{
     left: 0%;
     right: 0%;
     z-index: 99;
-    background-color: transparent;
+    background-color: #212529;
     padding: 0.75rem 0rem;
 }
 
 .nav-bar{
     justify-content: space-between;
-    width: 75%;
+    width: 80%;
     margin: auto;
     letter-spacing: 0.0625rem;
 }
@@ -184,17 +221,19 @@ h6{
     top: 35%;
     left: 30%;
     width: 40%;
+    /* margin: auto; */
     text-align: center;
 }
 
 .filter-form{
-    position: absolute;
-    bottom: -20%;
-    left: 15%;
+    position: relative;
+    margin: auto;
+    margin-top: -9%;
     background-color: white;
     padding: 4rem;
     border-radius: 0.5rem;
     width: 70%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
 label{
@@ -206,11 +245,39 @@ label{
 select,input{
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
+    width: 100%;
     margin: 1rem 0rem;
     display: block;
     border: 1px solid #7a7a7a;
 }
 
 .filter-form div{
-    flex-grow: 1 1 auto;
+    width: 24.9999%;
+    padding-right: 1rem;
 }
+
+/*                  Interior Design Work Section                   */
+
+.line{
+    padding: 0.0625rem;
+    width: 7rem;
+    display: inline-block;
+    border: 0.625rem solid white;
+    border-left: 0px;
+  }
+
+  .border-bottom{
+    border-bottom: 0.125rem solid #eeeeee;
+  }
+
+  .img-border{
+    border-radius: 1rem;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+
+  li{
+    margin-left: 0%;
+  }

@@ -21,12 +21,16 @@
         <div class="flex-container nav-bar ">
             
             <img src="/Designer/images/white-logo.png" alt="LOGO">
-            <div class="flex-container">
+            <div class="menu">
                 <a class="buttn orange bg-white onhover-txt-color-orange" href="#Homepage">Homepage</a>
                 <a class="buttn white onhover-txt-color-orange" href="#AboutUs">About Us</a>
                 <a class="buttn white onhover-txt-color-orange" href="#ExploreWork">Explore Work</a>
                 <a class="buttn white onhover-txt-color-orange" href="#Trending">Trending</a>
                 <a class="buttn white onhover-txt-color-orange" href="#ContactUs">Contact Us</a>
+            </div>
+
+            <div class="toggle">
+                <a href="" class="buttn white"><i class="fa fa-toggle-right"></i></a>
             </div>
 
         </div>
@@ -35,9 +39,9 @@
 
     <!--                    Front section                   -->
 
-    <div class="pos-rel">
+    <div style="height: 100%;">
 
-        <img src="/Designer/images/banner-bg.jpg" alt="" width="100%" height="100%">
+        <img class="front" src="/Designer/images/banner-bg.jpg" alt="" width="100%" height="100%">
 
         <!--     Center Element     -->
 
@@ -45,53 +49,95 @@
             <h4 class="white margin-tb1">WE PROVIDE EVERYTHING</h4>
             <h2 class="white margin-tb1"><span class="orange">INTERIOR</span> DESIGNER</h2>
             <p><a href="" class="buttn orange bg-white onhover-bgcolor-orange onhover-txt-color-white">Discover More</a></p>
-        </div>
-
-        <!--     Form Filter    -->
-
-        <div class="filter-form">
-            
-            <form action="" class="flex-container">
-
-                <div>
-                    <label for="work"><h6>Search Work by Title</h6></label>
-                    <input type="text" id="work" placeholder="Type any work title...">
-                </div>
-                <div>
-                    <label for="category"><h6>Choose Category</h6></label>
-                    <select name="category" id="category">
-                        <option selected value="">Choose Category</option>
-                        <option value="Interior design">Interior Design</option>
-                        <option value="Exterior design">Exterior Design</option>
-                        <option value="New ideas">New Ideas</option>
-                        <option value="Trendy design">Trendy Design</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="range"><h6>Price Range</h6></label>
-                    <select name="range" id="range">
-                        <option selected value="">Choose Price</option>
-                        <option value="">$100-$250</option>
-                        <option value="">$250-$500</option>
-                        <option value="">$500-$1000</option>
-                        <option value="">$1000+</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="plan"><h6>Pick a Plan</h6></label>
-                    <select name="plan" id="plan">
-                        <option selected value="">Choose Plan</option>
-                        <option value="Standard">Standard</option>
-                        <option value="Professional">Professional</option>
-                        <option value="Golden">Golden</option>
-                        <option value="Premium">Premium</option>
-                    </select>
-                </div>
-
-            </form>
-
-        </div>
+        </div>    
     
+    </div>
+
+    <!--                    Form Filter                     -->
+
+    <div class="filter-form">
+            
+        <form action="" class="flex-container">
+
+            <div class="expand">
+                <label for="work"><h6>Search Work by Title</h6></label>
+                <input type="text" id="work" placeholder="Type any work title...">
+            </div>
+            <div class="expand">
+                <label for="category"><h6>Choose Category</h6></label>
+                <select name="category" id="category">
+                    <option selected value="">Choose Category</option>
+                    <option value="Interior design">Interior Design</option>
+                    <option value="Exterior design">Exterior Design</option>
+                    <option value="New ideas">New Ideas</option>
+                    <option value="Trendy design">Trendy Design</option>
+                </select>
+            </div>
+            <div class="expand">
+                <label for="range"><h6>Price Range</h6></label>
+                <select name="range" id="range">
+                    <option selected value="">Choose Price</option>
+                    <option value="">$100-$250</option>
+                    <option value="">$250-$500</option>
+                    <option value="">$500-$1000</option>
+                    <option value="">$1000+</option>
+                </select>
+            </div>
+            <div class="expand">
+                <label for="plan"><h6>Pick a Plan</h6></label>
+                <select name="plan" id="plan">
+                    <option selected value="">Choose Plan</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Golden">Golden</option>
+                    <option value="Premium">Premium</option>
+                </select>
+            </div>
+
+        </form>
+        
+        <!--    Submit Button   -->
+        <p><a href="#Search" class="buttn white bg-orange onhover-txt-color-white onhover-bgcolor-black" style="width: 100%;">Search Now</a></p>
+    </div>
+
+
+    <!--                    Interior Design Work Section                     -->
+
+    <div class="container">
+        
+        <h2>
+            EXPLORE SOME OF OUR LATEST <br><span class="line bg-orange"></span>
+            <span class="orange">INTERIOR DESIGN WORK</span>.
+        </h2>
+        <div class="flex-container margin-tb2">
+            
+            <img class="img-border col2" src="/Designer/images/whats-trending-item-image.jpg" alt="Trending-Item" width="49.99999%" height="100%">
+            <div class="col2 flex-container padd-lft4" style="flex-direction: column;">
+
+                <div>
+
+                    <h4 class="border-bottom" style="padding-bottom: 0.5rem;">Interior Design</h4>
+                    <div class="cont">
+                        <ul>
+                        <li class="margin-tb1">                                      
+                            <span class="shift-lft">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">
+                                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z"/>
+                                    <path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z"/>
+                                </svg>
+                                January 22, 2022
+                        </span>
+                        <h6 class="shift-rit"><a href="" class="onhover-txt-color-orange buttn black">The Waterfront Cafe and Restaurant</a></h6>
+                        
+                        
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 
