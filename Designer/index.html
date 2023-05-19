@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="/Designer/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        /* @import url(/Designer/style.css) layer(a); */
+    </style>
+
 </head>
-<body>
+<body>  
 
     <!--                    Nav-Bar                     -->
 
@@ -22,7 +26,7 @@
             
             <img src="/Designer/images/white-logo.png" alt="LOGO">
             <div class="menu">
-                <a class="buttn orange bg-white onhover-txt-color-orange" href="#Homepage">Homepage</a>
+                <a class="buttn white onhover-txt-color-orange" href="#Homepage">Homepage</a>
                 <a class="buttn white onhover-txt-color-orange" href="#AboutUs">About Us</a>
                 <a class="buttn white onhover-txt-color-orange" href="#ExploreWork">Explore Work</a>
                 <a class="buttn white onhover-txt-color-orange" href="#Trending">Trending</a>
@@ -109,7 +113,7 @@
             EXPLORE SOME OF OUR LATEST <br><span class="line bg-orange"></span>
             <span class="orange">INTERIOR DESIGN WORK</span>.
         </h2>
-        <div class="flex-container margin-tb2" style="height: 100vh;">
+        <div class="flex-container margin-tb2" style="height: auto;">
             
             <img class="img-border col2 expand" src="/Designer/images/whats-trending-item-image.jpg" alt="Trending-Item" width="49.99999%" height="100%">
             <div class="col2 flex-container padd-lft4 expand" style="flex-direction: column; justify-content: start; ">
@@ -221,7 +225,9 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -229,6 +235,75 @@
     </div>
 
 
+    <!--                    Trending section                    -->
+
+
+    <div class="container flex-container flex-center" style="height: 100vh; padding-right: 2rem;">
+
+        <div class="padd-2 expand" style="width: 47.9999%;">
+            <h2>
+                CHECK OUT WHATS TRENDING IN <br><span class="line bg-orange"></span>
+                <span class="orange">OUR INTERIOR WORK</span>.
+            </h2>
+            <p>Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito adipcingi elit, sed do eismuod larehai med at vero eos et suscipit neque rerum molestias accusamus et iusto odio dignissimos ducimus qui blanditis.</p>
+            <p><a href="" class="buttn white bg-orange onhover-txt-color-white onhover-bgcolor-black">Discover More</a></p>
+        </div>
+        <div class="flex-container flex-center padd-2 hidden" style=" width: 51.9999%; height: 80%;">
+            
+            <div class="col2 pos-rel" style="height: 100%;">
+                
+                <img class="img-border" src="/Designer/images/whats-trending-item-image.jpg" alt="" height="100%" width="100%">
+                <div class="image-hover img-border" style="padding: 60% 10%; ">
+                    <h6 class="white pos-abs to-center margin-tb1" style="left: 10%; top: 45%;">MODERNIZED CENTER</h6>
+                    <P class="white pos-abs to-center2 " style="right: 10%; top: 50%;">Guest Room Decoration</P>
+                </div>
+
+            </div>
+            <img class="col2" src="/Designer/images/whats-trending-right-image.png" alt="" height="65%">
+
+        </div>
+
+    </div>
+
+
+    <!--                    Contact                     -->
+
+
+    <div class="pos-rel" style="height: 95vh; width: 100%;">
+        
+        <img src="/Designer/images/contact-us-bg.jpg" alt="contact-us" width="100%" height="100%">
+        <div class="flex-container pos-abs contact-form-position" style="width: 80%;">
+
+            <div class="col2 padd-2 bg-white" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem;">
+                <h2>
+                    DON'T BE HESITATED<br><span class="line bg-orange"></span>
+                    <span class="orange">TALK TO US</span> NOW!
+                </h2>
+                <form class="flex-container margin-tb2" action="">
+                    <div class="col2 padd-lr1-half">
+                        <input class="form-input" type="text" name="" id="" placeholder="First Name*" required>
+                    </div>
+                    <div class="col2 padd-lr1-half">
+                        <input class="form-input" type="text" name="" id="" placeholder="Last Name*" required>
+                    </div>
+                    <div class="col2 padd-lr1-half">
+                        <input class="form-input" type="text" name="" id="" placeholder="Your Email" required>
+                    </div>
+                    <div class="col2 padd-lr1-half">
+                        <input class="form-input" type="text" name="" id="" placeholder="Subject*" required>
+                    </div>
+                    <div class="padd-lr1-half" style="width: 100%;">
+                        <input class="form-input" type="text" placeholder="Message" style="width: 100%; height: 6rem;">
+                    </div>
+                    <p class="padd-lr1-half" style="width: 100%; margin-top: 0%;"><a href="" class="buttn white bg-orange onhover-bgcolor-black" style="width: 100%;">Send Message</a></p>
+                </form>
+
+            </div>
+            
+
+
+        </div>
+    </div>
 
 </body>
 </html>
