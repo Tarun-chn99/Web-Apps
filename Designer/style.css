@@ -49,6 +49,10 @@ h6{
     color: #7a7a7a;
 }
 
+.light-gray{
+    color: #eeeeee;
+}
+
 .bg-black{
     background-color: #212529;
 }
@@ -179,6 +183,16 @@ h6{
         display:block
     }
 
+    .contact-border{
+        border-top-left-radius: 1rem; 
+        border-bottom-left-radius: 1rem;
+    }
+    
+    .map-border{
+        border-top-right-radius: 1rem; 
+        border-bottom-right-radius: 1rem;
+    }
+
 }
 
 @media only screen and (max-width:1000px){
@@ -194,7 +208,11 @@ h6{
 
     .expand{
         width: 100% !important;
-        padding-left: 0%;
+    }
+    
+    .remove-padd{
+        padding-left: 0% !important;
+        padding-right: 0% !important;
     }
 
     .hidden{
@@ -208,7 +226,13 @@ h6{
     .margin-top2{
         margin-top: 2rem;
     }
-    
+    .contact-border,.map-border{
+        border-radius: 1rem;
+    }
+
+    .center{
+        text-align: center;
+    }
 }
 
 /*                    Nav-Bar                  */
@@ -247,7 +271,7 @@ h6{
     padding: 4rem;
     border-radius: 0.5rem;
     width: 70%;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
 label{
@@ -334,7 +358,7 @@ select,input{
 
 @keyframes slide{
     from{
-      left: 10%; 
+      left: 15%; 
     }
     to{
       left: 22%;
@@ -342,7 +366,7 @@ select,input{
 }
 @keyframes slide2{
     from{
-      right: 10%; 
+      right: 20%; 
     }
     to{
       right: 27%;
@@ -356,13 +380,44 @@ select,input{
 
 /*                  Contact                   */
 
-.contact-form-position{
-    top: 10%;
-    left: 10%;
+.contact-section{
+    background-image: url(/Designer/images/contact-us-bg.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    padding: 8rem 12rem;
 }
 
 .form-input{
-    border: 1px solid #7a7a7a;
+    border: 1px solid #eeeeee;
     margin-top: 0%;
     padding: 1rem;
 }
+
+.padd-3{
+    padding: 3rem;
+}
+
+
+/*                  Last Section                  */
+
+.col3{
+    width: 33.33333%;
+}
+
+.col1{
+    width: 100%;
+}
+
+.links{
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+
+.box-shadow{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+
+}
+
