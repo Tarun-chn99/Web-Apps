@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/Designer/style.css">    
+    <link rel="stylesheet" href="/Designer/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
@@ -15,11 +17,14 @@
       box-sizing: border-box;
     }
 
-    .line{
-      padding: 1px;
-      width: 7%;
-      /* height: 10px; */
-      border: 15px solid white;
+    .review-box{
+      padding: 1.5rem;
+      box-shadow: 0.5rem 0.5rem #eba8aa, 0rem 0rem 1rem  rgba(0,0,0,0.2);
+      display: inline-block;
+      width: 25%;
+      margin: 1rem;
+      border-radius: 1rem;
+      
     }
 
   </style>
@@ -27,9 +32,19 @@
 </head>
 <body>
 
-  <span class="line bg-orange">
+  <div class="review-box">
+    <h4>Catherine Rose</h4>
+    <span class="gray">CEO of Designer</span>
+    <div>
+        <i class="fa fa-star orange"></i>
+        <i class="fa fa-star orange"></i>
+        <i class="fa fa-star orange"></i>
+        <i class="fa fa-star orange"></i>
+        <i class="fa fa-star orange"></i>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident velit ad possimus voluptate voluptas. Aspernatur!</p>
+  </div>
     
-  </span>
 
 </body>
 </html>

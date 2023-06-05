@@ -1,0 +1,95 @@
+@media only screen and (max-width:1000px)
+{
+    .first-section div{
+        width: 70% !important;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .features{
+        width: 70% !important;
+        margin-left: auto!important;
+        margin-right: auto !important;
+    }
+}
+
+.container-abt{
+    margin-top: 4rem;
+    padding-top: 4rem;
+}
+
+
+/*                      First Section                     */
+
+.first-section{
+    background-image: url(/Designer/images/page-banner-bg.jpg);
+    background-size: cover;
+    height: auto;
+    text-align: center;
+    padding: 12rem 0rem;
+    line-height: 1.8;
+}
+
+.features{
+    padding: 2rem 3rem;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    width: 25%;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+.features-pos{
+    position: relative;
+    margin: auto;
+    margin-top: -6%;
+}
+
+
+/*                      Second section                    */
+
+.col1{
+    width: 100%;
+}
+
+.arrow{
+    width: 1.25rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    background-image: url(/Designer/images/down-chevron.png);
+  }
+
+.accdn{
+    padding: 0.5rem 0rem;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+}
+
+.border-down{
+    border-bottom: 1px solid #eeeeee;
+}
+
+.arrow{
+    width: 1.25rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    background-image: url(/Designer/images/down-chevron.png);
+  }
+
+  .buttns{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-out;
+    margin: 0% !important;
+  }
