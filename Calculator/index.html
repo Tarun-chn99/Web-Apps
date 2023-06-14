@@ -16,26 +16,29 @@
 
     <div class="grid-container">
 
-        <div class="grid-item calculator-screen bg-black"></div>
+        <div class="calculator-screen bg-black" id="screen"></div>
 
-        <button class="grid-item bg-gray"><a href="" class="buttn">+</a></button>
-        <button class="grid-item bg-gray"><a href="" class="buttn">-</a></button>
-        <button class="grid-item bg-gray"><a href="" class="buttn">x</a></button>
-        <button class="grid-item bg-gray"><a href="" class="buttn">/</a></button>
-        <button class="grid-item bg-white ">7</button>
-        <button class="grid-item bg-white ">8</button>
-        <button class="grid-item bg-white ">9</button>
-        <button class="grid-item submit-buttn bg-orange" style="line-height: 24rem;"><b>=</b></button>
-        <button class="grid-item bg-white">4</button>
-        <button class="grid-item bg-white">5</button>
-        <button class="grid-item bg-white">6</button>
-        <button class="grid-item bg-white">1</button>
-        <button class="grid-item bg-white">2</button>
-        <button class="grid-item bg-white">3</button>
-        <button class="grid-item bg-white" style="border-bottom-left-radius: 2rem;">0</button>
-        <button class="grid-item bg-white">.</button>
-        <button class="grid-item bg-white">C</button>
+        <button class="grid-item bg-gray" onclick="fillAction(this)">+</button>
+        <button class="grid-item bg-gray" onclick="fillAction(this)">-</button>
+        <button class="grid-item bg-gray" onclick="fillAction(this)">x</button>
+        <button class="grid-item bg-gray" onclick="fillAction(this)">/</button>
+        <button class="grid-item bg-white " onclick="display(this)">7</button>
+        <button class="grid-item bg-white " onclick="display(this)">8</button>
+        <button class="grid-item bg-white " onclick="display(this)">9</button>
+        <button class="grid-item submit-buttn bg-orange" onclick="answer(this)" style="line-height: 24rem;"><b>=</b></button>
+        <button class="grid-item bg-white" onclick="display(this)">4</button>
+        <button class="grid-item bg-white" onclick="display(this)">5</button>
+        <button class="grid-item bg-white" onclick="display(this)">6</button>
+        <button class="grid-item bg-white" onclick="display(this)">1</button>
+        <button class="grid-item bg-white" onclick="display(this)">2</button>
+        <button class="grid-item bg-white" onclick="display(this)">3</button>
+        <button class="grid-item bg-white" onclick="display(this)" style="border-bottom-left-radius: 2rem;">0</button>
+        <button class="grid-item bg-white" onclick="display(this)">.</button>
+        <button class="grid-item bg-white" id="c" onclick="empty()">C</button>
     </div>
+
+    
+    <script src="/Calculator/script.js"></script>
 
 </body>
 </html>
