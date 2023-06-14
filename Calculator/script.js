@@ -42,7 +42,6 @@ function answer(){
     document.getElementById("screen").innerHTML = "";
     document.getElementById("screen").innerHTML = z;
 
-    setInterval(empty,500);
-    
+    setTimeout(empty,500);
     
 }   
