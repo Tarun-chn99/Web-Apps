@@ -17,34 +17,97 @@
       box-sizing: border-box;
     }
 
+    .carousel{
+      width: 60%;
+      /* height: 50vh; */
+      overflow: hidden;
+      /* position: absolute; */
+    }
+
     .review-box{
-      padding: 1.5rem;
+      padding: 3rem;
       box-shadow: 0.5rem 0.5rem #eba8aa, 0rem 0rem 1rem  rgba(0,0,0,0.2);
       display: inline-block;
-      width: 25%;
-      margin: 1rem;
+      width: 20rem;
+      margin: 2rem;
       border-radius: 1rem;
-      
+      cursor: grab;
+      position: relative;
     }
+
+    @keyframes move{
+
+      0%{
+        left: 0%;
+      }
+      100%{
+        left: 40%;
+      }
+
+      }
+
+      .animat{
+      animation: move;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      position: relative;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+      animation-iteration-count: 1;
+      }
 
   </style>
 
 </head>
 <body>
 
-  <div class="review-box">
-    <h4>Catherine Rose</h4>
-    <span class="gray">CEO of Designer</span>
-    <div>
-        <i class="fa fa-star orange"></i>
-        <i class="fa fa-star orange"></i>
-        <i class="fa fa-star orange"></i>
-        <i class="fa fa-star orange"></i>
-        <i class="fa fa-star orange"></i>
-    </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident velit ad possimus voluptate voluptas. Aspernatur!</p>
-  </div>
+  <!-- <div class="carousel">
+
+        <div class="review-box animate">
+          <h4>Catherine Rose</h4>
+          <span class="gray">CEO of Designer</span>
+          <div>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+            </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident velit ad possimus voluptate voluptas. Aspernatur!</p>
+        </div>
+
+        <div class="review-box">
+          <h4>Sophia Loren</h4>
+          <span class="gray">Chief Designer</span>
+          <div>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+              <i class="fa fa-star orange"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident velit ad possimus voluptate voluptas. Aspernatur!</p>
+        </div>
+        
+        <div class="review-box">
+          <h4>Isabella Marbel</h4>
+          <span class="gray">Senior Architect</span>
+          <div>
+            <i class="fa fa-star orange"></i>
+            <i class="fa fa-star orange"></i>
+            <i class="fa fa-star orange"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident velit ad possimus voluptate voluptas. Aspernatur!</p>
+        </div>
+        
+  </div> -->
+        
+  <p id="print"></p>
+
+  <script>
+
+    document.getElementById("print").innerHTML = window.innerWidth;
+
     
 
+  </script>
+        
 </body>
 </html>
