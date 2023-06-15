@@ -19,14 +19,14 @@
         <div class="calculator-screen bg-black" id="screen">0</div>
         <!-- <input class="calculator-screen bg-black" id="screen" type="text" placeholder="0"> -->
 
-        <button class="grid-item bg-gray" onclick="fillAction(this)">+</button>
-        <button class="grid-item bg-gray" onclick="fillAction(this)">-</button>
-        <button class="grid-item bg-gray" onclick="fillAction(this)">x</button>
-        <button class="grid-item bg-gray" onclick="fillAction(this)">/</button>
+        <button class="grid-item bg-gray" onclick="display(this)">+</button>
+        <button class="grid-item bg-gray" onclick="display(this)">-</button>
+        <button class="grid-item bg-gray" onclick="display(this)">x</button>
+        <button class="grid-item bg-gray" onclick="display(this)">/</button>
         <button class="grid-item bg-white " onclick="display(this)">7</button>
         <button class="grid-item bg-white " onclick="display(this)">8</button>
         <button class="grid-item bg-white " onclick="display(this)">9</button>
-        <button class="grid-item submit-buttn bg-orange" onclick="answer(this)" style="line-height: 24rem;"><b>=</b></button>
+        <button class="grid-item submit-buttn bg-orange" onclick="showAnswer()" style="line-height: 24rem;"><b>=</b></button>
         <button class="grid-item bg-white" onclick="display(this)">4</button>
         <button class="grid-item bg-white" onclick="display(this)">5</button>
         <button class="grid-item bg-white" onclick="display(this)">6</button>
@@ -35,10 +35,12 @@
         <button class="grid-item bg-white" onclick="display(this)">3</button>
         <button class="grid-item bg-white" onclick="display(this)" style="border-bottom-left-radius: 2rem;">0</button>
         <button class="grid-item bg-white" onclick="display(this)">.</button>
-        <button class="grid-item bg-white" id="c" onclick="empty()">C</button>
+        <button class="grid-item bg-white" id="c" onclick="clearScreen()">C</button>
     </div>
 
-    
+    <p id="show" style="font-size: 4rem;"></p>
+
+
     <script src="/Calculator/script.js"></script>
 
 </body>

@@ -1,31 +1,52 @@
+let a = "";
 let b = "";
 let action = "";
-let a = "";
 
+// Function to show data and calculation on screen
 
+let display = z => {
 
-function display(z){
-    document.getElementById("screen").innerHTML += z.innerHTML;
-    b += z.innerHTML;
-}
+    let key = z.innerHTML;
+    defaultScreen();
 
-function fillAction(z){
-    if(b){
-        action += z.innerHTML;
-        document.getElementById("screen").innerHTML += z.innerHTML;
-        a = b;
-        b = "";
+    if(key === '+' || key === '-' || key === 'x' || key ==='/'){
+
+            if(b != ""){
+
+                if(a != ""){
+                    let x = answer();
+                    action = key;
+                    a = x;
+                    
+                    document.getElementById("screen").innerHTML = a.toString() + key;
+                }
+                else{
+                    action = key;
+                    document.getElementById("screen").innerHTML += key;
+                    a = b;
+                }
+                b = "";
+            }
+
+    }
+    else{
+        document.getElementById("screen").innerHTML += key;
+        b += key;
     }
 }
 
-function empty(){
-    document.getElementById("screen").innerHTML = "";
+//  Clearing the screen of calculator
+
+let clearScreen = () => {
+    document.getElementById("screen").innerHTML = "0";
     a = "";
     b = "";
     action = "";
 }
 
-function answer(){
+// Function for calculating the answer
+
+let answer = () => {
     let x = Number(a);
     let y = Number(b);
     let z;
@@ -39,9 +60,25 @@ function answer(){
     else if(action === '/')
     z = x / y;
 
-    document.getElementById("screen").innerHTML = "";
-    document.getElementById("screen").innerHTML = z;
-
-    setTimeout(empty,500);
-    
+    action = "";
+    return z;    
 }   
+
+// Function for showing the answer
+
+let showAnswer = () => {
+    let z = answer();
+    document.getElementById("screen").innerHTML = z;
+}
+
+
+// Function for clearing the default zero on sreen
+
+let defaultScreen = () => {
+    
+    let screenDisplay = document.getElementById("screen").innerHTML;
+
+    if(screenDisplay === '0')
+    document.getElementById("screen").innerHTML = "";
+
+}
