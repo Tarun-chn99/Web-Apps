@@ -17,7 +17,6 @@ let display = z => {
                     let x = answer();
                     action = key;
                     a = x;
-                    
                     document.getElementById("screen").innerHTML = a.toString() + key;
                 }
                 else{
@@ -33,7 +32,7 @@ let display = z => {
         document.getElementById("screen").innerHTML += key;
         b += key;
     }
-}
+}   
 
 //  Clearing the screen of calculator
 
