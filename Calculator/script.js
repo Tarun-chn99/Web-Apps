@@ -9,6 +9,7 @@ let display = z => {
     let key = z.innerHTML;
     defaultScreen();
 
+
     if(key === '+' || key === '-' || key === 'x' || key ==='/'){
 
             if(b != ""){
