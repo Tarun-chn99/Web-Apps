@@ -1,16 +1,15 @@
 import './App.css';
+import Navbar from './Navbar';
+// import { FaAngleRight } from "react-icons/fa";
 
 function App() {
   return(
-    
-          <div className = "App"> <h2>Hello</h2> 
-            
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate animi ab similique laborum facere, iste eveniet molestiae modi illo doloribus.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, perferendis!</p> 
+          <>
+            <Navbar/>
 
-          </div>
-          
-  )
+
+          </>
+  );
 
 }
 
