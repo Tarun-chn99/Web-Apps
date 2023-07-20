@@ -6,7 +6,12 @@
 html{
   font-size: 16px;
   font-family: "Poppins","Lato", sans-serif;
-  line-height: 1.8;
+  /* line-height: 1; */
+  color: black;
+}
+
+body{
+  background-color: #635959;
 }
 
 h1{font-size: 3.625rem;}
@@ -20,21 +25,29 @@ p{
   margin: 0.625rem;
 }
 
-.txt-white, .bg-white{color: #ffffff;}
+.txt-black{color: black;}
+.txt-white{color: #ffffff;}
 .txt-gray{color: #717275;}
-.txt-dark-blue, .bg-dark-blue{color: #13547A;}
-.txt-light-blue, .bg-light-blue{color: #80D0C7;}
-.bg-vlight-blue{color: #f0f8ff;}
+.txt-dark-blue, .onhover-txt-dark-blue:hover{color: #13547A;}
+.txt-light-blue{color: #80D0C7;}
+
+.bg-vlight-blue{background-color: #f0f8ff;}
+.bg-sea-green{background-color: #027a6d;}
+.bg-dark-blue{background-color: #13547A;}
+.bg-white{background-color: #ffffff;}
 
 .onhover-bg-dark-blue{background-color: #13547A;}
+.onhover-bg-sea-green:hover{background-color: #027a6d;;}
+.onhover-white:hover{color: #ffffff;}
 
 .buttn{
   display: inline-block;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.25rem;
+  font-size: 0.5rem;
+  /* margin: 0.25rem; */
   transition: 0.6s;
 }
 
@@ -44,8 +57,15 @@ p{
 
 .flex-container{
   display: flex; 
-  justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.flex-space{
+  justify-content: space-between;
+}
+
+.flex-center{
+  align-items: center;
 }
 
 .shift-lft{float: left;}
@@ -57,7 +77,46 @@ p{
 
 .margin-tb1{margin: 1rem 0rem;}
 .margin-lr1{margin: 0rem 1rem;}
+.margin-l3{margin-left: 3rem ;}
 
 .container{
   padding: 6rem 0rem;
+}
+
+.menu{
+  padding: 0.25rem;
+  font-size: 0.5rem;
+  /* background-color: ; */
+}
+
+.user{
+  border-radius: 1rem;
+  background-color: #ffffff;
+  vertical-align: middle;
+  font-size: 0.05rem;
+}
+
+.user a:hover{
+  filter: invert(0.5);
+}
+
+.editor{
+  width: 65%;
+  margin: 2rem auto;
+}
+
+.editor > textarea{
+  width: 100%;
+  font-size: 0.5rem;
+  outline-style: none;
+  border-radius: 0.5rem;
+  /* height: 10rem; */
+}
+
+button{
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem !important;
+  margin: 0.5rem;
+  width: 5rem;
 }
