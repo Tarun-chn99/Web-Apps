@@ -45,8 +45,8 @@ p{
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  padding: 0.25rem;
-  font-size: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
   /* margin: 0.25rem; */
   transition: 0.6s;
 }
@@ -84,16 +84,17 @@ p{
 }
 
 .menu{
-  padding: 0.25rem;
-  font-size: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
   /* background-color: ; */
 }
 
 .user{
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   background-color: #ffffff;
   vertical-align: middle;
-  font-size: 0.05rem;
+  font-size: 1rem;
+  padding: 0.25rem;
 }
 
 .user a:hover{
@@ -107,16 +108,20 @@ p{
 
 .editor > textarea{
   width: 100%;
-  font-size: 0.5rem;
+  font-size: 1rem;
   outline-style: none;
   border-radius: 0.5rem;
   /* height: 10rem; */
 }
 
+.editor > span{
+  font-size: 1.25rem;
+}
+
 button{
   border: none;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem !important;
+  padding: 1rem 1rem !important;
   margin: 0.5rem;
-  width: 5rem;
+  width: 13.5rem;
 }
