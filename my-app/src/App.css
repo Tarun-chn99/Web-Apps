@@ -38,6 +38,7 @@ p{
 
 .onhover-bg-dark-blue{background-color: #13547A;}
 .onhover-bg-sea-green:hover{background-color: #027a6d;;}
+.onhover-bg-light-green:hover{background-color: #6eaa6e;}
 .onhover-white:hover{color: #ffffff;}
 
 .buttn{
@@ -75,7 +76,7 @@ p{
 .padd-lr1{padding: 1rem 0rem;}
 .padd-tb1{padding: 0rem 1rem;}
 
-.margin-tb1{margin: 1rem 0rem;}
+.margin-tb2{margin: 2rem 0rem;}
 .margin-lr1{margin: 0rem 1rem;}
 .margin-l3{margin-left: 3rem ;}
 
@@ -111,7 +112,14 @@ p{
   font-size: 1rem;
   outline-style: none;
   border-radius: 0.5rem;
+  padding: 1rem;
+  /* border: 0.5rem solid black; */
+  /* outline-color: #13547A; */
   /* height: 10rem; */
+}
+
+textarea:focus{
+  outline: 4px solid black;
 }
 
 .editor > span{

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Analyzer(){
+function Analyzer(props){
 
     const [text,setText] = useState("");
     let newText = text.split(/\s+/).join(" ");
@@ -33,20 +33,27 @@ function Analyzer(){
         setText(newText.join(" "));
     }
 
+    let hoverColor;
+
+    if(props.mode === 'dark')
+    hoverColor = 'sea-green';
+    else
+    hoverColor = 'light-green';
+
     return(
         <>
 
             <div className="editor">
                 
                 <h2>Text Anlayzer</h2>
-                <textarea rows={8} id="text" value={text} onChange={handleOnChange}></textarea>
+                <textarea rows={8} id="text" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#c3c3cb' : 'white'}}></textarea>
 
                 <div datatype="actionButtons" style={{margin:'0.25rem'}}>
-                    <button disabled={text.length === 0} className="buttn txt-white bg-dark-blue onhover-bg-sea-green"  onClick={handleUpperCase}>Uppercase</button>
-                    <button disabled={text.length === 0} className="buttn txt-white bg-dark-blue onhover-bg-sea-green "  onClick={handleLowerCase}>Lowercase</button>
-                    <button disabled={text.length === 0} className="buttn txt-white bg-dark-blue onhover-bg-sea-green "  onClick={handleClearText}>Clear</button>
-                    <button disabled={text.length === 0} className="buttn txt-white bg-dark-blue onhover-bg-sea-green "  onClick={handleCopyText}>Copy</button>
-                    <button disabled={text.length === 0} className="buttn txt-white bg-dark-blue onhover-bg-sea-green "  onClick={handleXtraSpaces}>Remove Extra Spaces</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleUpperCase}>Uppercase</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleLowerCase}>Lowercase</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleClearText}>Clear</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleCopyText}>Copy</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleXtraSpaces}>Remove Extra Spaces</button>
                 </div>
 
                 <hr />  
@@ -55,7 +62,10 @@ function Analyzer(){
                 <span className="margin-lr1"><strong>Words : </strong>{words}</span>
                 <span className="margin-lr1"><strong>Characters : </strong> {characters}</span>
                 <span className="margin-lr1"><strong>Time to read : </strong>{(words * 0.004) + " Minutes"}</span>
-    
+
+                <br /><br />
+                <h3>Preview</h3>
+                <span className="margin-lr1">{text.length > 0 ? text : "Type anything to preview !"}</span>
             </div>
 
         </>
