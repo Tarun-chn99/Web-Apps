@@ -10,23 +10,24 @@ function App() {
   const [mode,setMode] = useState('dark');
   const [alert,setAlert] = useState(null);
 
-  const showAlert = (message,type) => {
-    setAlert({
-        msg: message,
-        type: type
-      });
+  const showAlert = (message) => {
+    setAlert(message);
+
+    setTimeout(() => {
+      setAlert(null);
+    },1000);
   }
 
   const toggleMode = () => {
     if(mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor = '#635959';
-      showAlert("Dark mode has been enabled","Success");
+      showAlert("Dark mode!");
     }
     else{
       setMode('light');
-      document.body.style.backgroundColor = 'white';
-      showAlert("Light mode has been enabled","Success");
+      document.body.style.backgroundColor = '#e2dcdc';
+      showAlert("Light mode!");
 
     }
   }
@@ -35,7 +36,7 @@ function App() {
           <>
             <Navbar mode={mode} toggleMode={toggleMode} />
             <Alert alert={alert} />
-            <Analyzer mode={mode} Alert={showAlert}/>
+            <Analyzer mode={mode} showAlert={showAlert}/>
           </>
   );
 

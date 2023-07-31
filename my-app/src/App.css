@@ -133,3 +133,16 @@ button{
   margin: 0.5rem;
   width: 13.5rem;
 }
+
+.boldFont{
+  font-weight: bold;
+}
+
+.italicFont{
+  font-style: italic;
+}
+
+.underlineFont{
+  text-decoration: underline;
+}
+

@@ -1,0 +1,58 @@
+{
+ "status": "ok",
+ "totalResults": 4,
+ "articles": [
+  {
+   "source": {
+    "id": null,
+    "name": "9to5Mac"
+   },
+   "author": "Filipe Espósito",
+   "title": "Samsung continues to bet on the foldable market with the Galaxy Z Flip 5 and Fold 5",
+   "description": "Some might argue that smartphones have reached a peak level where year-on-year evolutions don’t seem so great. At the same time, some companies have been experimenting with different things – and Samsung is one of them. The South Korean company on Wednesday a…",
+   "url": "https://9to5mac.com/2023/07/26/samsung-foldable-galaxy-z-flip-5-fold-5/",
+   "urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2023/07/galaxy-z-flip-5-fold-5-2.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   "publishedAt": "2023-07-27T03:26:48Z",
+   "content": "Some might argue that smartphones have reached a peak level where year-on-year evolutions don’t seem so great. At the same time, some companies have been experimenting with different things – and Sam… [+4255 chars]"
+  },
+  {
+   "source": {
+    "id": null,
+    "name": "9to5Mac"
+   },
+   "author": "Filipe Espósito",
+   "title": "Python tutorial app ‘Tinkerstellar’ gets big update with iPhone version",
+   "description": "I wrote last year about Tinkerstellar, a new iPad app inspired by Apple’s Swift Playground, but to help people learn Python through multiple interactive lessons. Tinkerstellar is now getting a major update, which not only adds new lessons and a refreshed inte…",
+   "url": "https://9to5mac.com/2023/07/26/python-tutorial-app-tinkerstellar/",
+   "urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2023/07/Tinkerstellar-Python-app.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   "publishedAt": "2023-07-27T00:26:30Z",
+   "content": "I wrote last year about Tinkerstellar, a new iPad app inspired by Apple’s Swift Playground, but to help people learn Python through multiple interactive lessons. Tinkerstellar is now getting a major … [+1761 chars]"
+  },
+  {
+   "source": {
+    "id": null,
+    "name": "AppleInsider"
+   },
+   "author": "news@appleinsider.com (Wesley Hilliard)",
+   "title": "New Apple Vision Pro details emerge from visionOS beta 2",
+   "description": "Apple released a new version of visionOS for developer testing, and while no one has access to the hardware, code sleuths were still able to learn more about Apple Vision Pro.Apple Vision ProCode can reveal a lot about an operating system even if its isn't ru…",
+   "url": "https://appleinsider.com/articles/23/07/27/new-apple-vision-pro-details-emerge-from-visionos-beta-2",
+   "urlToImage": "https://photos5.appleinsider.com/gallery/55613-112937-Apple-Vision3-xl.jpg",
+   "publishedAt": "2023-07-27T00:43:25Z",
+   "content": "Apple Vision Pro\r\nApple released a new version of visionOS for developer testing, and while no one has access to the hardware, code sleuths were still able to learn more about Apple Vision Pro.\r\nCode… [+3042 chars]"
+  },
+  {
+   "source": {
+    "id": null,
+    "name": "AppleInsider"
+   },
+   "author": "news@appleinsider.com (Wesley Hilliard)",
+   "title": "Samsung Electronics reports 95% profit drop for Q2 2023",
+   "description": "Samsung continues to get beat up by weak chip demand and a declining smartphone market, reporting a 95% profit drop in its second quarter.Samsung reports earningsOverstocked supply has led to price cuts in the DRAM and RAM industry, plus the demand for smartp…",
+   "url": "https://appleinsider.com/articles/23/07/27/samsung-electronics-reports-95-profit-drop-for-q2-2023",
+   "urlToImage": "https://photos5.appleinsider.com/gallery/55614-112942-samsung-xl.jpg",
+   "publishedAt": "2023-07-27T01:58:14Z",
+   "content": "Samsung reports earnings\r\nSamsung continues to get beat up by weak chip demand and a declining smartphone market, reporting a 95% profit drop in its second quarter.\r\nOverstocked supply has led to pri… [+1930 chars]"
+  }
+ ]
+}
