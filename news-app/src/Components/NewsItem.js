@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class NewsItem extends Component{
-    render(){
-        let {title,description,url,imageUrl,author,date,source} = this.props;
+const NewsItem = (props) => {
+
+        let {title,description,url,imageUrl,author,date,source} = props;
         return(
             <div className='my-4'>
                 <div  className="card" style={{width: "26rem"}}> 
 
-                    <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{zIndex:'1', left:'95%'}}>{source}</span>
+                    <div style={{
+                        display:'flex',
+                        justifyContent:'end',
+                        position:'absolute',
+                        right:'0'
+                    }}>
+                    <span className="badge rounded-pill bg-danger">{source}</span>
+                    </div>
 
                     <img src={imageUrl ? imageUrl : "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2023/07/Tinkerstellar-Python-app.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1"}  className="card-img-top" style={{height:'20rem'}} alt="..."/>
                     <div  className="card-body">
@@ -20,5 +27,7 @@ export default class NewsItem extends Component{
                 </div>
             </div>
         )
-    }
+    
 }
+
+export default NewsItem
