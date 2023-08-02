@@ -111,20 +111,22 @@ function Analyzer(props){
             <div className="editor">
                 
                 <h2>Text Anlayzer</h2>
-                <textarea className="" rows={8} id="text" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#c3c3cb' : 'white'}}>Hello World</textarea>
-
+                <hr />
                 <div datatype="actionButtons" style={{margin:'0.25rem'}}>
                     {/* <Button text={text} mode={props.mode} func={handleUpperCase} data={"UpperCase"}/> */}
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleBold}>Bold</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleItalic}>Italic</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleCopyText}>Copy</button>
+                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleUnderline}>Underline</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleUpperCase}>Uppercase</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleLowerCase}>Lowercase</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleClearText}>Clear</button>
-                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleCopyText}>Copy</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleXtraSpaces}>Remove Extra Spaces</button>
-                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleBold}>Bold</button>
-                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleItalic}>Italic</button>
-                    <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleUnderline}>Underline</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleClearEffects}>Remove Effects</button>
                 </div>
+                <hr />
+                <textarea className="" rows={8} id="text" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#c3c3cb' : 'white'}}>Hello World</textarea>
+
 
                 <hr />  
 
