@@ -12,24 +12,6 @@
     <script type="react.js"></script>
   <style>
 
-    
-    *,::after,::before{
-      margin: 0%;
-      box-sizing: border-box;
-    }
-
-    a:hover{
-      cursor: pointer;
-    }
-
-    a{
-      transition: all 0.6s  ;
-    }
-
-    a:active{
-      background-color: aqua;
-      font-size: 2rem;
-    }
 
   </style>
 
@@ -38,14 +20,22 @@
 
   
   <a href="" class="buttn bg-orange" style="margin: 4rem; padding: 4rem;">Hello</a>
-        
-  
-
+  <div class="print"></div>
   <script>
 
-    // document.getElementById("print").innerHTML = window.innerWidth;
+    document.getElementsByClassName("print").innerHTML = window.innerWidth;
 
+    function myFunction() {
+    console.log('Hello');
+    }
+
+    myFunction.someProperty = 'This is a property';
+    myFunction.hello = () => {
+      console.log("Inside myFunction object as a function")
+    }
     
+    console.log(myFunction.someProperty); // Outputs: This is a property
+    myFunction.hello();
 
   </script>
         

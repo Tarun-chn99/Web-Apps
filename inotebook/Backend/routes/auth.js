@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User')
 const {body, validationResult} = require('express-validator');
+const bcrypt = require('bcrypt');
 
-router.get('/', [
+router.post('/', [
 
     body('name','Enter atleast 3 characters').isLength({min:3}),
     body('email','Enter valid email').isEmail(),
@@ -23,9 +24,12 @@ router.get('/', [
             return res.status(400).json({error: "Sorry! User with this mail exists"});
         }
 
+        const salt = await bcrypt.genSalt(10);
+        const secPass = await bcrypt.hash(req.body.password,salt);
+
         user = await User.create({
             name: req.body.name,
-            password: req.body.password,
+            password: secPass,
             email: req.body.email
         });        
         
