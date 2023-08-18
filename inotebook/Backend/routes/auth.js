@@ -13,8 +13,8 @@ const fetchUser = require('../Middleware/fetchUser')
         body('name','Enter atleast 3 characters').isLength({min:3}),
         body('email','Enter valid email').isEmail(),
         body('password','Enter atleast 5 characters').isLength({min:5})
-    ], 
-    async (req,res) => {
+        ], 
+        async (req,res) => {
     
         const errors = validationResult(req);
         if(!errors.isEmpty()){
