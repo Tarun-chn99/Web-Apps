@@ -20,7 +20,7 @@ const fetchUser = require('../Middleware/fetchUser')
         if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
         }
-
+        console.log("Inside create user route");
         try{
 
             let user = await User.findOne({email: req.body.email});
