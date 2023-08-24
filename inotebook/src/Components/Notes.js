@@ -11,21 +11,20 @@ const Notes = () => {
     },[]);
 
     const context = useContext(noteContext);
-    // eslint-disable-next-line
     const {notes,getAllNotes,editNote} = context;
-    const [note, setNote] = useState({title: "" , description: "", tag:"" });
+    const [note, setNote] = useState({id: "", title: "" , description: "", tag:"" });
     const ref = useRef(null);
+    const refClose = useRef(null);
    
-    const handleClick = (e) => {
-        e.preventDefault();
+    const updateNote = (e) => {
         editNote(note._id,note.title,note.description,note.tag);
-
+        refClose.current.click();
     }
     const onChange = (e) => {
         setNote({...note, [e.target.name] : e.target.value})    
     }
 
-    const updateNote = (currentNote) => {
+    const openForm = (currentNote) => {
         ref.current.click();    
         setNote(currentNote);
     }
@@ -63,8 +62,8 @@ const Notes = () => {
                 </form>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
+                    <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button disabled={note.title.length<5 || note.description.length<5 } type="button" className="btn btn-primary" onClick={updateNote}>Update Note</button>
                 </div>
                 </div>
             </div>
@@ -73,7 +72,7 @@ const Notes = () => {
             <div className="row my-5">
                 <h3>Your Notes</h3>
                 {notes.map((note) => {
-                return <NoteItem note={note} updateNote={updateNote} key={note._id} />
+                return <NoteItem note={note} openForm={openForm} key={note._id} />
                 })}
             </div> 
         </>

@@ -20,13 +20,14 @@ const fetchUser = require('../Middleware/fetchUser')
         if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
         }
-        console.log("Inside create user route");
+        
+        let success = "False";  
         try{
 
             let user = await User.findOne({email: req.body.email});
             
             if(user)
-            return res.status(400).json({error: "Sorry! User with this mail exists"});
+            return res.status(400).json({Success: success, error: "Sorry! User with this mail exists"});
             
 
             const salt = await bcrypt.genSalt(10);
@@ -42,7 +43,7 @@ const fetchUser = require('../Middleware/fetchUser')
                     id: user.id 
             };
             const authToken = jwt.sign(data,jwt_secret);
-            res.json({authToken});
+            res.json({success, authToken});
 
         }catch(error){
             console.error(error.message);
@@ -63,23 +64,25 @@ const fetchUser = require('../Middleware/fetchUser')
             if(!errors.isEmpty())
             return res.status(400).json({errors: errors.array()});
 
-            const { email , password } = req.body;    
+            const { email , password } = req.body;  
+            let success = "False";  
             try{
 
                 let user = await User.findOne({email});
                 
                 if(!user)
-                return res.status(400).json({error: "Sorry! Invalid credentials, Please try again"});
+                return res.status(400).json({Success: success, error: "Sorry! Invalid credentials, Please try again"});
             
                 const passwordCompare = await bcrypt.compare(password,user.password);
                 if(!passwordCompare)
-                return res.status(400).json({error: "Sorry! Invalid credentials, Please try again"});
+                return res.status(400).json({Success: success, error: "Sorry! Invalid credentials, Please try again"});
 
                 const data = {
                         id: user.id 
                 };
                 const authToken = jwt.sign(data,jwt_secret);
-                res.json({authToken});
+                success="True";
+                res.json({success,authToken});
     
             }catch(error){
                 console.error(error.message);
@@ -91,11 +94,12 @@ const fetchUser = require('../Middleware/fetchUser')
 //  Route 3: Check whether the token given by user to authenticate exist under our database or not
 router.post('/getUser', fetchUser, async (req,res) => {
         
+        let success = "False";  
         try{
             const userId = req.id;
             console.log(userId);
             const user = await User.findById(userId).select("-password");
-            res.send(user);
+            res.send(success,user);
 
         }catch(error){
             console.error(error.message);
