@@ -43,6 +43,7 @@ const fetchUser = require('../Middleware/fetchUser')
                     id: user.id 
             };
             const authToken = jwt.sign(data,jwt_secret);
+            success = true;
             res.json({success, authToken});
 
         }catch(error){

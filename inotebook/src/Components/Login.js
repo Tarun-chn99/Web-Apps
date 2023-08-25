@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-
+const Login = (props) => {
+    
     const [credentials, setCredentials] = useState({email : "", password : ""});
     let navigate = useNavigate();
+
+    useEffect(() => {
+      props.showAlert("Login Section!");
+    }, []);
+
+
     const handleSubmit = async (e) => {
         
         e.preventDefault();
@@ -12,18 +18,19 @@ const Login = () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTU5NTY3MzZiZTljNDEzODYwYTBjMiIsImlhdCI6MTY5Mjc2NzczM30.r7aOOKXHBB9TguPufQ1MGgtJ-fJipB9ROPs1jSXkKog"
+              // "auth-token":session_token
             },
             body: JSON.stringify({email: credentials.email, password: credentials.password}) 
             });
           const json =  await response.json(); 
           console.log(json);
           if(json.success){
-            localStorage.setItem('token',json.authtoken);
+            localStorage.setItem('session_token',json.authToken);
+            props.showAlert("Logged in successfully");
             navigate("/");
           }
           else{
-            alert("Invalid credentials!")
+            props.showAlert("Invalid credentials!")
           }
     }
 

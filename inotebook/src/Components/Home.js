@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
 import Notes from './Notes';
 
-const Home = () => {
-
+const Home = (props) => {
+  const {showAlert} = props;
+  useEffect(() => {
+    showAlert("Welcome Back!");
+  }, []);
   return (
       <div>
-        <Notes/>
+        <Notes showAlert={showAlert}/>
       </div>
   )
 }
