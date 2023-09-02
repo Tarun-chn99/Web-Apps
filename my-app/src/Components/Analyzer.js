@@ -4,6 +4,8 @@ import { useState } from "react";
 
 function Analyzer(props){
 
+    const {mode,showAlert,hoverColor} = props;
+
     const [text,setText] = useState("");
     const [bold,setBold] = useState("off");
     const [italic,setItalic] = useState("off");
@@ -21,89 +23,95 @@ function Analyzer(props){
 
     const handleUpperCase = () => {
         setText(text.toUpperCase());
-        props.showAlert("Converted to uppercase!");
+        showAlert("Converted to uppercase!");
     }    
    
     const handleLowerCase = () => {
         setText(text.toLowerCase());
-        props.showAlert("Converted to lowercase!");
+        showAlert("Converted to lowercase!");
     }
 
     const handleClearText = () => {
         setText("");
-        props.showAlert("Text cleared!");
+        showAlert("Text cleared!");
     }
 
     const handleCopyText = () => {
         navigator.clipboard.writeText(text);
-        props.showAlert("Text copied!");
+        showAlert("Text copied!");
     }
 
     const handleXtraSpaces = () => {
         let newText = text.split(/\s+/);
         setText(newText.join(" "));
-        props.showAlert("Extra space removed!");
+        showAlert("Extra space removed!");
+    }
+
+    const addProps = (value) => {
+        document.getElementById("text").classList.add(value);
+        document.getElementById("prev").classList.add(value);
+    }
+
+    const removeProps = (value) => {
+        document.getElementById("text").classList.remove(value);
+        document.getElementById("prev").classList.remove(value);        
     }
 
     const handleBold = () => {
+        let args = "boldFont";
         if(bold === "off"){
-            setBold("boldFont");
-            document.getElementById("text").classList.add("boldFont");
-            document.getElementById("prev").classList.add("boldFont");
+            setBold("on");
+            addProps(args);
         }
         else{
             setBold("off");
-            document.getElementById("text").classList.remove("boldFont");
-            document.getElementById("prev").classList.remove("boldFont");
+            removeProps(args);
         }
 
     }
 
     const handleItalic = () => {
+        let args = "italicFont";
         if(italic === "off"){
-            setItalic("italicFont");
-            document.getElementById("text").classList.add("italicFont");
-            document.getElementById("prev").classList.add("italicFont");
+            setItalic("on");
+            addProps(args);
 
         }
         else{
             setItalic("off");
-            document.getElementById("text").classList.remove("italicFont");
-            document.getElementById("prev").classList.remove("italicFont");
+            removeProps(args);
 
         }    
     }
 
     const handleUnderline = () => {
+        let args = "underlineFont";
         if(underline === "off"){
-            setUnderline("underlineFont");
-            document.getElementById("text").classList.add("underlineFont");
-            document.getElementById("prev").classList.add("underlineFont");
+            setUnderline("on");
+            addProps(args);
         }
         else{
             setUnderline("off");
-            document.getElementById("text").classList.remove("underlineFont");
-            document.getElementById("prev").classList.remove("underlineFont");
+            removeProps(args);
 
         }    
     }
 
     const handleClearEffects = () => {
-        document.getElementById("text").classList.remove("boldFont");
-        document.getElementById("text").classList.remove("italicFont");
-        document.getElementById("text").classList.remove("underlineFont");
-        document.getElementById("prev").classList.remove("boldFont");
-        document.getElementById("prev").classList.remove("italicFont");
-        document.getElementById("prev").classList.remove("underlineFont");
-
+        removeProps("boldFont");
+        removeProps("italicFont");
+        removeProps("underlineFont");
     }
 
-    let hoverColor;
-
-    if(props.mode === 'dark')
-    hoverColor = 'sea-green';
-    else
-    hoverColor = 'light-green';
+    let selectedText = "";
+    const getSelectedText = () => {
+     
+        if (window.getSelection) {
+            selectedText = window.getSelection();
+        }else
+        return;
+        document.getElementById("highlight").innerHTML = selectedText;
+    }
 
     return(
         <>
@@ -113,7 +121,6 @@ function Analyzer(props){
                 <h2>Text Anlayzer</h2>
                 <hr />
                 <div datatype="actionButtons" style={{margin:'0.25rem'}}>
-                    {/* <Button text={text} mode={props.mode} func={handleUpperCase} data={"UpperCase"}/> */}
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleBold}>Bold</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleItalic}>Italic</button>
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleCopyText}>Copy</button>
@@ -125,9 +132,7 @@ function Analyzer(props){
                     <button disabled={text.length === 0} className={`buttn txt-white bg-dark-blue onhover-bg-${hoverColor}`}  onClick={handleClearEffects}>Remove Effects</button>
                 </div>
                 <hr />
-                <textarea className="" rows={8} id="text" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#c3c3cb' : 'white'}}>Hello World</textarea>
-
-
+                <textarea className="" onMouseUp={getSelectedText} rows={8} id="text" value={text} onChange={handleOnChange} style={{backgroundColor: mode === 'dark' ? '#c3c3cb' : 'white'}}>Hello World</textarea>
                 <hr />  
 
                 <h3>Text Summary</h3>
@@ -137,7 +142,12 @@ function Analyzer(props){
 
                 <br /><br />
                 <h3>Preview</h3>
-                <span className="margin-lr1" id = 'prev'>{text.length > 0 ? text : "Type anything to preview !"}</span>
+                <span className="margin-lr1" id = 'prev' >{text.length > 0 ? text : "Type anything to preview !"}</span>
+
+                <br />
+                <br />
+                <h3>Selected Text</h3>
+                <span className="margin-lr1" id = 'highlight'>{selectedText}</span>
 
             </div>
 

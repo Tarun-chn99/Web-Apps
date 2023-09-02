@@ -9,6 +9,7 @@ function App() {
 
   const [mode,setMode] = useState('dark');
   const [alert,setAlert] = useState(null);
+  const [hoverColor, sethoverColor] = useState('sea-green');
 
   const showAlert = (message) => {
     setAlert(message);
@@ -23,12 +24,13 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#635959';
       showAlert("Dark mode!");
+      sethoverColor('sea-green');
     }
     else{
       setMode('light');
       document.body.style.backgroundColor = '#e2dcdc';
       showAlert("Light mode!");
-
+      sethoverColor('light-green');
     }
   }
 
@@ -36,7 +38,7 @@ function App() {
           <>
             <Navbar mode={mode} toggleMode={toggleMode} />
             <Alert alert={alert} />
-            <Analyzer mode={mode} showAlert={showAlert}/>
+            <Analyzer mode={mode} showAlert={showAlert} hoverColor={hoverColor}/>
           </>
   );
 
