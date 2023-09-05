@@ -1,0 +1,111 @@
+*{
+  box-sizing: border-box;
+  margin: 0%;
+}
+
+body{
+  font-size: 16px;
+  background-image: linear-gradient(#027a6d,#13547A);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.txt-black{color: black;}
+.txt-white{color: #ffffff;}
+.txt-gray{color: #717275;}
+.txt-dark-blue, .onhover-txt-dark-blue:hover{color: #13547A;}
+.txt-light-blue{color: #80D0C7;}
+
+.bg-vlight-blue{background-color: #f0f8ff;}
+.bg-sea-green{background-color: #027a6d;}
+.bg-dark-blue{background-color: #13547A;}
+.bg-white{background-color: #ffffff;}
+
+.margin-rit-half{margin-right: 0.5rem;}
+.margin-lft-half{margin-left: 0.5rem;}
+
+.container{
+  height: 90vh;
+  width: 50%;
+  margin: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 1rem;
+  background-color: #6eaa6e;
+}
+
+nav{
+  padding: 1rem;
+  background-color: #717275;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 10%;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.space-between{
+  justify-content: space-between;
+}
+
+
+.user{
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  border: 0.2rem solid black;
+  color: black;
+  padding: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+.ellipsis{
+  background-color: transparent;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.ellipsis:hover{
+  background-color: #717275;
+}
+
+#chat-screen{
+  background-color: #6eaa6e;
+  /* background-image: url("./peakpx.jpg"); */
+  height: 80%;
+  overflow-y: auto;
+}
+
+.chat-buttons{
+  padding: 1rem 1.25rem;
+  background-color: gray;
+  height: 10%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.chat-input-box{
+  padding: 1rem;
+  background-color: #717275;
+  border-radius: 1rem;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.grow1{flex-grow: 1;}
+.grow10{flex-grow: 10;}
+
+.msg{
+  padding: 1rem;
+  background-color: #717275;
+  float: right;
+  clear: both;
+  margin: 1rem 1rem 0.05rem;
+  border-radius: 0.5rem;
+}
