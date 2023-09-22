@@ -11,7 +11,7 @@ const ChatWindow = () => {
     const createMessage = (e) => {
         e.preventDefault();
         const chat_screen = document.querySelector("#chat-screen");
-        chat_screen.innerHTML += `<span class="msg">${text}</span>`;
+        chat_screen.innerHTML += `<span className="msg">${text}</span>`;
         setText("");
     }
 
@@ -19,13 +19,13 @@ const ChatWindow = () => {
     
     <>
         <div id="chat-screen"></div>
-        <div className='chat-buttons flex '>
+        <div className='chat-buttons flex bottom-right-corner'>
             
-            <button className="ellipsis margin-rit-half grow1"><i class="fa-solid fa-plus txt-black"></i></button>
+            <button className="ellipsis margin-rit-half grow1"><i className="fa-solid fa-plus txt-white"></i></button>
             <form action="" className='grow10' onSubmit={createMessage}>
                 <input className='chat-input-box' type="text" value={text} onChange={onchange}/>
             </form>
-            <button className="ellipsis margin-lft-half grow1" onClick={createMessage}><i class="fa-solid fa-arrow-right"></i></button>
+            <button className="ellipsis margin-lft-half grow1" onClick={createMessage}><i className="fa-solid fa-arrow-right txt-white"></i></button>
         
         </div>
     </>

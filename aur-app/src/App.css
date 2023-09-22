@@ -5,15 +5,16 @@
 
 body{
   font-size: 16px;
+  font-family: "Poppins","Lato", sans-serif;
   background-image: linear-gradient(#027a6d,#13547A);
   height: 100vh;
   overflow: hidden;
 }
 
 .txt-black{color: black;}
-.txt-white{color: #ffffff;}
+.txt-white{color: #fcf2f2c5;}
 .txt-gray{color: #717275;}
-.txt-dark-blue, .onhover-txt-dark-blue:hover{color: #13547A;}
+.txt-dark-blue, .onhover-txt-dark-blue:hover{background-color: #5c7481;}
 .txt-light-blue{color: #80D0C7;}
 
 .bg-vlight-blue{background-color: #f0f8ff;}
@@ -24,27 +25,77 @@ body{
 .margin-rit-half{margin-right: 0.5rem;}
 .margin-lft-half{margin-left: 0.5rem;}
 
-.container{
+.margin-tb1{margin: 1rem 0rem;}
+.margin-tb2{margin: 2rem 0rem;}
+
+.btn{
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: block;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.app-window{
   height: 90vh;
-  width: 50%;
+  width: 90%;
   margin: auto;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   border-radius: 1rem;
-  background-color: #6eaa6e;
+  background-color: #141d20;
+}
+
+.homePage{
+  margin: 8rem auto;
+  width: 50%;
+  font-weight: 600;
+}
+
+.loginForm{
+  padding: 2rem 5rem;
+  padding-left: 9rem;
+  font-size: 1.25rem;
+  color: #fcf2f2c5;
+}
+
+.display-inline-block{display: inline-block;}
+
+.home-container{
+  height: 100%;
+  width: 40%;
+  border-right: 1px solid #202c33;
+}
+
+.user-window-container{
+  height: 90vh;
+  width: 100%;
+  border-radius: 1rem;
+  /* background-color: #6eaa6e; */
 }
 
 nav{
   padding: 1rem;
-  background-color: #717275;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  background-color: #2b3b44;
   height: 10%;
 }
 
 .flex{
   display: flex;
+}
+
+.align-center{
   align-items: center;
+}
+
+.txt-center{
+  text-align: center;
+}
+
+.flex-vertical{
+  flex-direction: column;
 }
 
 .space-between{
@@ -52,7 +103,7 @@ nav{
 }
 
 
-.user{
+.profile-icon{
   font-size: 1.25rem;
   border-radius: 2rem;
   border: 0.2rem solid black;
@@ -65,37 +116,38 @@ nav{
   background-color: transparent;
   border: none;
   border-radius: 1.5rem;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   font-size: 1.25rem;
 }
 
-.ellipsis:hover{
+.ellipsis-hover:hover{
   background-color: #717275;
 }
 
 #chat-screen{
-  background-color: #6eaa6e;
-  /* background-image: url("./peakpx.jpg"); */
+  /* background-color: #6eaa6e; */
+  background-image: url("https://wallpaperaccess.com/full/2224368.png");
   height: 80%;
   overflow-y: auto;
 }
 
 .chat-buttons{
   padding: 1rem 1.25rem;
-  background-color: gray;
+  background-color: #202c33;
   height: 10%;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
 }
 
 .chat-input-box{
   padding: 1rem;
-  background-color: #717275;
+  background-color: #2a3942;
   border-radius: 1rem;
   font-size: 1rem;
+  color: #fcf2f2c5;
   outline: none;
+  height: 100%;
   width: 100%;
+  border: none;
 }
 
 .grow1{flex-grow: 1;}
@@ -108,4 +160,29 @@ nav{
   clear: both;
   margin: 1rem 1rem 0.05rem;
   border-radius: 0.5rem;
+}
+
+.top-left-corner{border-top-left-radius: 1rem;}
+.top-right-corner{border-top-right-radius: 1rem;}
+.bottom-left-corner{border-bottom-left-radius: 1rem;}
+.bottom-right-corner{border-bottom-right-radius: 1rem;}
+
+.user-chat-button{
+  width: 100%;
+  padding: 1.75rem 1rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #fcf2f2c5;
+  text-decoration: none;
+  border-bottom: 2px solid #202c33;
+}
+
+.user-chat-button:hover{
+  background-color: #2b3b44;
+}
+
+.chats-panel{
+  height: 90%;
+  width: 100%;
+  /* padding: 1rem; */
 }
