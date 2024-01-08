@@ -11,7 +11,7 @@ const ChatWindow = () => {
     const createMessage = (e) => {
         e.preventDefault();
         const chat_screen = document.querySelector("#chat-screen");
-        chat_screen.innerHTML += `<span className="msg">${text}</span>`;
+        chat_screen.innerHTML += `<span class="msg">${text}</span>`;
         setText("");
     }
 

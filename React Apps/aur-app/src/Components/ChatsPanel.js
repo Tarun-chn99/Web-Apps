@@ -8,7 +8,7 @@ const ChatsPanel = (props) => {
             
             <Navbar userName={props.userName} side="left"/>
             <div className='chats-panel flex flex-vertical'>
-                <User name="Tarun" />
+                <User name="Anna" />
             </div>
         </div>
     )

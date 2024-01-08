@@ -52,20 +52,20 @@ const Notes = (props) => {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                <form className='my-4'>
-                    <div className="mb-3">
-                        <label htmlFor="title" className="form-label">Title</label>
-                        <input type="text" className="form-control" id="title" name="title" value={note.title} onChange={onChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="description" className="form-label">Description</label>
-                        <input type="text" className="form-control" id="description" name="description" value={note.description} onChange={onChange}/>
-                    </div>   
-                    <div className="mb-3">
-                        <label htmlFor="tag" className="form-label">Tag</label>
-                        <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onChange}/>
-                    </div>              
-                </form>
+                    <form className='my-4'>
+                        <div className="mb-3">
+                            <label htmlFor="title" className="form-label">Title</label>
+                            <input type="text" className="form-control" id="title" name="title" value={note.title} onChange={onChange} />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="description" className="form-label">Description</label>
+                            <input type="text" className="form-control" id="description" name="description" value={note.description} onChange={onChange}/>
+                        </div>   
+                        <div className="mb-3">
+                            <label htmlFor="tag" className="form-label">Tag</label>
+                            <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onChange}/>
+                        </div>              
+                    </form>
                 </div>
                 <div className="modal-footer">
                     <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

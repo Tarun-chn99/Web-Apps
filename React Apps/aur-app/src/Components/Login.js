@@ -94,7 +94,7 @@ const Login = (props) => {
           </>
           :
           <>
-          <input type="text" name="name" className="chat-input-box margin-tb1 txt-white" value={props.userName} onChange={onChange} placeholder="Enter Name..." />
+          <input type="text" name="name" className="chat-input-box margin-tb1 txt-white" value={props.userName} onChange={onChange} placeholder="Enter Name..." required />
           <Link className="ellipsis margin-lft-half grow1" aria-current="page" to="/loggedIn"><i className="fa-solid fa-arrow-right txt-white"></i></Link>
           </> 
         }

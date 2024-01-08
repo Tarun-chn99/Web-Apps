@@ -1,6 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = (props) => {
+
+  const naviate = useNavigate();
+  const handleLogout = () => {
+    naviate('/login');
+  }
+
   return (
 
     <nav className={`flex space-between top-${props.side==="left" ? "left" : "right"}-corner`} >
@@ -14,6 +21,7 @@ const Navbar = (props) => {
                   <span className="txt-white" id="user"><b>{props.userName}</b></span>
                 </div>
                 <div>
+                    <button className='logout txt-white margin-rit-half' onClick={handleLogout} >Logout</button>
                     <button className="ellipsis margin-rit-half grow1"><i className="fa-solid fa-plus txt-white"></i></button>
                     <button className="ellipsis"><i className="fa-solid fa-ellipsis-vertical txt-white"></i></button>
                 </div> 
