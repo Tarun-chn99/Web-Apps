@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar';
 import ChatWindow from './ChatWindow';
 
 const UserWindow = (props) => {
+
   return (
     <div className="user-window-container">
 

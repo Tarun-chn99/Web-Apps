@@ -1,10 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
 
   const naviate = useNavigate();
   const handleLogout = () => {
+    localStorage.removeItem("accessToken");
     naviate('/login');
   }
 

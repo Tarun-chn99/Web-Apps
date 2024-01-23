@@ -1,57 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import app from './authorize/firebase';
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber  } from "firebase/auth";
 import 'firebase/auth';
 
 const Login = (props) => {
   
+    const navigate = useNavigate();
+    const auth = getAuth(app);
     const [number, setNumber] = useState('+91 ');
     const [otp, setOtp] = useState("");
     const [flag, setflag] = useState(0);
     const [promise, setpromise] = useState("");
-    const auth = getAuth(app);
     const [loggedin, setloggedin] = useState(false);
-    // const [name, setname] = useState("");
+    const [userId, setUserId] = useState('');
 
     const setUpRecaptcha = async () => {
 
         window.RecaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        size: 'invisible',
+        size: 'visible',
         callback: (response) => {console.log("Captcha resolved!")},
         'expired-callback': () => {console.log("expired captcha");}
       }
      );  
     }
 
-    useEffect(() => {
+
+  //useEffect will call setUpRecaptcha() after loading of the component
+  useEffect(() => {
       setUpRecaptcha(); 
       // eslint-disable-next-line
     }, [])
     
-    const verifyOtp = (confirmationResult) => {
+
+  //This function is responsible for verification of otp given by client for login
+  const verifyOtp = (confirmationResult) => {
    
             const code = otp;
             confirmationResult.confirm(code).then((result) => {
             // User signed in successfully.
             const user = result.user;
+            setUserId(user.uid);
             console.log("User is signed in",user);
+            localStorage.setItem('accessToken',user.accessToken);
             setloggedin(true);
            }).catch((error) => {console.log(error)});
-    }
+  }
 
-    const handleOtpSubmit = (e) => {
-
+  //It handles otp submit request
+  const handleOtpSubmit = (e) => {
     e.preventDefault();
-    console.log("inside otp submit")
     verifyOtp(promise);
-    setNumber("");
-    setOtp("");
-    };
-
-    // const handleUserName = (e) => {
-    //   e.preventDefault();
-    // }
+  };
 
   const onChange = (e) => {
     
@@ -65,14 +65,39 @@ const Login = (props) => {
     setOtp(e.target.value);
   }
 
+  //This function sends the otp to client when number is submitted.
   const handleNumberSubmit = async (e) => {
+
     e.preventDefault();
     setflag(1); 
 
     const appVerifier = window.RecaptchaVerifier;
     const pr = await signInWithPhoneNumber(auth, number, appVerifier);
     setpromise(pr);
-    console.log("otp sent")
+  }
+
+  // Create user in database performing fetch() operation
+  const loginUser = async () => {
+
+    try{
+
+        const response = await fetch(`http://localhost:5000/api/auth/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({uid: userId,name: props.userName,contact: number}) 
+        });
+        const json =  await response.json(); 
+        setNumber("");
+        setOtp("");
+        console.log(json);
+        if(json.success)
+        navigate('/loggedIn');
+
+      }catch(error){
+        console.log(error.message);
+      }
   }
 
   return (
@@ -95,12 +120,12 @@ const Login = (props) => {
           :
           <>
           <input type="text" name="name" className="chat-input-box margin-tb1 txt-white" value={props.userName} onChange={onChange} placeholder="Enter Name..." required />
-          <Link className="ellipsis margin-lft-half grow1" aria-current="page" to="/loggedIn"><i className="fa-solid fa-arrow-right txt-white"></i></Link>
+          <Link className="ellipsis margin-lft-half grow1" aria-current="page" to="/login" onClick={loginUser}>
+            <i className="fa-solid fa-arrow-right txt-white"></i>
+          </Link>
           </> 
         }
         
-        
-
       </form>
 
       <div id="recaptcha-container"></div>

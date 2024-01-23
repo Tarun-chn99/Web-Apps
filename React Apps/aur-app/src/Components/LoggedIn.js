@@ -1,19 +1,21 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import UserWindow from './UserWindow';
 import ChatsPanel from './ChatsPanel'
 import { Routes, Route } from 'react-router-dom';
 
 
 const LoggedIn = (props) => {
+
+  const [activeReciever, setactiveReciever] = useState("");
   return (
     <>
-        <ChatsPanel userName={props.userName} setUserName={props.setUserName}/>
+        <ChatsPanel userName={props.userName} setactiveReciever ={setactiveReciever}/>
         <Routes>
           <Route  exact path = '/'     element={<UserWindow load="home"/>}  />
-          <Route  exact path = '/user' element={<UserWindow load="user" userName={props.userName}/>}  />
+          <Route  exact path = '/user' element={<UserWindow load="user" userName={activeReciever}/>}  />
         </Routes>
     </>
   )
 }
 
-export default LoggedIn
+export default LoggedIn;

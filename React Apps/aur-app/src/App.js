@@ -3,27 +3,28 @@ import {BrowserRouter as Router, Routes,Route} from 'react-router-dom';
 import { useState } from 'react';
 import Home from './Components/Home';
 import LoggedIn from './Components/LoggedIn';
-import Login from './Components/Login';
+import Login from './Components/LoginForm';
+import UserState from './context/userState';
 
 function App() {
 
-  const [userName, setUserName] = useState("");
-  // const [aciveUser, setAciveUser] = useState("");
-  
+  const [userName, setUserName] = useState("");  
   return (
-    <Router>
+    <UserState>
+      <Router>
 
-      <div className='flex app-window' style={{borderRadius:"1rem"}}>
-        
-        <Routes>
-          <Route exact path='/' element={<Home/>}/>
-          <Route exact path='/login' element={<Login userName={userName} setUserName={setUserName}/>}/>          
-          <Route exact path='/loggedIn/*' element={<LoggedIn userName={userName} setUserName={setUserName}/>}/>
-        </Routes>
+        <div className='flex app-window' style={{borderRadius:"1rem"}}>
+          
+          <Routes>
+            <Route exact path='/' element={<Home/>}/>
+            <Route exact path='/login' element={<Login userName={userName} setUserName={setUserName}/>}/>          
+            <Route exact path='/loggedIn/*' element={<LoggedIn userName={userName} setUserName={setUserName}/>}/>
+          </Routes>
 
-      </div>
-   
-    </Router>
+        </div>
+    
+      </Router>
+    </UserState>
   );
 }
 

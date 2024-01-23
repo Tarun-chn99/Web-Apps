@@ -192,7 +192,8 @@ nav{
 }
 
 .chats-panel{
-  height: 90%;
+  height: auto;
   width: 100%;
+  /* overflow-y: scroll; */
   /* padding: 1rem; */
 }
