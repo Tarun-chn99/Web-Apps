@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import userContext from '../context/userContext';
 
-const ChatWindow = () => {
+const ChatWindow = (props) => {
 
+    const context = useContext(userContext);
+    const {userId,saveMessage} = context;
     const [text, setText] = useState("");
+    const {recieverId} = props;
 
     const onchange = (e) => {
         setText(e.target.value);
@@ -12,6 +16,7 @@ const ChatWindow = () => {
         e.preventDefault();
         const chat_screen = document.querySelector("#chat-screen");
         chat_screen.innerHTML += `<span class="msg">${text}</span>`;
+        saveMessage(userId,recieverId,text);
         setText("");
     }
 

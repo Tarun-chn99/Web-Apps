@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const users = require('../models/User');
+const chats = require('../models/userChat');
+const usersactivechats = require('../models/usersactivechats');
 
 // Route 1: End point to create user in db
 
@@ -28,5 +30,72 @@ router.post('/',async (req,res) => {
     }
 });
 
+// Route 2: End point to get all active chats of the client
+
+router.get('/getActiveChats', async(req,res) => {
+
+    try{
+        console.log(req.headers.uid);
+        let user = await usersactivechats.findOne({uid: req.headers.uid});
+        console.log(user);
+        res.json(user.activeChats);
+    }
+    catch(error){
+        console.log(error.message);
+        res.status(500).send("internal server error occured");
+    }
+ 
+
+});
+
+// Route 3: End point to save users chats
+
+router.post('/saveMessage', async (req,res) => {
+
+    try{
+
+        let chat = await chats.findOne({recieverId: req.body.reciever});
+        console.log("Inside try part of saveMessage Api");
+
+        if(chat){
+
+            await chats.findOneAndUpdate(
+                { recieverId: req.body.reciever },
+                { $push: { msg: req.body.msg } }
+            );
+        }
+        else{
+
+            await chats.create({
+                senderId: req.body.sender,
+                recieverId: req.body.reciever,
+                msg: [req.body.msg]
+            });  
+        }
+        res.json({Success:"True",Message:"New message saved"}); 
+
+    }
+    catch(error){
+        console.log(error.message);
+        res.status(500).send("Internal server error occured");
+    }
+})
+
+//Route 4: End Point to get all the messages for the activeReciever
+
+router.get('/getChatMessages', async(req,res) => {
+    console.log(req.headers.recieverid);
+    try{
+        const activeRecieverChat = await chats.findOne({recieverId: req.headers.recieverid});
+        console.log(activeRecieverChat);
+        res.json(activeRecieverChat.msg);
+
+    }
+    catch(error){
+        console.log(error.message);
+        res.status(500).send("Internal server error occured");
+    }
+
+})
 
 module.exports = router;

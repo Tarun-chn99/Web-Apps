@@ -1,18 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from './Navbar';
 import User from './User';
+import userContext from '../context/userContext';
 
 const ChatsPanel = (props) => {
 
+    const context = useContext(userContext);
+    const {activeChats} = context;
+
+    useEffect(() => {
+        console.log(activeChats);
+    }, [])
+    
+    
     return(
         <div className='home-container'>
             
             <Navbar userName={props.userName} side="left"/>
             {/* <input type='text' name='users' className=''/> */}
             <div className='chats-panel flex flex-vertical'>
-                <User name="Tanisha" setactiveReciever={props.setactiveReciever}/>
-                <User name="Tarun" setactiveReciever={props.setactiveReciever}/>
-                <User name="Ashish" setactiveReciever={props.setactiveReciever}/>
+                {activeChats.map((users) => {
+                    return <User name={users.name} recieverId={users.recieverId} setactiveReciever={props.setactiveReciever} key={users._id}/>
+                })}
             </div>
         </div>
     )

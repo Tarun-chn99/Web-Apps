@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import app from './authorize/firebase';
 import {Link,useNavigate} from 'react-router-dom'
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber  } from "firebase/auth";
 import 'firebase/auth';
+import userContext from '../context/userContext';
 
 const Login = (props) => {
   
+    const context = useContext(userContext);
+    const {userId,setUserId,getActiveChats} = context;
+
     const navigate = useNavigate();
     const auth = getAuth(app);
     const [number, setNumber] = useState('+91 ');
@@ -13,7 +17,6 @@ const Login = (props) => {
     const [flag, setflag] = useState(0);
     const [promise, setpromise] = useState("");
     const [loggedin, setloggedin] = useState(false);
-    const [userId, setUserId] = useState('');
 
     const setUpRecaptcha = async () => {
 
@@ -30,7 +33,13 @@ const Login = (props) => {
   useEffect(() => {
       setUpRecaptcha(); 
       // eslint-disable-next-line
-    }, [])
+    }, []);
+
+  useEffect(()=>{
+    // console.log("UserId is updated : ", userId);
+    if(userId!="")
+    getActiveChats(userId);
+  },[userId]);
     
 
   //This function is responsible for verification of otp given by client for login
@@ -38,12 +47,14 @@ const Login = (props) => {
    
             const code = otp;
             confirmationResult.confirm(code).then((result) => {
-            // User signed in successfully.
-            const user = result.user;
-            setUserId(user.uid);
-            console.log("User is signed in",user);
-            localStorage.setItem('accessToken',user.accessToken);
-            setloggedin(true);
+            
+              // User signed in successfully.
+              const user = result.user;
+              setUserId(user.uid);
+              // console.log("User is signed in",user);
+              localStorage.setItem('accessToken',user.accessToken);
+              setloggedin(true);
+
            }).catch((error) => {console.log(error)});
   }
 
@@ -91,7 +102,7 @@ const Login = (props) => {
         const json =  await response.json(); 
         setNumber("");
         setOtp("");
-        console.log(json);
+        // console.log(json);
         if(json.success)
         navigate('/loggedIn');
 

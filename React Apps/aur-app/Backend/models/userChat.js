@@ -7,20 +7,15 @@ const chatSchema = mongoose.Schema({
         required: true,
         unique: true
     },    
-    RecieverId: {
+    recieverId: {
         type: String,
         required: true,
         unique: true
     },
-    msgId: {
-        type: Number,
-        required: true,
-        unique: true
-    },
-    msg: {
+    msg: [{
         type: String,
         require: true
-    }
+    }]
 },  {timestamps: true});
 
 module.exports = mongoose.model('chats',chatSchema);
