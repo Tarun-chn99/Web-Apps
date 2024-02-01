@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import User from './User';
 import userContext from '../context/userContext';
@@ -6,12 +6,7 @@ import userContext from '../context/userContext';
 const ChatsPanel = (props) => {
 
     const context = useContext(userContext);
-    const {activeChats} = context;
-
-    useEffect(() => {
-        console.log(activeChats);
-    }, [])
-    
+    const {activeChats} = context; 
     
     return(
         <div className='home-container'>
@@ -20,7 +15,7 @@ const ChatsPanel = (props) => {
             {/* <input type='text' name='users' className=''/> */}
             <div className='chats-panel flex flex-vertical'>
                 {activeChats.map((users) => {
-                    return <User name={users.name} recieverId={users.recieverId} setactiveReciever={props.setactiveReciever} key={users._id}/>
+                    return <User name={users.name} recieverId={users.recieverId} setReciever={props.setReciever} key={users._id}/>
                 })}
             </div>
         </div>

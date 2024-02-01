@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Navbar from './Navbar';
 import ChatWindow from './ChatWindow';
 

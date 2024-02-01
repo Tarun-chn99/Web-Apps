@@ -37,7 +37,6 @@ router.get('/getActiveChats', async(req,res) => {
     try{
         console.log(req.headers.uid);
         let user = await usersactivechats.findOne({uid: req.headers.uid});
-        console.log(user);
         res.json(user.activeChats);
     }
     catch(error){
@@ -87,9 +86,10 @@ router.get('/getChatMessages', async(req,res) => {
     console.log(req.headers.recieverid);
     try{
         const activeRecieverChat = await chats.findOne({recieverId: req.headers.recieverid});
-        console.log(activeRecieverChat);
+        if(activeRecieverChat)
         res.json(activeRecieverChat.msg);
-
+        else
+        res.json([]);
     }
     catch(error){
         console.log(error.message);

@@ -1,16 +1,32 @@
 import './App.css';
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Home from './Components/Home';
 import LoggedIn from './Components/LoggedIn';
 import LoginForm from './Components/LoginForm';
 import UserState from './context/UserState';
+import {io} from 'socket.io-client';
 
 function App() {
 
+  const socket = io('http://localhost:5000');
   const [userName, setUserName] = useState("");  
+
+  useEffect(() => {
+
+    sendMessage();
+    return () => {
+      socket.disconnect();
+    };
+    // eslint-disable-next-line
+  }, []);
+  
+  const sendMessage = () => {
+    socket.emit('chat-message', 'Hello, Server!');
+  };
+
   return (
-    <UserState>
+    <UserState socket={socket}>
       <Router>
 
         <div className='flex app-window' style={{borderRadius:"1rem"}}>

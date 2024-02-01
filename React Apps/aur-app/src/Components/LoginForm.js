@@ -21,7 +21,7 @@ const Login = (props) => {
     const setUpRecaptcha = async () => {
 
         window.RecaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        size: 'visible',
+        size: 'invisible',
         callback: (response) => {console.log("Captcha resolved!")},
         'expired-callback': () => {console.log("expired captcha");}
       }
@@ -34,11 +34,11 @@ const Login = (props) => {
       setUpRecaptcha(); 
       // eslint-disable-next-line
     }, []);
-
+    
   useEffect(()=>{
-    // console.log("UserId is updated : ", userId);
-    if(userId!="")
+    if(userId!=="")
     getActiveChats(userId);
+    // eslint-disable-next-line
   },[userId]);
     
 
@@ -104,7 +104,7 @@ const Login = (props) => {
         setOtp("");
         // console.log(json);
         if(json.success)
-        navigate('/loggedIn');
+        navigate('/loggedIn/home');
 
       }catch(error){
         console.log(error.message);

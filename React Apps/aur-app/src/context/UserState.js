@@ -6,6 +6,8 @@ const UserState = (props) => {
   const host = "http://localhost:5000";
   const [activeChats, setactiveChats] = useState([]);
   const [userId,setUserId] = useState("");
+  const {socket} = props.socket;
+
   
   const getActiveChats = async (uid) => {
 
@@ -36,7 +38,8 @@ const UserState = (props) => {
             }
         });
         const json = await response.json();
-        console.log(json);
+        return json;
+
     }
     catch(error){
         console.log("Error in getChatMessages");
@@ -65,7 +68,7 @@ const UserState = (props) => {
 
 
   return(
-        <userContext.Provider value={{activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>
+        <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>
             {props.children}
         </userContext.Provider>
     );
