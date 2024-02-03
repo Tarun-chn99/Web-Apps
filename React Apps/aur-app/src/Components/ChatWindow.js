@@ -1,42 +1,54 @@
-import React, { useState,useContext } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import userContext from '../context/userContext';
 
 const ChatWindow = (props) => {
 
     const context = useContext(userContext);
-    const {userId,saveMessage} = context;
+    const {userId,saveMessage,socket} = context;
     const [text, setText] = useState("");
-    const {recieverId,chat} = props.reciever;
+    const {recieverId,chat,name} = props.reciever;
+    let reciever_chat = chat;
+    const [message,setMessage] = useState(reciever_chat);
 
     const onchange = (e) => {
         setText(e.target.value);
     }
 
-    // useEffect(() => {
-    //     return () => {
-    //         const chat_screen = document.querySelector("#chat-screen");
-    //         chat_screen.innerHTML = "";   
-    //     }
-
-    // },[msg]);
+    useEffect(() => {
+        const messageHandler = (msg, user) => {
+           console.log(`Message to ${user}: `, msg);
+           console.log("reciever_chat: ", reciever_chat);
+           reciever_chat.push({
+              message: msg,
+              side: 'float-lft'
+           });
+           setMessage([...reciever_chat]); // Create a new array to trigger re-render
+           saveMessage(userId,recieverId,msg,'float-lft');
+        };
+     
+        socket.on('message', messageHandler);
+        return () => {
+           socket.off('message', messageHandler); // Cleanup when the component is unmounted
+        };
+     }, [socket, reciever_chat]); 
 
     const createMessage = (e) => {
         e.preventDefault();
         const chat_screen = document.querySelector("#chat-screen");
-        chat_screen.innerHTML += `<span class="msg">${text}</span>`;
-        // setindex(index+1);
-        saveMessage(userId,recieverId,text);
+        chat_screen.innerHTML += `<span class="msg float-rit">${text}</span>`;
+        socket.emit('message',text,recieverId,name);
+        saveMessage(userId,recieverId,text,'float-rit');
         setText("");
     }
+
+
 
     return (
     
     <>
         <div id="chat-screen">
-            {chat.map((val,index) => {
-                // console.log("Iniside map");
-                // setindex(index+1);
-                return <span className="msg" key={index}>{val}</span>
+            {message.map((val,index) => {
+                return <span className={`msg ${val.side}`} key={index}>{val.message}</span>
             })}
         </div>
         <div className='chat-buttons flex bottom-right-corner'>

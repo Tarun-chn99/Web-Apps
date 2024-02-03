@@ -1,13 +1,39 @@
 import userContext from './userContext';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import {io} from 'socket.io-client';                                            //  io - function to create connection to server
+
 
 const UserState = (props) => {
   
   const host = "http://localhost:5000";
   const [activeChats, setactiveChats] = useState([]);
   const [userId,setUserId] = useState("");
-  const {socket} = props.socket;
+//   const {socket} = props;
 
+  const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
+ 
+  
+  useEffect(() => {
+
+    socket.on('connect', () => {
+        console.log('Socket connected!');
+        sendMessage();
+        if(userId !== "")
+        socket.emit('setUserId', userId);
+      });
+
+
+
+      return () => {
+      console.log("Socket disconnected");
+      socket.disconnect();                                                       //  Socket is disconnected once the component is unmounted.
+    };
+    // eslint-disable-next-line
+  }, [userId]);
+
+  const sendMessage = () => {
+    socket.emit('client-connection', 'Socket is established !!');
+  };
   
   const getActiveChats = async (uid) => {
 
@@ -46,7 +72,7 @@ const UserState = (props) => {
     }
   }
 
-  const saveMessage = async (sender,reciever,msg) => {
+  const saveMessage = async (sender,reciever,msg,side) => {
 
     try{
 
@@ -55,7 +81,7 @@ const UserState = (props) => {
             headers:{
                 "content-type" : "application/json"
             },
-            body: JSON.stringify({sender,reciever,msg})
+            body: JSON.stringify({sender,reciever,msg,side})
         });
         const json = await response.json();
         console.log(json);

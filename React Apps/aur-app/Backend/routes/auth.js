@@ -35,7 +35,6 @@ router.post('/',async (req,res) => {
 router.get('/getActiveChats', async(req,res) => {
 
     try{
-        console.log(req.headers.uid);
         let user = await usersactivechats.findOne({uid: req.headers.uid});
         res.json(user.activeChats);
     }
@@ -54,24 +53,33 @@ router.post('/saveMessage', async (req,res) => {
     try{
 
         let chat = await chats.findOne({recieverId: req.body.reciever});
-        console.log("Inside try part of saveMessage Api");
 
         if(chat){
 
             await chats.findOneAndUpdate(
                 { recieverId: req.body.reciever },
-                { $push: { msg: req.body.msg } }
+                { $push: {
+                        msg: {  
+                            message: req.body.msg,
+                            side: req.body.side
+                        }
+                    }
+                }
             );
+            res.json({Success:"True",Message:"New message saved"}); 
         }
         else{
 
             await chats.create({
                 senderId: req.body.sender,
                 recieverId: req.body.reciever,
-                msg: [req.body.msg]
+                msg: [{
+                    message: req.body.msg,
+                    side: req.body.side
+                }]
             });  
+            res.json({Success:"True",Message:"New message saved"}); 
         }
-        res.json({Success:"True",Message:"New message saved"}); 
 
     }
     catch(error){
@@ -83,7 +91,7 @@ router.post('/saveMessage', async (req,res) => {
 //Route 4: End Point to get all the messages for the activeReciever
 
 router.get('/getChatMessages', async(req,res) => {
-    console.log(req.headers.recieverid);
+
     try{
         const activeRecieverChat = await chats.findOne({recieverId: req.headers.recieverid});
         if(activeRecieverChat)

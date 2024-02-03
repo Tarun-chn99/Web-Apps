@@ -17,14 +17,37 @@ const io = new Server(server, {
 const port = 5000;
 app.use(cors());
 app.use(express.json());
-
 app.use('/api/auth', require('./routes/auth'));
 
+let userSockets={};
+
 io.on('connection', socket => {
-  socket.on('chat-message', msg => {
-    console.log(`message: ${msg}`)
+
+  socket.on('client-connection', msg => {
+    console.log(`Message from server : ${msg}`)
   });
+
+  socket.on('setUserId', (userId) => {
+    userSockets[userId] = socket.id;
+    console.log(`User with ID ${userId} is associated with socket ID ${socket.id}`);
+  });
+
+  socket.on('message', (msg,recieverId,name) => {
+    console.log(`Message to ${name} : `,msg );
+    console.log("Current users : ",userSockets);
+    sendMessageToUser(recieverId,msg,name);
+  })
+
 });
+
+function sendMessageToUser(userId, message,name) {
+  const userSocketId = userSockets[userId];
+  if (userSocketId) {
+    io.to(userSocketId).emit('message', message,name);
+  } else {
+    console.log(`User with ID ${userId} not found`);
+  }
+}
 
 server.listen(port, () => {
   console.log(`AurApp app listening on port http://localhost:${port}`);

@@ -5,28 +5,33 @@ import Home from './Components/Home';
 import LoggedIn from './Components/LoggedIn';
 import LoginForm from './Components/LoginForm';
 import UserState from './context/UserState';
-import {io} from 'socket.io-client';
+// import {io} from 'socket.io-client';                                            //  io - function to create connection to server
+
 
 function App() {
-
-  const socket = io('http://localhost:5000');
+  
+  // const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
   const [userName, setUserName] = useState("");  
 
-  useEffect(() => {
+  // socket.on('connect', () => {
+  //   console.log('Socket connected!');
+  //   sendMessage();
+  // });
 
-    sendMessage();
-    return () => {
-      socket.disconnect();
-    };
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("Socket disconnected");
+  //     socket.disconnect();                                                       //  Socket is disconnected once the component is unmounted.
+  //   };
+  //   // eslint-disable-next-line
+  // }, []);
   
-  const sendMessage = () => {
-    socket.emit('chat-message', 'Hello, Server!');
-  };
+  // const sendMessage = () => {
+  //   socket.emit('client-connection', 'Socket is established !!');
+  // };
 
   return (
-    <UserState socket={socket}>
+    <UserState>
       <Router>
 
         <div className='flex app-window' style={{borderRadius:"1rem"}}>

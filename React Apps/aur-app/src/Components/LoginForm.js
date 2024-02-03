@@ -8,7 +8,7 @@ import userContext from '../context/userContext';
 const Login = (props) => {
   
     const context = useContext(userContext);
-    const {userId,setUserId,getActiveChats} = context;
+    const {userId,setUserId,getActiveChats,socket} = context;
 
     const navigate = useNavigate();
     const auth = getAuth(app);
@@ -103,9 +103,11 @@ const Login = (props) => {
         setNumber("");
         setOtp("");
         // console.log(json);
-        if(json.success)
-        navigate('/loggedIn/home');
-
+        if(json.success){
+          // socket.emit('setUserId', userId);
+          navigate('/loggedIn/home');
+        }
+      
       }catch(error){
         console.log(error.message);
       }

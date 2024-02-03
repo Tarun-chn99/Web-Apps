@@ -166,10 +166,18 @@ nav{
 .msg{
   padding: 1rem;
   background-color: #717275;
-  float: right;
-  clear: both;
   margin: 1rem 1rem 0.05rem;
   border-radius: 0.5rem;
+}
+
+.float-lft{
+  float: left;
+  clear: both;
+}
+
+.float-rit{
+  float: right;
+  clear: both;
 }
 
 .top-left-corner{border-top-left-radius: 1rem;}

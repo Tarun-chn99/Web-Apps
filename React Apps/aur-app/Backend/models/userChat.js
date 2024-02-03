@@ -11,8 +11,14 @@ const chatSchema = mongoose.Schema({
         required: true,
     },
     msg: [{
-        type: String,
-        require: true
+        message: {
+            type: String,
+            required: true
+        },
+        side: {
+            type: String,
+            required: true
+        }
     }]
 },  {timestamps: true});
 
