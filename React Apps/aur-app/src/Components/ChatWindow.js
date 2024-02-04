@@ -1,6 +1,7 @@
 import React, { useState,useContext,useEffect } from 'react'
 import userContext from '../context/userContext';
 
+
 const ChatWindow = (props) => {
 
     const context = useContext(userContext);
@@ -16,32 +17,38 @@ const ChatWindow = (props) => {
 
     useEffect(() => {
         const messageHandler = (msg, user) => {
-           console.log(`Message to ${user}: `, msg);
-           console.log("reciever_chat: ", reciever_chat);
            reciever_chat.push({
               message: msg,
               side: 'float-lft'
            });
-           setMessage([...reciever_chat]); // Create a new array to trigger re-render
+           setMessage([...reciever_chat]);          // Create a new array to trigger re-render
+           playNotificationSound();
            saveMessage(userId,recieverId,msg,'float-lft');
         };
      
         socket.on('message', messageHandler);
         return () => {
-           socket.off('message', messageHandler); // Cleanup when the component is unmounted
+           socket.off('message', messageHandler);   // Cleanup when the component is unmounted
         };
+        //eslint-disable-next-line
      }, [socket, reciever_chat]); 
 
     const createMessage = (e) => {
         e.preventDefault();
-        const chat_screen = document.querySelector("#chat-screen");
-        chat_screen.innerHTML += `<span class="msg float-rit">${text}</span>`;
-        socket.emit('message',text,recieverId,name);
-        saveMessage(userId,recieverId,text,'float-rit');
-        setText("");
+        if(text!==""){
+
+            const chat_screen = document.querySelector("#chat-screen");
+            chat_screen.innerHTML += `<span class="msg float-rit">${text}</span>`;
+            socket.emit('message',text,recieverId,name);
+            saveMessage(userId,recieverId,text,'float-rit');
+            setText("");
+        }
     }
 
-
+    const playNotificationSound = () => {
+        const audio = new Audio('../whatsapp.mp3');
+        audio.play();
+      };
 
     return (
     

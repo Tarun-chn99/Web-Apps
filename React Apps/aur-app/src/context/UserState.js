@@ -11,7 +11,6 @@ const UserState = (props) => {
 //   const {socket} = props;
 
   const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
- 
   
   useEffect(() => {
 
@@ -19,10 +18,8 @@ const UserState = (props) => {
         console.log('Socket connected!');
         sendMessage();
         if(userId !== "")
-        socket.emit('setUserId', userId);
+        socket.emit('setUserId', `${userId}`);
       });
-
-
 
       return () => {
       console.log("Socket disconnected");
@@ -44,9 +41,9 @@ const UserState = (props) => {
             "content-type" : "application/json",
             "uid" : `${uid}`
         }
-    });
-    const json = await response.json();
-    setactiveChats(json);
+      });
+      const json = await response.json();
+      setactiveChats(json);
     }
     catch(error){
         console.log("Error in getActiveChats");
@@ -65,7 +62,6 @@ const UserState = (props) => {
         });
         const json = await response.json();
         return json;
-
     }
     catch(error){
         console.log("Error in getChatMessages");
@@ -75,7 +71,6 @@ const UserState = (props) => {
   const saveMessage = async (sender,reciever,msg,side) => {
 
     try{
-
         const response = await fetch(`${host}/api/auth/saveMessage`,{
             method:"POST",
             headers:{
@@ -85,7 +80,6 @@ const UserState = (props) => {
         });
         const json = await response.json();
         console.log(json);
-
     }
     catch(error){
         console.log("Error in saveMessge");

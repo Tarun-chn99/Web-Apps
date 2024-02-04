@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3000','http://localhost:3001'],  // Replace with the actual origin of your React app
+    origin: ['http://localhost:3000','http://localhost:3001','http://localhost:3002'],  // Replace with the actual origin of your React app
     methods: ['GET', 'POST'],
   },
 });
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 
-let userSockets={};
+const userSockets={};
 
 io.on('connection', socket => {
 

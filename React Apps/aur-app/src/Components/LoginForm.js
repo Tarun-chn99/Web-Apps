@@ -8,7 +8,7 @@ import userContext from '../context/userContext';
 const Login = (props) => {
   
     const context = useContext(userContext);
-    const {userId,setUserId,getActiveChats,socket} = context;
+    const {userId,setUserId,getActiveChats} = context;
 
     const navigate = useNavigate();
     const auth = getAuth(app);
