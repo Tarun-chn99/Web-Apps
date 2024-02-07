@@ -163,12 +163,31 @@ nav{
 .grow1{flex-grow: 1;}
 .grow10{flex-grow: 10;}
 
-.msg{
+/* .msg{
   padding: 1rem;
   background-color: #717275;
   margin: 1rem 1rem 0.05rem;
   border-radius: 0.5rem;
+} */
+
+.msg{
+  display: inline-block ;
+  padding: 1rem 1rem 0.5rem 1rem;
+  padding-right: 5rem;
+  background-color: #717275;
+  margin: 1rem 1rem 0.05rem;
+  height: auto;
+  width: auto;
+  font-size: 1rem;
+  border-radius: 0.5rem;
 }
+.time{
+  margin-top: -0.5rem;
+  margin-right: -4.5rem;
+  font-size: 0.65rem;
+
+}
+
 
 .float-lft{
   float: left;

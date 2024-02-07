@@ -61,7 +61,8 @@ router.post('/saveMessage', async (req,res) => {
                 { $push: {
                         msg: {  
                             message: req.body.msg,
-                            side: req.body.side
+                            side: req.body.side,
+                            time: req.body.time
                         }
                     }
                 }
@@ -75,7 +76,8 @@ router.post('/saveMessage', async (req,res) => {
                 recieverId: req.body.reciever,
                 msg: [{
                     message: req.body.msg,
-                    side: req.body.side
+                    side: req.body.side,
+                    time: req.body.time
                 }]
             });  
             res.json({Success:"True",Message:"New message saved"}); 

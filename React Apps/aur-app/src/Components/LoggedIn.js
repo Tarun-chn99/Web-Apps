@@ -23,8 +23,8 @@ const LoggedIn = (props) => {
         <ChatsPanel userName={props.userName} setReciever ={setReciever}/>
         <Routes>
           {
-            flag === 0 ?  <Route  exact path = '/home'     element={<UserWindow load="home"/>}  />
-            : <Route  exact path = '/user' element={<UserWindow load="user" reciever={activeReciever}/>}  />
+            flag === 0 ?  <Route  exact path = '/home' element={<UserWindow load="home"/>}  />
+            :             <Route  exact path = '/user' element={<UserWindow load="user" reciever={activeReciever}/>}  />
           }
         </Routes>
     </>

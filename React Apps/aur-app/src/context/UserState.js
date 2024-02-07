@@ -13,20 +13,22 @@ const UserState = (props) => {
   const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
   
   useEffect(() => {
-
-    socket.on('connect', () => {
-        console.log('Socket connected!');
+    
+    socket.on('user-connect', (val,callback) => {
+        console.log(val);
         sendMessage();
+        callback({status:"User-connect event recieved"});
         if(userId !== "")
         socket.emit('setUserId', `${userId}`);
       });
-
-      return () => {
+    
+    return () => {
       console.log("Socket disconnected");
       socket.disconnect();                                                       //  Socket is disconnected once the component is unmounted.
     };
     // eslint-disable-next-line
   }, [userId]);
+  
 
   const sendMessage = () => {
     socket.emit('client-connection', 'Socket is established !!');
@@ -68,7 +70,7 @@ const UserState = (props) => {
     }
   }
 
-  const saveMessage = async (sender,reciever,msg,side) => {
+  const saveMessage = async (sender,reciever,msg,side,time) => {
 
     try{
         const response = await fetch(`${host}/api/auth/saveMessage`,{
@@ -76,7 +78,7 @@ const UserState = (props) => {
             headers:{
                 "content-type" : "application/json"
             },
-            body: JSON.stringify({sender,reciever,msg,side})
+            body: JSON.stringify({sender,reciever,msg,side,time})
         });
         const json = await response.json();
         console.log(json);

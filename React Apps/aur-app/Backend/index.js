@@ -23,6 +23,10 @@ const userSockets={};
 
 io.on('connection', socket => {
 
+  socket.emit('user-connect','Connection Established',(response) => {
+    console.log(response.status);
+  });
+
   socket.on('client-connection', msg => {
     console.log(`Message from server : ${msg}`)
   });
@@ -32,22 +36,29 @@ io.on('connection', socket => {
     console.log(`User with ID ${userId} is associated with socket ID ${socket.id}`);
   });
 
-  socket.on('message', (msg,recieverId,name) => {
+  socket.on('messageFromSender', (msg,recieverId,name) => {
     console.log(`Message to ${name} : `,msg );
+    console.log(`Reciever ID : ${recieverId}`)
     console.log("Current users : ",userSockets);
-    sendMessageToUser(recieverId,msg,name);
-  })
-
+    // socket.emit('messageToReciever',msg,name);
+    sendMessageToReciever(recieverId,msg,name);
+  });
 });
 
-function sendMessageToUser(userId, message,name) {
-  const userSocketId = userSockets[userId];
+
+function sendMessageToReciever(Id, message,name) {
+  const userSocketId = userSockets[Id];
+  console.log('Reciever Id in sendMessageToReciever : ',Id);
+  console.log('UserSocketID of Reciever : ',userSocketId);
   if (userSocketId) {
-    io.to(userSocketId).emit('message', message,name);
+
+    io.to(userSocketId).emit('messageToReciever', message,name);
+    console.log("inside if");
   } else {
-    console.log(`User with ID ${userId} not found`);
+    console.log(`User with ID ${Id} not found`);
   }
 }
+
 
 server.listen(port, () => {
   console.log(`AurApp app listening on port http://localhost:${port}`);
