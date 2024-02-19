@@ -11,9 +11,18 @@ const chatSchema = mongoose.Schema({
         required: true,
     },
     msg: [{
-        message: {
+        
+        msgType: {
             type: String,
             required: true
+        },
+        message: {
+            type: String,
+        },
+        others: {    
+            imgUrl: {
+                type: String
+            }
         },
         side: {
             type: String,
@@ -27,3 +36,4 @@ const chatSchema = mongoose.Schema({
 },  {timestamps: true});
 
 module.exports = mongoose.model('chats',chatSchema);
+

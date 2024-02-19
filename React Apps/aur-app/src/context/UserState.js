@@ -5,13 +5,13 @@ import {io} from 'socket.io-client';                                            
 
 const UserState = (props) => {
   
-  const host = "http://localhost:5000";
+  const host = "http://localhost:5000";                                         // server IP address
   const [activeChats, setactiveChats] = useState([]);
   const [userId,setUserId] = useState("");
-//   const {socket} = props;
-
   const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
   
+  
+  // useEffect function with userId(loggedIn user) dependency
   useEffect(() => {
     
     socket.on('user-connect', (val,callback) => {
@@ -30,10 +30,13 @@ const UserState = (props) => {
   }, [userId]);
   
 
+  // Function to emit message for successful socket connection
   const sendMessage = () => {
     socket.emit('client-connection', 'Socket is established !!');
   };
   
+
+  //  Function to get list of users the client cummunicated earlier.
   const getActiveChats = async (uid) => {
 
     try{
@@ -52,6 +55,8 @@ const UserState = (props) => {
     }
   }
 
+
+  // Function to get all chat messages of a particular reciever
   const getChatMessages = async (recieverId) => {
 
     try{
@@ -70,7 +75,9 @@ const UserState = (props) => {
     }
   }
 
-  const saveMessage = async (sender,reciever,msg,side,time) => {
+
+  // Function to save message sent by sender to reciever in the database
+  const saveMessage = async (sender,reciever,type,msg,side,time) => {
 
     try{
         const response = await fetch(`${host}/api/auth/saveMessage`,{
@@ -78,7 +85,7 @@ const UserState = (props) => {
             headers:{
                 "content-type" : "application/json"
             },
-            body: JSON.stringify({sender,reciever,msg,side,time})
+            body: JSON.stringify({sender,reciever,type,msg,side,time})
         });
         const json = await response.json();
         console.log(json);
@@ -87,10 +94,9 @@ const UserState = (props) => {
         console.log("Error in saveMessge");
     }
   }
-
-
+  
   return(
-        <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>
+        <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>   
             {props.children}
         </userContext.Provider>
     );

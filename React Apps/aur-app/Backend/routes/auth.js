@@ -56,10 +56,12 @@ router.post('/saveMessage', async (req,res) => {
 
         if(chat){
 
+            if(req.body.type === 'text')
             await chats.findOneAndUpdate(
                 { recieverId: req.body.reciever },
                 { $push: {
                         msg: {  
+                            msgType: req.body.type,
                             message: req.body.msg,
                             side: req.body.side,
                             time: req.body.time
@@ -67,6 +69,20 @@ router.post('/saveMessage', async (req,res) => {
                     }
                 }
             );
+            else
+            await chats.findOneAndUpdate(
+                { recieverId: req.body.reciever },
+                { $push: {
+                        msg: {  
+                            msgType: req.body.type,
+                            others: {imgUrl: req.body.msg},
+                            side: req.body.side,
+                            time: req.body.time
+                        }
+                    }
+                }
+            );
+
             res.json({Success:"True",Message:"New message saved"}); 
         }
         else{
@@ -107,5 +123,8 @@ router.get('/getChatMessages', async(req,res) => {
     }
 
 })
+
+
+
 
 module.exports = router;
