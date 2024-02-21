@@ -107,115 +107,6 @@
         </div>
     </div> 
 
-    <script>
-
-
-        const linkElements = document.getElementsByClassName("container");
-        const alinkElements = document.getElementsByClassName("alink");
-
-
-
-        function replaceString(){
-
-            let i;
-            for(i=0; i<alinkElements.length; ++i){
-                alinkElements[i].className = alinkElements[i].className.replace(" currentLink","");
-            }
-        }
-
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.getElementById("start").style.top= "0";
-            } else {
-                document.getElementById("start").style.top = "-60px";
-            }
-            prevScrollpos = currentScrollPos;
-
-            replaceString();
-
-            let proj = linkElements[1].offsetTop;
-            let abt = linkElements[2].offsetTop;
-            let contct = linkElements[3].offsetTop;
-
-            if(currentScrollPos > proj && abt > currentScrollPos)
-            alinkElements[0].className += " currentLink";
-            else if(currentScrollPos > abt && currentScrollPos < contct)
-            alinkElements[1].className += " currentLink";
-            else if(currentScrollPos > contct)
-            alinkElements[2].className += " currentLink";
-        }
-
-
-        
-
-        
-
-        indexElement = 1;
-        
-        function navSlide(x){
-            indexElement = indexElement + x;
-            slideShow(indexElement);
-        }
-
-        function currentSlide(x){
-            indexElement=x;
-            slideShow(indexElement);
-        }
-
-
-        function slideShow(element) {
-
-            let i;
-            let photo = document.getElementsByClassName("imgs");
-            let dots = document.getElementsByClassName("dot");
-            
-            if(element > photo.length){ 
-                element = 1;
-                indexElement = 1; 
-            }
-            if(element < 1) {
-                element = photo.length;  
-                indexElement = photo.length;              
-            } 
-
-            document.getElementById("img-1").src = photo[element-1].src;
-            
-            for(i=0; i<dots.length; ++i){
-                dots[i].className = dots[i].className.replace(" active","");
-            }
-
-            dots[element-1].className += " active"; 
-        }
-
-
-        function slide(element){
-
-            let dots = document.getElementsByClassName("dot");
-            for(i=0; i<dots.length; ++i){
-                dots[i].className = dots[i].className.replace(" active","");
-            }
-            let pos = element.id;
-            indexElement = Number(pos);
-            dots[pos-1].className += " active";
-            document.getElementById("img-1").src = element.src;
-            document.getElementById("slideshow01").style.display="Block";
-            // document.getElementById("project").style.filter = blur("16px");  Don't know why it is not blurring the background.
-         }
-        
-     
-        function theclose(){
-        document.getElementById("slideshow01").style.display='none';
-        }
-
-    </script>
-
-
-
-
-
     <!--                        About                       -->
 
     <div class="container">
@@ -290,9 +181,103 @@
         <p>Powered by <a href="" class="white">w3.css</a></p>
     </div>
 
+    
+<script>
+    
+        const linkElements = document.getElementsByClassName("container");
+        const alinkElements = document.getElementsByClassName("alink");
+    
+        function replaceString(){
+
+            let i;
+            for(i=0; i<alinkElements.length; ++i){
+                alinkElements[i].className = alinkElements[i].className.replace(" currentLink","");
+            }
+        }
+
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("start").style.top= "0";
+            } else {
+                document.getElementById("start").style.top = "-60px";
+            }
+            prevScrollpos = currentScrollPos;
+
+            replaceString();
+
+            let proj = linkElements[1].offsetTop;
+            let abt = linkElements[2].offsetTop;
+            let contct = linkElements[3].offsetTop;
+
+            if(currentScrollPos > proj && abt > currentScrollPos)
+            alinkElements[0].className += " currentLink";
+            else if(currentScrollPos > abt && currentScrollPos < contct)
+            alinkElements[1].className += " currentLink";
+            else if(currentScrollPos > contct)
+            alinkElements[2].className += " currentLink";
+        }
+        
+        indexElement = 1;
+        
+        function navSlide(x){
+            indexElement = indexElement + x;
+            slideShow(indexElement);
+        }
+
+        function currentSlide(x){
+            indexElement=x;
+            slideShow(indexElement);
+        }
 
 
+        function slideShow(element) {
 
+            let i;
+            let photo = document.getElementsByClassName("imgs");
+            let dots = document.getElementsByClassName("dot");
+            
+            if(element > photo.length){ 
+                element = 1;
+                indexElement = 1; 
+            }
+            if(element < 1) {
+                element = photo.length;  
+                indexElement = photo.length;              
+            } 
+
+            document.getElementById("img-1").src = photo[element-1].src;
+            
+            for(i=0; i<dots.length; ++i){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+
+            dots[element-1].className += " active"; 
+        }
+
+
+        function slide(element){
+
+            let dots = document.getElementsByClassName("dot");
+            for(i=0; i<dots.length; ++i){
+                dots[i].className = dots[i].className.replace(" active","");
+            }
+            let pos = element.id;
+            indexElement = Number(pos);
+            dots[pos-1].className += " active";
+            document.getElementById("img-1").src = element.src;
+            document.getElementById("slideshow01").style.display="Block";
+            // document.getElementById("project").style.filter = blur("16px");  Don't know why it is not blurring the background.
+         }
+        
+     
+        function theclose(){
+        document.getElementById("slideshow01").style.display='none';
+        }
+
+    </script>
 
 </body>
 </html>
