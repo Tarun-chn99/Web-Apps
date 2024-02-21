@@ -9,14 +9,19 @@ const LoggedIn = (props) => {
   const [activeReciever, setactiveReciever] = useState({name:"",recieverId:"",chat:[]});
   const [flag,setFlag] = useState(0);
 
+  // callback function to set activeReciever state from inside the User Component
   const setReciever = (name,recieverId,chat) => {
     setactiveReciever({name:name,recieverId:recieverId,chat:chat});
     setFlag(0);
   }
 
   useEffect(()=>{
+    
+    if(activeReciever.name !== '')
     setFlag(1);
+
   },[activeReciever]);
+  
 
   return (
     <>

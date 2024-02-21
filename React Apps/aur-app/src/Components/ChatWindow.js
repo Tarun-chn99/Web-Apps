@@ -10,8 +10,7 @@ const ChatWindow = (props) => {
     const {recieverId,chat,name} = props.reciever;
     let reciever_chat = chat;
     const [message,setMessage] = useState(reciever_chat);
-
-
+    
     const onchange = (e) => {
         setText(e.target.value);
     }
@@ -20,47 +19,49 @@ const ChatWindow = (props) => {
     useEffect(() => {
 
         // socket listening to messageToReciever event representing sender's message
+
         socket.on('messageToReciever', (type,msg) => {
 
             const msg_time = getTime();
 
             if(type === 'text')
-            reciever_chat.push({
-                msgType: type,
-                message: msg,
-                side: 'float-lft',
-                time: msg_time
-            });
+                reciever_chat.push({
+                    msgType: type,
+                    message: msg,
+                    side: 'float-lft',
+                    time: msg_time
+                });
             else
-            reciever_chat.push({
-                msgType: type,
-                others: {imgUrl:msg},
+                reciever_chat.push({
+                    msgType: type,
+                file: msg,
                 side: 'float-lft',
                 time: msg_time
-            });
-
-        setMessage([...reciever_chat]);          // Create a new array to trigger re-render
-        playNotificationSound();
-        console.log(type);
+                });
         saveMessage(userId,recieverId,type,msg,'float-lft',msg_time);
+        setMessage([...reciever_chat]);                                             // Create a new array to trigger re-render
+        playNotificationSound();
         });
 
-        return () => {
-            socket.off('messageToReciever');   // Cleanup when the component is unmounted
-        };
+        return () =>  socket.off('messageToReciever');
         //eslint-disable-next-line
     }, [reciever_chat]); 
     
 
     // Function to create message in chat window and saving the message to the database
+
     const createMessage = (e) => {
         e.preventDefault();
         if(text!==""){
 
-            const time = getTime();
-            const chat_screen = document.querySelector("#chat-screen");
-            chat_screen.innerHTML += `<div class="msg float-rit" key={index}><div>${text}</div><span class="time float-rit">${time}<i class="fa-solid fa-check" style="color: #000000;margin-left:8px;"></i></span></div>`;
-
+            const time = getTime();            
+            reciever_chat.push({
+                msgType: 'text',
+                message: text,
+                side: 'float-rit',
+                time: time
+            });
+            setMessage([...reciever_chat]);
             socket.emit('messageFromSender','text',text,recieverId,name);
             saveMessage(userId,recieverId,'text',text,'float-rit',time);
             setText("");
@@ -68,6 +69,7 @@ const ChatWindow = (props) => {
     }
 
     // Function to get the current time
+
     const getTime = () => {
             
             const d = new Date();
@@ -79,49 +81,57 @@ const ChatWindow = (props) => {
     }
 
     // Funtion to play notification sound on recieving a message
+
     function playNotificationSound(){
         const audio = new Audio('../whatsapp.mp3');
         audio.play();
       };
 
 
-    // Function to handle the uploading of file to reciever
     const handleUploadFile = () => {
-
         let input = document.createElement('input');
         input.type = 'file';
         input.name = 'file';
         let fileObject;
-
+    
         input.onchange = function(e) {
-
             fileObject = e.target.files[0];
-            const imgUrl = URL.createObjectURL(fileObject);
-            const imgContainer = document.createElement('div');
-            const time = getTime();
+            const reader = new FileReader();
+    
+            reader.onload = function(event) {
 
-            imgContainer.innerHTML = `
+                const buffer = event.target.result; // This is the buffer
+                const imgUrl = URL.createObjectURL(fileObject);
+                const imgContainer = document.createElement('div');
+                const time = getTime();
+    
+                imgContainer.innerHTML = `
                     <img src=${imgUrl} class="img-msg" />
                     <span class='img-time' style="color:black;">${time}<i class="fa-solid fa-check tick"></i></span>
                 `;
-
-            imgContainer.classList.add("img-container");
-            imgContainer.classList.add("float-rit");        
-            imgContainer.style.overflow = 'hidden';            
-            document.querySelector("#chat-screen").appendChild(imgContainer);
-            socket.emit('messageFromSender','img',imgUrl,recieverId,name);
-            saveMessage(userId,recieverId,'img',imgUrl,'float-rit',time);
-          };
-
+                imgContainer.classList.add("img-container");
+                imgContainer.classList.add("float-rit");        
+                imgContainer.style.overflow = 'hidden';            
+                document.querySelector("#chat-screen").appendChild(imgContainer);
+                console.log(fileObject);
+                console.log(typeof fileObject);
+                socket.emit('messageFromSender','img',buffer,recieverId,name);
+                saveMessage(userId,recieverId,'img',buffer,'float-rit',time);
+            };
+    
+            reader.readAsArrayBuffer(fileObject); // Read the file as an ArrayBuffer
+        };
+    
         input.click();
-    }
+    };
+    
 
 
     return (
     
     <>
         <div id="chat-screen">                                                  
-            {                                                               /*  Creating message elements in the chat window    */ 
+            {                                                                 /*  Creating message elements in the chat window    */ 
             message.map((val,index) => {
                 if(val.msgType === 'text'){
 
@@ -136,7 +146,12 @@ const ChatWindow = (props) => {
                 else{
 
                     return  <div className={`img-container ${val.side}`}  key={index} >
-                            <img src={`${val.others.imgUrl}`} className="img-msg" alt=''/>
+                            <img src={(function(){
+                                const buffer = `${val.file}`;
+                                const blob = new Blob([buffer],{type:'image/jpeg'});
+                                const imageUrl = URL.createObjectURL(blob);
+                                return imageUrl;
+                            })()} className="img-msg" alt=''/>
                             <span className='img-time'>{val.time}<i className="fa-solid fa-check tick"></i></span>
                         </div>
                 }   

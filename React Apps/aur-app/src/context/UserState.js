@@ -77,24 +77,29 @@ const UserState = (props) => {
 
 
   // Function to save message sent by sender to reciever in the database
-  const saveMessage = async (sender,reciever,type,msg,side,time) => {
+
+  const saveMessage = async (senderId,recieverId,msgType,data,side,time) => {
 
     try{
-        const response = await fetch(`${host}/api/auth/saveMessage`,{
-            method:"POST",
-            headers:{
-                "content-type" : "application/json"
-            },
-            body: JSON.stringify({sender,reciever,type,msg,side,time})
-        });
-        const json = await response.json();
-        console.log(json);
+      console.log(data);
+      const response = await fetch(`${host}/api/auth/saveMessage`, {
+        method: "POST",
+        headers: {
+          "content-type" : "application/json",
+          "data" : data
+        },
+        body: JSON.stringify({senderId,recieverId,msgType,side,time})
+      });
+
+      const json = await response.json();
+      console.log(json);
     }
     catch(error){
-        console.log("Error in saveMessge");
+      console.log("Error in saveMessage");
     }
   }
-  
+
+
   return(
         <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>   
             {props.children}

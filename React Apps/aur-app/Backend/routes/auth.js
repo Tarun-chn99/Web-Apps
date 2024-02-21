@@ -48,36 +48,38 @@ router.get('/getActiveChats', async(req,res) => {
 
 // Route 3: End point to save users chats
 
-router.post('/saveMessage', async (req,res) => {
+router.post('/saveMessage',async (req,res) => {
 
     try{
 
-        let chat = await chats.findOne({recieverId: req.body.reciever});
+        const {senderId, recieverId, msgType, side, time } = req.body;
+        const {data} = req.headers;
+        let chat = await chats.findOne({recieverId: recieverId});
 
         if(chat){
 
-            if(req.body.type === 'text')
+            if(msgType === 'text')
             await chats.findOneAndUpdate(
-                { recieverId: req.body.reciever },
+                { recieverId: recieverId },
                 { $push: {
                         msg: {  
-                            msgType: req.body.type,
-                            message: req.body.msg,
-                            side: req.body.side,
-                            time: req.body.time
+                            msgType: msgType,
+                            message: data,
+                            side: side,
+                            time: time
                         }
                     }
                 }
             );
             else
             await chats.findOneAndUpdate(
-                { recieverId: req.body.reciever },
+                { recieverId: recieverId },
                 { $push: {
                         msg: {  
-                            msgType: req.body.type,
-                            others: {imgUrl: req.body.msg},
-                            side: req.body.side,
-                            time: req.body.time
+                            msgType: msgType,
+                            file: data,
+                            side: side,
+                            time: time
                         }
                     }
                 }
@@ -87,15 +89,28 @@ router.post('/saveMessage', async (req,res) => {
         }
         else{
 
+            if(msgType === 'text')
             await chats.create({
-                senderId: req.body.sender,
-                recieverId: req.body.reciever,
+                senderId: senderId,
+                recieverId: recieverId,
                 msg: [{
-                    message: req.body.msg,
-                    side: req.body.side,
-                    time: req.body.time
+                    message: data,
+                    side: side,
+                    time: time
                 }]
             });  
+            else
+            await chats.create({
+                senderId: senderId,
+                recieverId: recieverId,
+                msg: [{
+                    msgType: msgType,
+                    file: data,
+                    side: side,
+                    time: time
+                }]
+            });  
+
             res.json({Success:"True",Message:"New message saved"}); 
         }
 
@@ -123,8 +138,5 @@ router.get('/getChatMessages', async(req,res) => {
     }
 
 })
-
-
-
 
 module.exports = router;

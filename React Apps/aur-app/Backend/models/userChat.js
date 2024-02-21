@@ -19,10 +19,8 @@ const chatSchema = mongoose.Schema({
         message: {
             type: String,
         },
-        others: {    
-            imgUrl: {
-                type: String
-            }
+        file:{
+            type: Buffer
         },
         side: {
             type: String,
@@ -37,3 +35,8 @@ const chatSchema = mongoose.Schema({
 
 module.exports = mongoose.model('chats',chatSchema);
 
+// others: {    
+//     imgUrl: {
+//         type: String
+//     }
+// },

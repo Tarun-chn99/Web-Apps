@@ -9,9 +9,11 @@ const User = (props) => {
     const {getChatMessages} = context;
 
     const setName = async () => {
+
         const msg = await getChatMessages(recieverId);
         setReciever(name,recieverId,msg);
     }
+    
 
     return (
         <Link className="user-chat-button" aria-current="page" to="/loggedIn/user" onClick={setName} >
