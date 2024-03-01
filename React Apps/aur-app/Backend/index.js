@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const {Server} = require('socket.io');
+const path = require('path');
 
 connectToMongo();
 const app = express();
@@ -16,9 +17,10 @@ const io = new Server(server, {
 
 
 const port = 5000;
-app.use(cors());
+app.use(cors()); 
 app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
+app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images/')));
 
 const userSockets={};
 
@@ -44,7 +46,7 @@ io.on('connection', socket => {
     console.log("Current users : ",userSockets);
     socket.broadcast.emit("messageToReciever",type,msg);
     // socket.emit('messageToReciever',msg,name);
-    // sendMessageToReciever(recieverId,msg);
+    // sendMessageToReciever(recieverId,msg,name,type);
   });
 });
 
@@ -53,15 +55,14 @@ server.listen(port, () => {
 });
 
 
-// function sendMessageToReciever(Id, message) {
+// function sendMessageToReciever(Id, message,name,type) {
 //   const userSocketId = userSockets[Id];
 //   console.log('Reciever Id in sendMessageToReciever : ',Id);
 //   console.log('UserSocketID of Reciever : ',userSocketId);
+//   console.log(io);
 //   if (userSocketId) {
     
-//     // io.to(userSocketId).emit('messageToReciever', message,name,(response) => {
-//       console.log("response.status");
-//     // });
+//     io.to(userSocketId).emit('messageToReciever', type,message);
 //     console.log("inside if");
 //   } else {
 //     console.log(`User with ID ${Id} not found`);

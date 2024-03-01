@@ -13,7 +13,6 @@ const User = (props) => {
         const msg = await getChatMessages(recieverId);
         setReciever(name,recieverId,msg);
     }
-    
 
     return (
         <Link className="user-chat-button" aria-current="page" to="/loggedIn/user" onClick={setName} >
@@ -22,4 +21,4 @@ const User = (props) => {
   )
 }
 
-export default User
+export default User;

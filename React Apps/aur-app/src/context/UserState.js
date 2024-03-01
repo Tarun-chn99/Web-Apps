@@ -77,7 +77,6 @@ const UserState = (props) => {
 
 
   // Function to save message sent by sender to reciever in the database
-
   const saveMessage = async (senderId,recieverId,msgType,data,side,time) => {
 
     try{
@@ -85,10 +84,9 @@ const UserState = (props) => {
       const response = await fetch(`${host}/api/auth/saveMessage`, {
         method: "POST",
         headers: {
-          "content-type" : "application/json",
-          "data" : data
+          "content-type" : "application/json"
         },
-        body: JSON.stringify({senderId,recieverId,msgType,side,time})
+        body: JSON.stringify({senderId,recieverId,msgType,data,side,time})
       });
 
       const json = await response.json();
@@ -100,8 +98,35 @@ const UserState = (props) => {
   }
 
 
+  
+  const handleUpload = async (senderId,recieverId,data,side,time) => {
+    try {
+      const formData = new FormData();
+      formData.append('senderId', senderId);
+      formData.append('recieverId', recieverId);
+      formData.append('data', data);
+      formData.append('side', side);
+      formData.append('time', time);
+      
+      const response = await fetch(`${host}/api/auth/uploadFile`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        console.log('File uploaded successfully');
+        // Optionally, you can fetch the updated file list here and update the UI
+      } else {
+        console.error('Failed to upload file');
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+
+
   return(
-        <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages}}>   
+        <userContext.Provider value={{socket,activeChats,getActiveChats,userId,setUserId,saveMessage,getChatMessages,handleUpload}}>   
             {props.children}
         </userContext.Provider>
     );

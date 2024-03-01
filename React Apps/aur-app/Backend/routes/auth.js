@@ -3,6 +3,29 @@ const router = express.Router();
 const users = require('../models/User');
 const chats = require('../models/userChat');
 const usersactivechats = require('../models/usersactivechats');
+const multer = require('multer');
+
+// Multer setup for file upload
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        const ext = file.mimetype.split("/")[0];
+        if (ext === "image") {
+            // if type is image then store in images folder
+          cb(null, "Backend/uploads/images");
+        } else {
+            // In case of not an image store in others
+          cb(null, "Backend/uploads/others");
+        }
+
+    //   cb(null, 'Backend/uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  
+  const upload = multer({ storage: storage });
+
 
 // Route 1: End point to create user in db
 
@@ -52,8 +75,9 @@ router.post('/saveMessage',async (req,res) => {
 
     try{
 
-        const {senderId, recieverId, msgType, side, time } = req.body;
-        const {data} = req.headers;
+        const {senderId, recieverId, msgType,data, side, time } = req.body;
+        const {name,path,type} = data;
+        console.log('Array Buffer : ',data);
         let chat = await chats.findOne({recieverId: recieverId});
 
         if(chat){
@@ -77,7 +101,11 @@ router.post('/saveMessage',async (req,res) => {
                 { $push: {
                         msg: {  
                             msgType: msgType,
-                            file: data,
+                            file: {
+                                name: name,
+                                path: path,
+                                type: type
+                            },
                             side: side,
                             time: time
                         }
@@ -105,7 +133,11 @@ router.post('/saveMessage',async (req,res) => {
                 recieverId: recieverId,
                 msg: [{
                     msgType: msgType,
-                    file: data,
+                    file: {
+                        name: name,
+                        path: path,
+                        type: type
+                    },
                     side: side,
                     time: time
                 }]
@@ -121,7 +153,60 @@ router.post('/saveMessage',async (req,res) => {
     }
 })
 
-//Route 4: End Point to get all the messages for the activeReciever
+
+router.post('/uploadFile',upload.single('data'),async (req,res) => {
+
+    try{
+
+        const {senderId, recieverId, side, time } = req.body;
+        const {originalname,path,mimetype} = req.file;
+        let chat = await chats.findOne({recieverId: recieverId});
+
+        if(chat)
+            await chats.findOneAndUpdate(
+                { recieverId: recieverId },
+                { $push: {
+                        msg: {  
+                            msgType: mimetype,
+                            file: {
+                                name: originalname,
+                                path: path,
+                                type: mimetype
+                            },
+                            side: side,
+                            time: time
+                        }
+                    }
+                }
+            );
+
+        else
+            await chats.create({
+                senderId: senderId,
+                recieverId: recieverId,
+                msg: [{
+                    msgType: mimetype,
+                    file: {
+                        name: originalname,
+                        path: path,
+                        type: mimetype
+                    },
+                    side: side,
+                    time: time
+                }]
+            }); 
+
+        res.json({Success:"True",Message:"New message saved"}); 
+
+    }
+    catch(error){
+        console.log(error.message);
+        res.status(500).send("Internal server error occured");
+    }
+})
+
+
+//Route 5: End Point to get all the messages for the activeReciever
 
 router.get('/getChatMessages', async(req,res) => {
 

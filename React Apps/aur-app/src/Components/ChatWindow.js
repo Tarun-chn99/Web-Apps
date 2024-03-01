@@ -5,12 +5,12 @@ import userContext from '../context/userContext';
 const ChatWindow = (props) => {
 
     const context = useContext(userContext);
-    const {userId,saveMessage,socket} = context;
+    const {userId,saveMessage,socket,handleUpload} = context;
     const [text, setText] = useState("");
     const {recieverId,chat,name} = props.reciever;
     let reciever_chat = chat;
     const [message,setMessage] = useState(reciever_chat);
-    
+     
     const onchange = (e) => {
         setText(e.target.value);
     }
@@ -49,7 +49,6 @@ const ChatWindow = (props) => {
     
 
     // Function to create message in chat window and saving the message to the database
-
     const createMessage = (e) => {
         e.preventDefault();
         if(text!==""){
@@ -68,8 +67,8 @@ const ChatWindow = (props) => {
         }
     }
 
-    // Function to get the current time
 
+    // Function to get the current time
     const getTime = () => {
             
             const d = new Date();
@@ -79,52 +78,55 @@ const ChatWindow = (props) => {
 
             return time;
     }
-
+    
+    
     // Funtion to play notification sound on recieving a message
+    const playNotificationSound = () =>{   
 
-    function playNotificationSound(){
         const audio = new Audio('../whatsapp.mp3');
         audio.play();
       };
 
 
-    const handleUploadFile = () => {
+    // Function to upload file in chat window and save file in database
+    const handleUploadFile = () => {        
+
         let input = document.createElement('input');
         input.type = 'file';
-        input.name = 'file';
-        let fileObject;
-    
-        input.onchange = function(e) {
-            fileObject = e.target.files[0];
-            const reader = new FileReader();
-    
-            reader.onload = function(event) {
 
-                const buffer = event.target.result; // This is the buffer
+        input.onchange = function(e) {
+
+                let fileObject = e.target.files[0];
                 const imgUrl = URL.createObjectURL(fileObject);
-                const imgContainer = document.createElement('div');
                 const time = getTime();
-    
-                imgContainer.innerHTML = `
-                    <img src=${imgUrl} class="img-msg" />
-                    <span class='img-time' style="color:black;">${time}<i class="fa-solid fa-check tick"></i></span>
-                `;
-                imgContainer.classList.add("img-container");
-                imgContainer.classList.add("float-rit");        
-                imgContainer.style.overflow = 'hidden';            
-                document.querySelector("#chat-screen").appendChild(imgContainer);
-                console.log(fileObject);
-                console.log(typeof fileObject);
-                socket.emit('messageFromSender','img',buffer,recieverId,name);
-                saveMessage(userId,recieverId,'img',buffer,'float-rit',time);
-            };
-    
-            reader.readAsArrayBuffer(fileObject); // Read the file as an ArrayBuffer
+                createImageElement(imgUrl,time);                                                  //Inserting  image in the chat window
+
+                const file = {
+                    "name": fileObject.name,
+                    "path": `http://localhost:5000/uploads/images/${fileObject.name}`,
+                    "type": fileObject.type
+                };
+                socket.emit('messageFromSender','img',file,recieverId,name);
+                handleUpload(userId,recieverId,fileObject,'float-rit',time);
         };
-    
         input.click();
     };
     
+
+    // createImageElement used to insert image in the chat window
+    const createImageElement = (imgUrl,time) => {       
+
+        const imgContainer = document.createElement('div'); 
+    
+            imgContainer.innerHTML = `
+                    <img src=${imgUrl} class="img-msg" />
+                    <span class='img-time' style="color:black;">${time}<i class="fa-solid fa-check tick"></i></span>
+                `;
+            imgContainer.classList.add("img-container");
+            imgContainer.classList.add("float-rit");        
+            imgContainer.style.overflow = 'hidden';            
+            document.querySelector("#chat-screen").appendChild(imgContainer);
+    }
 
 
     return (
@@ -136,24 +138,19 @@ const ChatWindow = (props) => {
                 if(val.msgType === 'text'){
 
                     return  <div className={`msg ${val.side}`} key={index}>
-                            <div>{val.message}</div>
-                            <span className="time float-rit">
-                            {val.time}
-                            <i className="fa-solid fa-check" style={{color: "#000000",marginLeft:"8px"}}></i>
-                            </span>
-                        </div>
+                                <div>{val.message}</div>
+                                <span className="time float-rit">
+                                {val.time}
+                                <i className="fa-solid fa-check" style={{color: "#000000",marginLeft:"8px"}}></i>
+                                </span>
+                            </div>
                 }
                 else{
 
-                    return  <div className={`img-container ${val.side}`}  key={index} >
-                            <img src={(function(){
-                                const buffer = `${val.file}`;
-                                const blob = new Blob([buffer],{type:'image/jpeg'});
-                                const imageUrl = URL.createObjectURL(blob);
-                                return imageUrl;
-                            })()} className="img-msg" alt=''/>
-                            <span className='img-time'>{val.time}<i className="fa-solid fa-check tick"></i></span>
-                        </div>
+                            return  <div className={`img-container ${val.side}`}  key={index} >
+                                <img src={`http://localhost:5000/uploads/images/${val.file.name}`} className="img-msg" alt=''/>
+                                <span className='img-time'>{val.time}<i className="fa-solid fa-check tick"></i></span>
+                            </div>
                 }   
               })
             }
