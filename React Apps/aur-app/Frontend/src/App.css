@@ -75,13 +75,13 @@ body{
 
 .home-container{
   height: 100%;
-  width: 40%;
+  width: 30%;
   border-right: 1px solid #202c33;
 }
 
 .user-window-container{
   height: 90vh;
-  width: 100%;
+  width: 70%;
   border-radius: 1rem;
   /* background-color: #6eaa6e; */
 }

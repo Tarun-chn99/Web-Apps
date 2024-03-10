@@ -3,18 +3,20 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
 
-  const naviate = useNavigate();
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
-    naviate('/login');
+    navigate('/login');
   }
 
+  const handleExitChat = () => {
+    navigate('/loggedIn/home');
+  }
   return (
 
     <nav className={`flex space-between top-${props.side==="left" ? "left" : "right"}-corner`} >
           
-
-
       {props.side==="left" ? 
               <>
                 <div>
@@ -34,6 +36,7 @@ const Navbar = (props) => {
                   <span className="txt-white" id="user"><b>{props.userName}</b></span>
                 </div>
                 <div>
+                  <button className='logout txt-white margin-rit-half' onClick={handleExitChat} >Exit Chat</button>
                   <button className="ellipsis"><i className="fa-solid fa-phone txt-white"></i></button>
                   <button className="ellipsis"><i className="fa-solid fa-video txt-white"></i></button>
                   <button className="ellipsis"><i className="fa-solid fa-ellipsis-vertical txt-white"></i></button>

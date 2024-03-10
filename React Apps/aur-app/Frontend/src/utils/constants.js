@@ -1,0 +1,1 @@
+export const SERVER_STORAGE_URL = "http://localhost:5000/uploads/images";

@@ -4,12 +4,11 @@ import {io} from 'socket.io-client';                                            
 
 
 const UserState = (props) => {
-  
+
   const host = "http://localhost:5000";                                         // server IP address
   const [activeChats, setactiveChats] = useState([]);
   const [userId,setUserId] = useState("");
   const socket = io('http://localhost:5000');                                   //  Creating a socket connection synchronously with the server IP address and it returns a socket object.
-  
   
   // useEffect function with userId(loggedIn user) dependency
   useEffect(() => {
@@ -21,7 +20,7 @@ const UserState = (props) => {
         if(userId !== "")
         socket.emit('setUserId', `${userId}`);
       });
-    
+      
     return () => {
       console.log("Socket disconnected");
       socket.disconnect();                                                       //  Socket is disconnected once the component is unmounted.

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import app from './authorize/firebase';
+import app from '../authorize/firebase';
 import {Link,useNavigate} from 'react-router-dom'
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber  } from "firebase/auth";
 import 'firebase/auth';
@@ -36,6 +36,7 @@ const Login = (props) => {
     }, []);
     
   useEffect(()=>{
+    console.log("Inside loginform useeffect");
     if(userId!=="")
     getActiveChats(userId);
     // eslint-disable-next-line

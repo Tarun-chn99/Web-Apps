@@ -1,5 +1,6 @@
 import React, { useState,useContext,useEffect } from 'react'
 import userContext from '../context/userContext';
+import { SERVER_STORAGE_URL } from '../utils/constants';
 
 
 const ChatWindow = (props) => {
@@ -19,9 +20,7 @@ const ChatWindow = (props) => {
     useEffect(() => {
 
         // socket listening to messageToReciever event representing sender's message
-
         socket.on('messageToReciever', (type,msg) => {
-
             const msg_time = getTime();
 
             if(type === 'text')
@@ -38,6 +37,7 @@ const ChatWindow = (props) => {
                 side: 'float-lft',
                 time: msg_time
                 });
+        console.log("Message Event recieved");
         saveMessage(userId,recieverId,type,msg,'float-lft',msg_time);
         setMessage([...reciever_chat]);                                             // Create a new array to trigger re-render
         playNotificationSound();
@@ -75,7 +75,6 @@ const ChatWindow = (props) => {
             const hour = d.getHours().toString(), minute = d.getMinutes().toString();
             const zone = (d.getHours() >= 12 && d.getMinutes >=0 ? "pm" : "am");
             const time = hour + ":" + minute + " " + zone;
-
             return time;
     }
     
@@ -103,7 +102,7 @@ const ChatWindow = (props) => {
 
                 const file = {
                     "name": fileObject.name,
-                    "path": `http://localhost:5000/uploads/images/${fileObject.name}`,
+                    "path": `${SERVER_STORAGE_URL}/${fileObject.name}`,
                     "type": fileObject.type
                 };
                 socket.emit('messageFromSender','img',file,recieverId,name);
@@ -134,9 +133,8 @@ const ChatWindow = (props) => {
     <>
         <div id="chat-screen">                                                  
             {                                                                 /*  Creating message elements in the chat window    */ 
-            message.map((val,index) => {
-                if(val.msgType === 'text'){
-
+            message?.map((val,index) => {
+                if(val.msgType === 'text')
                     return  <div className={`msg ${val.side}`} key={index}>
                                 <div>{val.message}</div>
                                 <span className="time float-rit">
@@ -144,25 +142,35 @@ const ChatWindow = (props) => {
                                 <i className="fa-solid fa-check" style={{color: "#000000",marginLeft:"8px"}}></i>
                                 </span>
                             </div>
-                }
-                else{
-
-                            return  <div className={`img-container ${val.side}`}  key={index} >
-                                <img src={`http://localhost:5000/uploads/images/${val.file.name}`} className="img-msg" alt=''/>
+                
+                else
+                    return  <div className={`img-container ${val.side}`}  key={index} >
+                                <img src={`${SERVER_STORAGE_URL}/${val.file.name}`} className="img-msg" alt=''/>
                                 <span className='img-time'>{val.time}<i className="fa-solid fa-check tick"></i></span>
                             </div>
-                }   
+                   
               })
             }
         </div>
 
         <div className='chat-buttons flex bottom-right-corner'>
             
-            <button className="ellipsis margin-rit-half grow1" id="file" onClick={handleUploadFile}><i className="fa-solid fa-plus txt-white"></i></button>
+            <button className="ellipsis margin-rit-half grow1" id="file" onClick={handleUploadFile}>
+                <i className="fa-solid fa-plus txt-white"></i>
+            </button>
+
             <form action="" className='grow10' onSubmit={createMessage}>
-                <input className='chat-input-box' type="text" value={text} onChange={onchange}/>
+                <input 
+                    className='chat-input-box' 
+                    type="text" 
+                    value={text} 
+                    onChange={onchange}
+                />
             </form>
-            <button className="ellipsis margin-lft-half grow1" onClick={createMessage}><i className="fa-solid fa-arrow-right txt-white"></i></button>
+            
+            <button className="ellipsis margin-lft-half grow1" onClick={createMessage}>
+                <i className="fa-solid fa-arrow-right txt-white"></i>
+            </button>
         
         </div>
     </>

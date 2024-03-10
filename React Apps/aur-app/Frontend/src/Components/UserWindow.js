@@ -11,7 +11,7 @@ const UserWindow = (props) => {
       {props.load==="home" ? 
       <img src="https://wallpaperaccess.com/full/2224368.png" alt="Background" style={{height:"100%",width:"100%",borderRadius:"1rem"}} />  :
       <>
-        <Navbar side="right" userName={reciever.name}/>
+        <Navbar side="right" userName={reciever.name} setrender={props.setrender}/>
         <ChatWindow reciever={reciever}/>
       </>
       }
