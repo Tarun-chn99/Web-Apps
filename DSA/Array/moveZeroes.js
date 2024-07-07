@@ -1,6 +1,4 @@
-import {swap} from './selectionSort.js'
-
-const arr = [0,1,0,3,12];
+const arr = [4,2,4,0,0,3,0,5,1,0];
 const n = arr.length;
 
 const moveZeroes = (arr,n) => {
@@ -8,22 +6,19 @@ const moveZeroes = (arr,n) => {
     if(n==1 || n==0)
     return arr;
 
-    let i=0,j=i+1;
+    let i=0,j=0;
 
-    while(i<n && j<n){
+    while(i<n){
 
-        if(arr[j] !== 0 && j>=i)
-        j++;
-        else if(arr[i] !== 0 && i<j)
+        if(arr[i] === 0 )
         i++;
         else{
-            swap(arr,i,j);
+            [arr[j],arr[i]] = [arr[i],arr[j]];
             i++;
             j++;
         }
     }
-
-
     console.log(arr);
 }
 moveZeroes(arr,n);
+
