@@ -3,7 +3,7 @@
 const arr = [4,6,3,9,1,8,22,12,44];
 const n = arr.length;
 
-const insertionSort = (arr,n) => {
+export const insertionSort = (arr,n) => {
     
     for(let i=1; i<n; ++i){
         
@@ -24,5 +24,5 @@ const insertionSort = (arr,n) => {
     console.log(arr);
 }
 
-console.log(arr);
-insertionSort(arr,n);
+// console.log(arr);
+// insertionSort(arr,n);

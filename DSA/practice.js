@@ -1,45 +1,180 @@
 
-Function.prototype.myCall = function(context={},...args){
-    if(typeof this !== 'function')
-    throw new Error(this + "is not callable");
+const promise1 = new Promise((resolve,reject)=>{
+        resolve("First!");
+})
+const promise2 = new Promise((resolve,reject)=>{
+    resolve(promise1);
+})
+promise2.then((res)=>console.log(res));
+console.log(promise2);
 
-    context.fn = this;
-    context.fn(...args);
-}
 
-Function.prototype.myApply = function(context={},args=[]){
-    if(typeof this !== 'function')
-    throw new Error(this + "is not callable");
 
-    if(!Array.isArray(args))
-    throw new TypeError("CreateListFromArrayLike called on non-object");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import fetch from 'node-fetch';
+
+// const body = {
+//     filters: {},
+//     lat: 28.3670355,
+//     lng: 79.4304381,
+//     nextOffset: "CJhlELQ4KIDImKyUvMuQBjCnEzgD",
+//     page_type: "DESKTOP_WEB_LISTING",
+//     seoParams: {
+//         apiName: "FoodHomePage",
+//         pageType: "FOOD_HOMEPAGE",
+//         seoUrl: "https://www.swiggy.com/",
+//     },
+//     widgetOffset: {
+
+//         NewListingView_category_bar_chicletranking_TwoRows: "",
+//         NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
+//         Restaurant_Group_WebView_SEO_PB_Theme: "",
+//         collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: "24",
+//         inlineFacetFilter: "",
+//         restaurantCountWidget: "",
+//     },
+//         _csrf: "H6QNQpQOuHQP-3TjeEU7jHe-0Vs3eaDOWvq6PGe8"
+// }
+
+// const url = 'https://www.swiggy.com/dapi/restaurants/list/update';
+// const header = {
+//     ":authority":"www.swiggy.com",
+//     ":method":"POST",
+//     ":path":"/dapi/restaurants/list/update",
+//     ":scheme":"https",
+//     "__fetch_req__":"true",
+//     "Accept":'*/*',
+//     "Accept-Encoding":"gzip, deflate, br, zstd",
+//     "Accept-Language":"en-US,en;q=0.9",
+//     "Content-Length":577,
+//     "Content-Type":"application/json",
+//     "Cookie":
+//     "__SW=EPb9i6UelL0GLUkunHWVtoYZkARARr6R; _guest_tid=b2b98a93-2edc-4dca-ad4a-e402eccecf4b; _device_id=df51491d-d10c-701f-5f5a-1a531f61c266; _sid=evt24209-6627-4c10-833b-9687d0aa6cf0; fontsLoaded=1; _gcl_au=1.1.1540493225.1720611140; _gid=GA1.2.400127098.1720611141; dadl=true; userLocation={%22lat%22:28.3670355%2C%22lng%22:79.4304381%2C%22address%22:%22Bareilly%2C%20Uttar%20Pradesh%2C%20India%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; _gat_0=1; _ga_34JYJ0BCRN=GS1.1.1720611140.1.1.1720612956.0.0.0; _ga=GA1.1.1371534890.1720611140",
+//     "Origin":"https://www.swiggy.com",
+//     "Priority":"u=1, i",
+//     "Referer":"https://www.swiggy.com/",
+//     "Sec-Ch-Ua":'"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+//     "Sec-Ch-Ua-Mobile":"?0",
+//     "Sec-Ch-Ua-Platform":"Windows",
+//     "Sec-Fetch-Dest":"empty",
+//     "Sec-Fetch-Mode":"cors",
+//     "Sec-Fetch-Site":"same-origin",
+//     "User-Agent":
+//     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+// }
+
+// const fetchMore = async (url,body,header) => {
     
-    context.fn = this;
-    context.fn(...args);
-}
+//     try{
+//         const response = await fetch(url,{
+//             method:'POST',
+//             headers: header,
+//             body: JSON.stringify(body)
+//         });
+//         console.log(response);
+//         // const data = await response.json();
+//         // console.log(data);
+    
+//     if(response.ok){
+//         console.log("Success");
+//     }
+//     else
+//     console.log("failure");
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+// }
 
-Function.prototype.myBind = function(context={},...args){
-    if(typeof this !== 'function')
-    throw new Error(this + "is not callable");
-
-    context.fn = this;
-    return function(){
-        return context.fn;
-    }
-}
+// fetchMore(url,body,header);
 
 
 
-function printName(){
-    console.log("Name: ",this.name);
-}
 
-const obj = {
-    name: "Tarun"
-}
 
-const newfn = printName.myBind(obj);
-console.log(newfn());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function.prototype.myCall = function(context={},...args){
+//     if(typeof this !== 'function')
+//     throw new Error(this + "is not callable");
+
+//     context.fn = this;
+//     context.fn(...args);
+// }
+
+// Function.prototype.myApply = function(context={},args=[]){
+//     if(typeof this !== 'function')
+//     throw new Error(this + "is not callable");
+
+//     if(!Array.isArray(args))
+//     throw new TypeError("CreateListFromArrayLike called on non-object");
+    
+//     context.fn = this;
+//     context.fn(...args);
+// }
+
+// Function.prototype.myBind = function(context={},...args){
+//     if(typeof this !== 'function')
+//     throw new Error(this + "is not callable");
+
+//     context.fn = this;
+//     return function(){
+//         return context.fn;
+//     }
+// }
+
+
+
+// function printName(){
+//     console.log("Name: ",this.name);
+// }
+
+// const obj = {
+//     name: "Tarun"
+// }
+
+// const newfn = printName.myBind(obj);
+// console.log(newfn());
 
 
 

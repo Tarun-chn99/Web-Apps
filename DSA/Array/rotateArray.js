@@ -1,7 +1,7 @@
 const arr = [1,2,3,4,5,6,7];
 const n = arr.length;
 
-const swapArray = (arr,i,j) => {
+export const swapArray = (arr,i,j) => {
     
     while(i<j){
         [arr[j],arr[i]] = [arr[i],arr[j]];
@@ -57,8 +57,3 @@ const rotateArray2 = (arr,n,k) => {
     }
     arr.length = n;
 }
-
-shiftLeft   (arr,n,2);
-console.log(arr);
-shiftRight(arr,n,2);
-console.log(arr);

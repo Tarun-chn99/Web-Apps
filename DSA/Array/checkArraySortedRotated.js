@@ -4,19 +4,20 @@ const n = arr.length;
 const isArraySorted = (arr,n) => {
     
     let i=0;
-    let peak = 0;
+    let count=0;
 
-    while(i<n-1) 
-        if(arr[i]<arr[i+1])  
-            i++; 
-        else {
-            i++;
-            peak=i;
-            console.log("peak: ",i);
-        }
-    
-    if(i===n-1) return true;
-    else return false;
+    while(i<n){
+        if(arr[i]>arr[i+1])
+            count++;
+        i++;
+    } 
+
+    if(arr[n-1]>arr[0])
+    count++;
+
+
+    return count===1;
+
 }
 
 console.log(isArraySorted(arr,n));
