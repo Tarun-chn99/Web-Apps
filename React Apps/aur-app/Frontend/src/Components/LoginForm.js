@@ -36,7 +36,7 @@ const Login = (props) => {
     }, []);
     
   useEffect(()=>{
-    console.log("Inside loginform useeffect");
+    // console.log("Inside loginform useeffect");
     if(userId!=="")
     getActiveChats(userId);
     // eslint-disable-next-line
