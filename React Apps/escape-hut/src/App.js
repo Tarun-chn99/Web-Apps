@@ -1,11 +1,7 @@
-import './App.css';
+import EscapeHut from './components/EscapeHut';
 
 function App() {
-  return (
-    <div className="text-3xl text-green-600 font-bold">
-        Hello Hero!
-    </div>
-  );
+  return <EscapeHut />
 }
 
 export default App;

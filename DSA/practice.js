@@ -1,12 +1,5 @@
-
-
-
-
-
-
-
-
-
+const [a,b] = [1,5];
+console.log(b,a);
 
 
 

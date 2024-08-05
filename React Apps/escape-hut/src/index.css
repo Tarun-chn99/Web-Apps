@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer components{
+
+    .form-input{
+        @apply w-full p-4 my-2 text-gray-400 bg-gray-900 rounded-lg outline-none;
+    }
+}
+
+*{
+    margin: 0%;
+    box-sizing: border-box;
+}
