@@ -8,26 +8,21 @@ const usePopularVideos = () => {
 
     const fetchVideos = async () => {
         try{          
-            const data = window.sessionStorage.getItem('videoList');
-            if(data){
-                
+            const cachedData = window.sessionStorage.getItem('videoList');
+            if(cachedData){
+                setVideoList(JSON.parse(cachedData))
             }
             else{
                 const response = await fetch(YOUTUBE_VIDEO_API+process.env.REACT_APP_YOUTUBE_API_KEY);
                 const data = await response.json();
-                const list = data.itmes;
-                sessionStorage.setItem('videoList',list.JSON());
-                setVideoList(data.items);
-                
-                
+                sessionStorage.setItem('videoList',JSON.stringify(data.items));
+                setVideoList(data.items);   
             }
 
         }catch(error){
                 console.log(error.message)
             }   
         }
-
-        
 
     useEffect(()=>{
         fetchVideos();

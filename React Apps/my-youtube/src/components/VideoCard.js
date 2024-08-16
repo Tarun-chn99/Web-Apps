@@ -3,7 +3,7 @@ const VideoCard = ({ info }) => {
 
     const { title,thumbnails,channelTitle} = info.snippet;
     return(
-        <div className="w-80 mx-2 my-2 ">
+        <div className="w-80 mx-2 my-2 shadow-lg ">
                 <img className="w-full rounded-2xl"  src={thumbnails.high.url} alt={title}/>
                 <div className="py-2 px-1">
                     <h4 className="font-bold ">{title.slice(0,80)}...</h4>
