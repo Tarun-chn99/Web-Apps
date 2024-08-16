@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ItemCard from "./ItemCard";
 
 const MenuCategory = (props) => {

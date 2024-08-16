@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+*{
+    box-sizing: border-box;
+    margin:0%;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    @apply w-2 ; /* Tailwind's width utility */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-200; /* Background color for the scrollbar track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 rounded-lg; /* Color and rounded corners for the scrollbar thumb */
+}

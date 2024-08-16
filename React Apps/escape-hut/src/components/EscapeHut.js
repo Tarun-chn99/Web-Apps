@@ -3,7 +3,9 @@ import Login from "./Login";
 import Browse from "./Browse"
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 
+
 const EscapeHut = () => {
+
   return (
     <div className="EscapeHut" dir='ltr' lang='en-IN' >
       <RouterProvider router={appRouter}/>
