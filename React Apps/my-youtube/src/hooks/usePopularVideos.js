@@ -27,6 +27,8 @@ const usePopularVideos = () => {
             }   
         }
 
+        
+
     useEffect(()=>{
         fetchVideos();
        //eslint-disable-next-line
