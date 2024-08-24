@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import appSlice from './slices.js/appSlice';
-import videoSlice from './slices.js/videoSlice';
+import cacheSlice from './slices.js/cacheSlice';
+import chatSlice from './slices.js/chatSlice';
 
 const appStore = configureStore({
     reducer:{
         app: appSlice,
-        videos: videoSlice
+        cache: cacheSlice,
+        chat: chatSlice
     }
 });
 

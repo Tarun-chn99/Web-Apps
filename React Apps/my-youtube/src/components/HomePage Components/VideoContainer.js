@@ -1,4 +1,4 @@
-import usePopularVideos from "../hooks/usePopularVideos"
+import usePopularVideos from "../../hooks/usePopularVideos"
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 

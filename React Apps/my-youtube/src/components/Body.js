@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import SidePanel from "./SidePanel";
+import SidePanel from "./SidePanel Components/SidePanel";
 
 const Body= () => {
-    console.log("Inside body")
+
     return(
-        <div className="h-[92%] overflow-hidden flex">
+        <div className="h-[92%] overflow-auto flex">
             <SidePanel/>
             <Outlet/>
         </div>

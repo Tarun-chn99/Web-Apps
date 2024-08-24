@@ -1,5 +1,5 @@
 import { useState,useRef, useEffect,useCallback } from "react";
-import {debounce} from "../utils/useDebounceSearchHandler";
+import {debounce} from "../hooks/useDebounceSearchHandler";
 import {Link} from "react-router-dom";
 import SuggestionCard from "./SuggestionCard";
 

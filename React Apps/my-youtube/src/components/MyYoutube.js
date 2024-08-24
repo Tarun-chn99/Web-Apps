@@ -1,13 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./Body";
 import Header from "./Header";
-import MainContainer from "./MainContainer";
-import WatchPage from './WatchPage'
+import MainContainer from "./HomePage Components/MainContainer";
+import WatchPage from './WatchPage Components/WatchPage'
 
 const MyYoutube = () => {
   return (
     <div className='h-screen w-screen'>
-        <Header/>
         <RouterProvider router={appRouter}/>
     </div>
   )
@@ -16,15 +15,18 @@ const MyYoutube = () => {
 const appRouter = createBrowserRouter([
   {
     path: '/',
-    element : <Body/>,
+    element : <>
+                <Header />
+                <Body />
+              </>,
     children: [
       {
         path: '/',
-        element: <MainContainer/>
+        element: <MainContainer context='home'/>
       },
       {
         path: '/watch',
-        element: <WatchPage/>
+        element: <WatchPage />
       }
     ]
   }

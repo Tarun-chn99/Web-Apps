@@ -1,4 +1,4 @@
-import {SVG_LINK} from '../utils/constants'
+import {SVG_LINK} from '../../utils/constants'
 
 const PanelIcon = ({path}) => {
   return (

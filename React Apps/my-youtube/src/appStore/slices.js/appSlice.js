@@ -8,6 +8,7 @@ const appSlice = createSlice({
     },
     reducers: {
         toggleMenu: (state) => {
+            console.log("Inside toggle",state.isSidePanelOpen)
             state.isSidePanelOpen =  !(state.isSidePanelOpen);
         },
         setActiveFilterButton: (state,action) => {

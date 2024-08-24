@@ -16,5 +16,5 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-gray-500 rounded-lg; /* Color and rounded corners for the scrollbar thumb */
+    @apply bg-gray-500 rounded-xl; /* Color and rounded corners for the scrollbar thumb */
 }

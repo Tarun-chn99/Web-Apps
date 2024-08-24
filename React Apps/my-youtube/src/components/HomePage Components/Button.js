@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setActiveFilterButton } from "../appStore/slices.js/appSlice";
+import { setActiveFilterButton } from "../../appStore/slices.js/appSlice";
 
 const Button = ({ name,isActive,index}) => {
 
