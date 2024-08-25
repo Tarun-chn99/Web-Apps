@@ -1,6 +1,6 @@
 import ItemCard from "./ItemCard";
 import {useSelector,useDispatch} from "react-redux"
-import { clearCart } from "../AppReduxStore/cartSlice";
+import { clearCart } from "../AppStore/cartSlice";
 
 const Cart = () => {
 

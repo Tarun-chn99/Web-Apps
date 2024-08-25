@@ -1,10 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Shimmer from "./resListShimmer";
 import useRestaurantList from "../hooks/useRestaurantList";
 import Filter from "./Filter"
 import useOnlineStatus from "../hooks/useOnlineStatus";
+
 
 const Body = () => {
 
@@ -25,9 +26,9 @@ const Body = () => {
             <div className="body-container">
 
                 <Filter resList={resList.current} setList={setList} restaurantList={restaurantList}  />
-                {restaurantList.length !== 0 ?  
+                {restaurantList?.length !== 0 ?  
                 <div className="res-container flex wrap space-evenly" id="res-container" >
-                    {restaurantList.map?.((res) => {
+                    {restaurantList?.map?.((res) => {
                         return  <Link className="linkStyle" key={res.info.id} to={`/restaurantMenu/${res.info.id}`} >
                                    <RestaurantCard resList={res}/>
                                 </Link>

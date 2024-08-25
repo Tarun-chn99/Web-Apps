@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItem } from "../AppReduxStore/cartSlice";
+import { addItem } from "../AppStore/cartSlice";
 import {RES_IMG_URL} from "../utils/constants"
 
 

@@ -6,7 +6,7 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import {Provider} from 'react-redux';
-import appStore from "./AppReduxStore/appStore";
+import appStore from "./AppStore/appStore";
 import Cart from "./components/Cart"
 
 

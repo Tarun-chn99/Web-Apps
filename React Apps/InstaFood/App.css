@@ -1,6 +1,6 @@
-/* @import 'tailwindcss/base';
+@import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
+@import 'tailwindcss/utilities';
 
 *{
     margin: 0%;
@@ -31,17 +31,6 @@
     padding: 0vw 5vw;
     background-color: #ffffff;
     box-shadow: 0 15px 40px -20px rgba(40,44,63,.15);
-}
-
-.navigation-links a,logo-link {
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    transition: 0.2s;
-}
-
-.navigation-links a:hover {
-    color: orange;
 }
 
 .resName{

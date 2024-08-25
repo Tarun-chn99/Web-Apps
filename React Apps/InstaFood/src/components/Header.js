@@ -2,14 +2,13 @@ import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
-import UserInfo from "../utils/UserInfo"
 import { useSelector } from "react-redux";
+import UserLocation from "./UserLocation";
 
 const Header = () => {
 
     const [btnName,setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
-    const {userName} = useContext(UserInfo);
     const cartItems = useSelector((store)=>store.cart.items);
 
     const login = (e) => {
@@ -20,29 +19,29 @@ const Header = () => {
     }
 
     return(
-        <div className="header flex space-between align-center">
+        <div title='header' className="flex justify-between items-center shadow-lg ">
 
-            <div className="flex align-center">
-                <div className="logo-container">
+            <div className="flex items-center mx-4">
+                <div className="w-20">
                     <Link to='/' className="logo-link">
                         {/* <a href="/" className="logo-link"> */}
                         <img className='logo' src={LOGO_URL} alt="" width="100%"/>
                         {/* </a> */}
                     </Link>
                 </div>
-                <Link to='/' className="resName"><h3>InstaFood</h3></Link>
+                <Link to='/' className="text-xl italic font-bold"><h3>InstaFood</h3></Link>
+                <UserLocation />
             </div>
 
-            <div className="navigation-links">
-                <ul className="flex">
-                    <li className="flex"><b>Status : </b> {onlineStatus === true ? <span className="online margin-lr-half"></span> : <span className="offline margin-lr-half"></span>}</li>
-                    <li><Link to="/">Search</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link>Help</Link></li>
-                    <li><Link>Sign In</Link></li>
-                    <li><Link to="/cart"><b>Cart : {cartItems.length}</b></Link></li>
-                    <button className="login-btn" onClick={login}>{btnName}</button>  
-                    <li><b>{userName}</b></li>                  
+            <div className="mx-4">
+                <ul className="flex list-none items-center">
+                    <li className="flex"><b>Status : </b> {onlineStatus === true ? <span className="inline-block p-[0.75rem] rounded-[2rem] w-[0.25rem] bg-[#52c152] mx-2"></span> : <span className="inline-block p-[0.75rem] rounded-[2rem] w-[0.25rem] bg-red-500 mx-2"></span>}</li>
+                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/">Search</Link></li>
+                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/about">About</Link></li>
+                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Help</Link></li>
+                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Sign In</Link></li>
+                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/cart"><b>Cart : {cartItems.length}</b></Link></li>
+                    <button className="px-6 py-2 mx-4 rounded-lg cursor-pointer bg-gray-200 hover:bg-gray-400 font-bold" onClick={login}>{btnName}</button>                  
                 </ul>
             </div>
     </div>

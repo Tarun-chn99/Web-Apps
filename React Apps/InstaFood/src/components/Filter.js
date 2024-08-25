@@ -38,11 +38,12 @@ const Filter = (props) => {
     return (
             <div className="filter">
                 <div className="search">
-                    <input type='text' id="search" ref={inputElement} data-testid="input" name="search" value={text} onChange={onChange} className="" autoComplete='off' history='off'/>
-                    <button id='searchButton' onClick={()=>handleSearch(text)}>Search</button>
-                    <button onClick={handleTopRated}>Top Rated</button>
-                    <button onClick={handleDefault}>Default</button>
-                    {/* <button onClick={()=>fetchMore(url,body,header)}>Update</button> */}
+                    <input  className='p-4 bg-gray-200 outline-none rounded-xl' placeholder="Search..." type='text' ref={inputElement} data-testid="input" name="search" value={text} onChange={onChange} autoComplete='off' history='off'/>
+                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" id='searchButton' onClick={()=>handleSearch(text)}>Search</button>
+                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" onClick={handleTopRated}>Top Rated</button>
+                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" onClick={handleDefault}>Default</button>
+                    {/* <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400"
+                        onClick={()=>fetchMore()}>Update</button> */}
                 </div>
                 <div className="suggestions-box flex flex-column wrap " style={{display:"none"}} id="suggestions" ref={suggestionList}>
                     {
