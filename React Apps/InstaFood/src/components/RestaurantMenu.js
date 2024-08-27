@@ -16,9 +16,9 @@ const RestaurantMenu = () => {
 
     if(menu === null)   return <Shimmer/>;      //early return
 
-    const {name,avgRating,totalRatingsString,costForTwoMessage,areaName,sla,expectationNotifiers} = menu?.data?.cards?.[2].card?.card?.info;
+    const {name,avgRating,totalRatingsString,costForTwoMessage,cloudinaryImageId,areaName,sla,expectationNotifiers} = menu?.data?.cards?.[2].card?.card?.info;
     const category = menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(element => element?.card?.card["@type"]?.includes("ItemCategory"));
-    const resInfo = {id,name,areaName};
+    const resInfo = {id,name,areaName,cloudinaryImageId};
 
     return (
         <div className="resMenu relative">

@@ -50,7 +50,7 @@ const ItemCard = ({itemInfo,resInfo}) => {
         <div className="mealImage pos-rel">
           <img src={RES_IMG_URL+imageId} alt="" width='100%' height='100%' />
           <p className="addToCartButtonContainer">
-            <button className="addToCartButtn" onClick={handleAddItems}>Add</button>
+            <button className="addToCartButtn outline-none" onClick={handleAddItems}>Add</button>
           </p>
         </div>
 

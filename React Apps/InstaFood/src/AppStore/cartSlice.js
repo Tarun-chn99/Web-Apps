@@ -14,6 +14,7 @@ const cartSlice = createSlice({
             restaurantData: {
                 id: null,
                 name: null,
+                imgId: null,
                 items: []
             },
             tempItemInfo: null
@@ -27,6 +28,7 @@ const cartSlice = createSlice({
             if(state.cartData.restaurantData.id === null){
                 state.cartData.restaurantData.id = action.payload.resInfo.id;
                 state.cartData.restaurantData.name = action.payload.resInfo.name;
+                state.cartData.restaurantData.imgId = action.payload.resInfo.cloudinaryImageId;
             }
             if(state.cartData.restaurantData.id === action.payload.resInfo.id)
             state.cartData.restaurantData.items.push(action.payload.itemInfo);       
@@ -42,6 +44,7 @@ const cartSlice = createSlice({
             state.cartData.restaurantData.items.length = 0;     //  []
             state.cartData.restaurantData.id = null;
             state.cartData.restaurantData.name = null;
+            state.cartData.restaurantData.imgId = null;
         },
         hideCartResetPopup: (state) => {
             state.cartResetPopup = false;

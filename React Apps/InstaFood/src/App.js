@@ -15,7 +15,7 @@ const About = lazy(() => import("./components/About"));
 const App = () => {
     return  (
         <Provider store={appStore}>
-            <div className="app">
+            <div className="app h-screen font-sans">
                 <Header />
                 <Outlet /> 
             </div>
