@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 const MenuCategory = (props) => {
 
     const {title,itemCards} = props.category;
-    const {showCategory,setshowCategory} = props;
+    const {showCategory,setshowCategory,resInfo} = props;
 
     return (
         <div className="menuCategory margin-1">
@@ -18,7 +18,7 @@ const MenuCategory = (props) => {
             { showCategory && <div className="ItemsCard">
                 {
                     itemCards?.map(element => {
-                        return <ItemCard itemInfo={element?.card?.info} key={element?.card?.info?.id}/>
+                        return <ItemCard itemInfo={element?.card?.info} resInfo={resInfo} key={element?.card?.info?.id}/>
                     }) 
                 }
             </div>}

@@ -12,8 +12,8 @@ const Body = () => {
     const resList = useRef(null);
     const [restaurantList, setRestaurantList] = useState([]);
     const onlineStatus = useOnlineStatus();
-    resList.current = useRestaurantList(setList);     
-   
+    resList.current = useRestaurantList(setList);    
+
     function setList(props){
         setRestaurantList(props);
     }
@@ -23,7 +23,7 @@ const Body = () => {
 
     return( 
 
-            <div className="body-container">
+            <div className="body-container relative">
 
                 <Filter resList={resList.current} setList={setList} restaurantList={restaurantList}  />
                 {restaurantList?.length !== 0 ?  
@@ -36,7 +36,7 @@ const Body = () => {
                 </div>
                 :
                 <Shimmer/>}
-                
+
             </div>
     ); 
 }

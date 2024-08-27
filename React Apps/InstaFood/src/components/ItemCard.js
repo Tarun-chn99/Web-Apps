@@ -4,19 +4,17 @@ import { addItem } from "../AppStore/cartSlice";
 import {RES_IMG_URL} from "../utils/constants"
 
 
-const ItemCard = ({itemInfo}) => {
+const ItemCard = ({itemInfo,resInfo}) => {
 
   const dispatch = useDispatch(); 
   const {name,itemAttribute,price,defaultPrice,ratings,description,id,imageId} = itemInfo;  
   const [moreBtn,setMoreBtn] = useState(false);
+  
+  const handleAddItems = () => dispatch(addItem({itemInfo,resInfo}));
 
   const handleMoreBtn = () => {
     (moreBtn === true) ?  setMoreBtn('false') : setMoreBtn('true');
     document.getElementById(id).style.display = "none";
-  }
-
-  const handleAddItems = () => {
-    dispatch(addItem(itemInfo));
   }
 
   return (

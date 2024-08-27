@@ -6,3 +6,4 @@ export const RESTAURANT_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-typ
 
 export const LOCATION_SUGGESTION_API = 'https://www.swiggy.com/dapi/misc/place-autocomplete?input='
 export const LOCATION_INFO_API = 'https://www.swiggy.com/dapi/misc/address-recommend?place_id=';
+

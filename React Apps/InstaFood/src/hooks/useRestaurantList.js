@@ -14,7 +14,10 @@ const useRestaurantList = (setList) => {
             const cachedLocation = sessionStorage.getItem('resLocation');
             const ob = JSON.parse(cachedLocation);
 
-            if(!((ob?.lat === location.lat) && (ob?.lng === location.lng)))      sessionStorage.removeItem("resList");
+            if(!((ob?.lat === location.lat) && (ob?.lng === location.lng))){
+                sessionStorage.removeItem("resList");
+                setList([]);
+            }
              
             const cachedData = sessionStorage.getItem("resList");
 
@@ -23,7 +26,7 @@ const useRestaurantList = (setList) => {
                 setList(JSON.parse(cachedData))
             }
             else{
-
+                
                 const URL = RES_LIST_URL+'lat='+location.lat+'&lng='+location.lng+'&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
                 const response = await fetch(URL);
 

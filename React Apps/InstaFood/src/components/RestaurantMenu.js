@@ -3,6 +3,8 @@ import { useState } from "react";
 import Shimmer from "./resListShimmer";
 import MenuCategory from "./MenuCategory";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
+import { useSelector } from "react-redux";
+import CartResetPopupCard from "./CartResetPopupCard";
 
 
 const RestaurantMenu = () => {
@@ -10,15 +12,16 @@ const RestaurantMenu = () => {
     const {id} = useParams();
     const menu = useRestaurantMenu(id);     //custom hook to get restaurant menu
     const [showCategory,setshowCategory] = useState(0);
+    const isCartResetPopupOpen = useSelector(store => store.cart.cartResetPopup); 
 
-    if(menu === null)
-    return <Shimmer/>;
+    if(menu === null)   return <Shimmer/>;      //early return
 
     const {name,avgRating,totalRatingsString,costForTwoMessage,areaName,sla,expectationNotifiers} = menu?.data?.cards?.[2].card?.card?.info;
     const category = menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(element => element?.card?.card["@type"]?.includes("ItemCategory"));
+    const resInfo = {id,name,areaName};
 
     return (
-        <div className="resMenu">
+        <div className="resMenu relative">
             
             <h2>{name}</h2>
 
@@ -60,11 +63,12 @@ const RestaurantMenu = () => {
             </div>
             <hr className="margin-1 margin-top2" />
 
-            {/* Menu category */}
+            {/* Menu categories */}
             {
                 category.map?.((element,index) => 
                     //controlled component
                             <MenuCategory 
+                                resInfo={resInfo}
                                 showCategory={index === showCategory}
                                 category={element?.card?.card} 
                                 key={element?.card?.card?.title} 
@@ -72,7 +76,9 @@ const RestaurantMenu = () => {
                             />
                 )
             }
-            
+
+            {isCartResetPopupOpen &&  <CartResetPopupCard />}
+
         </div>
     )
 }
