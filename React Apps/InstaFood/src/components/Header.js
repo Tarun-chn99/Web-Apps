@@ -4,18 +4,27 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import { useSelector } from "react-redux";
 import UserLocation from "./UserLocation";
+import Login from "./Login";
 
 const Header = () => {
 
     const [btnName,setBtnName] = useState("Login");
+    const [showLoginWindow,setShowLoginWindow] = useState(false);
     const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store)=>store.cart.cartData.restaurantData.items);
 
-    const login = (e) => {
-        if(btnName === "Login")
-        setBtnName("LogOut");
+    const handleLogin = (e) => {
+        if(btnName === "Login"){
+            setBtnName("LogOut");
+            setShowLoginWindow(true);
+        }
         else
         setBtnName("Login")
+    }
+
+    const handleCloseLoginForm = () => {
+        setShowLoginWindow(false);
+        setBtnName('Login');
     }
 
     return(
@@ -39,9 +48,12 @@ const Header = () => {
                     <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Help</Link></li>
                     <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Sign In</Link></li>
                     <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/cart"><b>Cart : {cartItems.length}</b></Link></li>
-                    <button className="px-6 py-2 mx-4 rounded-lg  outline-none cursor-pointer bg-gray-200 hover:bg-gray-400 font-bold" onClick={login}>{btnName}</button>                  
+                    <button className="px-6 py-2 mx-4 rounded-lg  outline-none cursor-pointer bg-gray-200 hover:bg-gray-400 font-bold" onClick={handleLogin}>{btnName}</button>                  
                 </ul>
             </div>
+            {
+                showLoginWindow && <Login handleCloseLoginForm={handleCloseLoginForm}/>
+            }
     </div>
     );
 }

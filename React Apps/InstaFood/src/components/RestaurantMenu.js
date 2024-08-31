@@ -14,7 +14,7 @@ const RestaurantMenu = () => {
     const [showCategory,setshowCategory] = useState(0);
     const isCartResetPopupOpen = useSelector(store => store.cart.cartResetPopup); 
 
-    if(menu === null)   return <Shimmer/>;      //early return
+    if(menu === null)   return <Shimmer/>;      // early return
 
     const {name,avgRating,totalRatingsString,costForTwoMessage,cloudinaryImageId,areaName,sla,expectationNotifiers} = menu?.data?.cards?.[2].card?.card?.info;
     const category = menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(element => element?.card?.card["@type"]?.includes("ItemCategory"));
