@@ -1,0 +1,36 @@
+
+const userFormItems = (isVerifyingOTP,isLoginForm) => {
+    
+    const formTitle = isVerifyingOTP ? 'Enter OTP' : (isLoginForm ? 'Login' : 'Sign Up');
+    const toggleLoginForm = getToggleLoginFormText(isVerifyingOTP,isLoginForm);
+    const toggleTextColor = isVerifyingOTP && isLoginForm ? 'text-gray-800' : 'text-orange-500';
+    const buttonLabel = isVerifyingOTP ? 'Verify OTP' : (isLoginForm ? 'Login' : 'Sign Up');
+    const termsText = getTermsText(isVerifyingOTP,isLoginForm);
+    const inputBoxClasses = 'p-4 border border-gray-200 outline-none cursor-text text-gray-800 w-full';
+
+    return {
+        formTitle,
+        toggleLoginForm,
+        toggleTextColor,
+        buttonLabel,
+        termsText,
+        inputBoxClasses
+    }
+}
+
+const getToggleLoginFormText = (isVerifyingOTP,isLoginForm) => {
+    if(isVerifyingOTP && isLoginForm)
+        return "We have sent an OTP to your phone number."
+    else
+        return (isLoginForm ? 'create an account' : 'login to your account');
+}
+
+const getTermsText = (isVerifyingOTP,isLoginForm) => {
+    if(isVerifyingOTP)
+        return null
+    else
+        return (isLoginForm ? 'By clicking on Login, I accept the Terms & Conditions & Privacy Policy' : 'By creating an account, I accept the Terms & Conditions & Privacy Policy');
+}
+
+export default userFormItems;
+
