@@ -1,13 +1,21 @@
 import { useEffect, useRef, useState } from "react"
 import { BACK_ICON } from "../utils/constants";
 import generateUserFormItems from "../utils/generateUserFormItems";
+import { RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
+import { auth } from '../utils/firebase'
+import { useDispatch } from "react-redux";
+import { addUser, setAccessToken } from "../AppStore/userSlice";
+import { setAuth } from "../AppStore/appSlice";
+
 
 const UserForm = ({handleCloseLoginForm}) => {
 
+    const dispatch = useDispatch();
     const [isVerifyingOTP,setIsVerifyingOTP] = useState(false);
     const [isLoginForm,setIsLoginForm] = useState(true);
     const [showReferralBox,setShowReferralBox] = useState(false);
-    const inputRef = useRef(null);
+    const inputPhoneNoRef = useRef(null);
+    const inputOtpRef = useRef(null);
 
     const {
         formTitle,
@@ -18,6 +26,19 @@ const UserForm = ({handleCloseLoginForm}) => {
         inputBoxClass
     } = generateUserFormItems(isVerifyingOTP,isLoginForm);
 
+
+    
+    const verifyRecaptcha = () => {
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'sign-in-button', {
+        'size': 'invisible',
+        'callback': (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            onSignInSubmit();
+        }
+        });
+    }
+
+    
     const handleToggleLoginForm = () => {
         if(!(isVerifyingOTP && isLoginForm)){
             setIsLoginForm(!isLoginForm);
@@ -26,14 +47,55 @@ const UserForm = ({handleCloseLoginForm}) => {
     }
 
     const handleCloseOrBackAction  = () => isVerifyingOTP ? setIsVerifyingOTP(false) : handleCloseLoginForm();
+
     const handlePhoneNoValidation = (e) => e.target.value = e.target.value.replace(/\D/g, '');
-    const handleOTPVerification  = () => {
-        setIsVerifyingOTP(true);
+    
+    const handleFormSubmit  = () => {
+
+        if(buttonLabel === 'Login' || buttonLabel === 'Sign Up'){
+
+            const appVerifier = window.recaptchaVerifier;
+            
+            signInWithPhoneNumber(auth, '+91 '+inputPhoneNoRef.current.value, appVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+                inputOtpRef.current.focus();            
+            })
+            .catch((error) => console.log('Error: ',error.message));
+
+            setIsVerifyingOTP(true);
+        }
+        else{
+            const otpCode = inputOtpRef.current.value;
+            
+            confirmationResult.confirm(otpCode)
+            .then((result) => {
+
+                const {uid,displayName,email,phoneNumber,accessToken} = result.user;
+                
+                dispatch(setAuth(accessToken));
+                dispatch(setAccessToken(accessToken));
+                dispatch(addUser({
+                    uid: uid,
+                    name: displayName,
+                    email: email,
+                    phoneNumber: phoneNumber
+                }));
+                
+                handleCloseLoginForm();
+            })
+            .catch((error) =>  console.log(error.message));
+        }
     }
 
     useEffect(()=>{
-        inputRef.current.focus();
+        inputPhoneNoRef.current.focus();
+        verifyRecaptcha();
     },[isLoginForm]);
+
+    useEffect(()=>{
+        isVerifyingOTP && inputOtpRef.current.focus();
+    },[isVerifyingOTP]);
 
 
     return (
@@ -48,7 +110,7 @@ const UserForm = ({handleCloseLoginForm}) => {
 
         <form className='w-full my-8' onSubmit={(e)=>e.preventDefault()}>
             
-            <input ref={inputRef} onChange={handlePhoneNoValidation} className={`${inputBoxClass}`} name='phoneNo' type='text' placeholder="Phone number" maxLength='10'/>
+            <input ref={inputPhoneNoRef} onChange={handlePhoneNoValidation} className={`${inputBoxClass}`} name='phoneNo' type='text' placeholder="Phone number" maxLength='10'/>
             {
                 !isLoginForm && !isVerifyingOTP &&
                     <>
@@ -60,8 +122,8 @@ const UserForm = ({handleCloseLoginForm}) => {
                         }
                      </>
             }
-            { isVerifyingOTP && <input className={`${inputBoxClass} border-t-0`}  type='text' name='name' placeholder="One time password" pattern='\d*' maxLength='6'/> }
-            <button className="w-full p-4 mt-4 text-white bg-orange-500 font-bold rounded-none outline-none" onClick={handleOTPVerification}>{buttonLabel}</button>
+            { isVerifyingOTP && <input ref={inputOtpRef} className={`${inputBoxClass} border-t-0`}  type='text' name='name' placeholder="One time password" pattern='\d*' maxLength='6'/> }
+            <button id='sign-in-button' className="w-full p-4 mt-4 text-white bg-orange-500 font-bold rounded-none outline-none" onClick={handleFormSubmit}>{buttonLabel}</button>
             <p className="text-xs text-gray-800 my-1">{termsText}</p>
         </form>
     </div>

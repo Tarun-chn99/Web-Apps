@@ -3,7 +3,7 @@ import { LOCATION_SUGGESTION_API } from "../utils/constants";
 import getLocation from '../utils/getLocation'
 import {debounce} from '../hooks/useDebounceSearchHandler';
 import { useDispatch } from "react-redux";
-import { setLocation } from "../AppStore/appSlice";
+import { setLocation } from "../AppStore/appSlice.js";
 
 
 const UserLocation = () => {
@@ -32,7 +32,7 @@ const UserLocation = () => {
         dispatch(setLocation(locationInfo));
     }
 
-    const fetchSuggestions = useCallback(debounce(getLocationSuggestions,1000),[getLocationSuggestions]);
+    const fetchSuggestions = useCallback(debounce(getLocationSuggestions,200),[getLocationSuggestions]);
     const onChange = () => fetchSuggestions(locationInput.current.value);
     
     return (
