@@ -1,5 +1,5 @@
 
-### **InstaFood: Your Go-To Instant Food Ordering App**
+### 🍔 **InstaFood: Your Go-To Instant Food Ordering App** 
 
 **InstaFood** brings you the ultimate food ordering experience by displaying real-time restaurant data powered by live APIs. Enjoy a seamless browsing and ordering process tailored to your location!
 
@@ -8,7 +8,15 @@
 - **Browse and Order with Ease**: Explore a variety of restaurant menus and add your favorite items to your cart in just a few taps.
 
 
-### **Key Features**
+### 🛠️ Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript, JSX, ReactJS, TailwindCSS
+- **Testing**: Jest, React Testing Library (RTL)
+- **Backend/Database**: Firebase
+- **Build Tools**: Parcel, Babel
+
+
+### 🚀 **Key Features**
 
 - **Real-Time Data**: Leverages live APIs for up-to-date restaurant information.
 - **Location-Based Discovery**: Automatically shows restaurants near your selected area.
@@ -18,7 +26,7 @@
 - **Enhanced Performance**: Utilizes caching techniques for a faster and smoother user experience.
 
 
-### **Component Structure of InstaFood**
+### 🏗️ **Component Structure of InstaFood**
 
 - **App**  
   - **Provider**  
