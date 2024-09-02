@@ -1,31 +1,32 @@
 // Maximum occuring character in string
 
-const maxOccChar = (arr,n) => {
+const maxOccChar = (text) => {
 
-    let alphabetCount = [];
-    for(let i=0;i<26;++i)   alphabetCount.push(0);    
+    if(typeof text !== 'string') return new Error("Type error");
+    if(text.length === 0) return 'String is Empty';
+    if(text.length === 1) return text;
 
-    for(let i=0; i<n; ++i){
-        
-        let characterCode = arr.charCodeAt(i);
-        let num = characterCode - 97;
+    const charArray = [];
+    for(let i=0; i<26;++i)   charArray.push(0);
 
-        console.log(characterCode,num);
-        if(characterCode >= 97 && characterCode <=122)  alphabetCount[num]++;
+    for(let i=0; i<text.length; ++i){
+        const asciiCode = text[i].charCodeAt(0);
+        const charIndex = asciiCode - 97;
+
+        if(asciiCode >= 97 && asciiCode <= 122)
+        charArray[charIndex]++; 
     }
 
-    let maxValue = -1,maxIndex=-1;
-
-    for(let i=0; i<26; ++i){
-        if(alphabetCount[i]>maxValue){
-            maxValue = alphabetCount[i];
-            maxIndex = i;
+    let maxOccCharCount = -1,maxOccCharindex=-1;
+    for(let i=0;i<26;++i)
+        if(maxOccChar<charArray[i]){
+            maxOccCharCount = charArray[i];
+            maxOccCharindex=i;
         }
-    }
 
-    return String.fromCharCode(maxIndex + 97);
+    return (String.fromCharCode(index+97))
 }
 
 let text = 'output';
 
-console.log(maxOccChar(text,text.length));
+console.log(maxOccChar(text));

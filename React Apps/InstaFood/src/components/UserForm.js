@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { validatePhoneNo } from "../utils/validateForm";
 import { BACK_ICON } from "../utils/constants";
-import userFormItems from "../utils/userFormItems";
+import generateUserFormItems from "../utils/generateUserFormItems";
 
 const UserForm = ({handleCloseLoginForm}) => {
 
@@ -16,8 +15,8 @@ const UserForm = ({handleCloseLoginForm}) => {
         toggleTextColor,
         buttonLabel,
         termsText,
-        inputBoxClasses
-    } = userFormItems(isVerifyingOTP,isLoginForm);
+        inputBoxClass
+    } = generateUserFormItems(isVerifyingOTP,isLoginForm);
 
     const handleToggleLoginForm = () => {
         if(!(isVerifyingOTP && isLoginForm)){
@@ -49,19 +48,19 @@ const UserForm = ({handleCloseLoginForm}) => {
 
         <form className='w-full my-8' onSubmit={(e)=>e.preventDefault()}>
             
-            <input ref={inputRef} onChange={handlePhoneNoValidation} className={`${inputBoxClasses}`} name='phoneNo' type='text' placeholder="Phone number" maxLength='10'/>
+            <input ref={inputRef} onChange={handlePhoneNoValidation} className={`${inputBoxClass}`} name='phoneNo' type='text' placeholder="Phone number" maxLength='10'/>
             {
                 !isLoginForm && !isVerifyingOTP &&
                     <>
-                        <input className={`${inputBoxClasses} border-t-0`}  type='text' name='name' placeholder="Name"/>
-                        <input className={`${inputBoxClasses} border-t-0`}  type='text' name='email' placeholder="Email"/>
+                        <input className={`${inputBoxClass} border-t-0`}  type='text' name='name' placeholder="Name"/>
+                        <input className={`${inputBoxClass} border-t-0`}  type='text' name='email' placeholder="Email"/>
                         { 
-                            showReferralBox ? <input className={`${inputBoxClasses} border-t-0`} type='text' placeholder="Referral Code"/> 
+                            showReferralBox ? <input className={`${inputBoxClass} border-t-0`} type='text' placeholder="Referral Code"/> 
                             : <p className='text-blue-800 my-4 text-sm cursor-pointer' onClick={()=>setShowReferralBox(true)}>Have a referral code?</p>
                         }
                      </>
             }
-            { isVerifyingOTP && <input className={`${inputBoxClasses} border-t-0`}  type='text' name='name' placeholder="One time password" pattern='\d*' maxLength='6'/> }
+            { isVerifyingOTP && <input className={`${inputBoxClass} border-t-0`}  type='text' name='name' placeholder="One time password" pattern='\d*' maxLength='6'/> }
             <button className="w-full p-4 mt-4 text-white bg-orange-500 font-bold rounded-none outline-none" onClick={handleOTPVerification}>{buttonLabel}</button>
             <p className="text-xs text-gray-800 my-1">{termsText}</p>
         </form>
