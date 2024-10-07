@@ -16,7 +16,7 @@ const useRestaurantList = (setList) => {
 
             if(!((ob?.lat === location.lat) && (ob?.lng === location.lng))){
                 sessionStorage.removeItem("resList");
-                setList([]);
+                // setList([]);
             }
              
             const cachedData = sessionStorage.getItem("resList");

@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import appStore from "./AppStore/appStore";
 import Cart from "./components/Cart"
 
@@ -52,5 +52,4 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(root);
 root.render(<RouterProvider router={appRouter}/>);

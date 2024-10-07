@@ -4,7 +4,7 @@ export const RestaurantCard = (props) => {
 
     const {name,cloudinaryImageId,areaName,avgRating,sla} = props.resList?.info;
     return (
-        <div className="res-card" data-testid="resCard">
+        <div className="res-card shadow-xl" data-testid="resCard">
             <img src={`${RES_IMG_URL}/${cloudinaryImageId}`} alt=""/>
             <div className="restaurant-details">
                 <h3>{name}</h3>
@@ -15,15 +15,6 @@ export const RestaurantCard = (props) => {
         </div>
       );
   }
-
-// export const CardWithPromotedLabel = (RestaurantCard) => {
-//     return () => {
-//         return <div>
-//             <label>Promoted</label>
-//             <RestaurantCard />
-//         </div>
-//     }
-// }
 
 export default RestaurantCard;
 

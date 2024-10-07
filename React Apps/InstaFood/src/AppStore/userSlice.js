@@ -5,7 +5,7 @@ const userSlice = createSlice({
     initialState: {
         userInfo: null,
         location: null,
-        accessToken: null
+        authToken: null
     },
     reducers: {
         addUser: (state,action) => {
@@ -14,11 +14,14 @@ const userSlice = createSlice({
         setUserLocation: (state,action) => {
             state.location = action.payload;
         },
-        setAccessToken: (state,action) => {
-            state.accessToken = action.payload;
+        setAuthToken: (state,action) => {
+            state.authToken = action.payload;
+        },
+        removeUser: (state) => {
+            state.userInfo = state.location = state.authToken = null;
         }
     }
 });
 
-export const { addUser, setUserLocation, setAccessToken } = userSlice.actions;
+export const { addUser, setUserLocation, setAuthToken,removeUser } = userSlice.actions;
 export default userSlice.reducer;

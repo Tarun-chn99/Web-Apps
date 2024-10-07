@@ -7,6 +7,27 @@
     box-sizing: border-box;
 }
 
+@keyframes login-screen{
+    from {opacity:0.8}
+    to {opacity: 0.7;}
+}
+
+@keyframes login-form{
+    from { right: -40rem}
+    to { right: 0rem }
+}
+
+.animate-login-form{
+    animation: login-form 0.5s 1 ease forwards;
+}
+
+.animate-login-screen{
+    animation-name: login-screen;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
 
 .body{
     font-size: 16px;
@@ -131,6 +152,7 @@
     width: 15.5rem;
     height: 20rem;
     margin: 1rem;
+    padding: 0.5rem;
     transition: 0.1s;
     background-color: #f0f0f0;
     border-radius: 0.75rem;

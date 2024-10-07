@@ -4,7 +4,7 @@ import generateUserFormItems from "../utils/generateUserFormItems";
 import { RecaptchaVerifier,signInWithPhoneNumber } from "firebase/auth";
 import { auth } from '../utils/firebase'
 import { useDispatch } from "react-redux";
-import { addUser, setAccessToken } from "../AppStore/userSlice";
+import { addUser, setAuthToken } from "../AppStore/userSlice";
 import { setAuth } from "../AppStore/appSlice";
 
 
@@ -25,7 +25,9 @@ const UserForm = ({handleCloseLoginForm}) => {
         termsText,
         inputBoxClass
     } = generateUserFormItems(isVerifyingOTP,isLoginForm);
-
+    
+    const handleCloseOrBackAction  = () => isVerifyingOTP ? setIsVerifyingOTP(false) : handleCloseLoginForm();
+    const handlePhoneNoValidation = (e) => e.target.value = e.target.value.replace(/\D/g, '');
 
     
     const verifyRecaptcha = () => {
@@ -37,7 +39,6 @@ const UserForm = ({handleCloseLoginForm}) => {
         }
         });
     }
-
     
     const handleToggleLoginForm = () => {
         if(!(isVerifyingOTP && isLoginForm)){
@@ -45,10 +46,6 @@ const UserForm = ({handleCloseLoginForm}) => {
             if(!isLoginForm && showReferralBox) setShowReferralBox(false); 
         }
     }
-
-    const handleCloseOrBackAction  = () => isVerifyingOTP ? setIsVerifyingOTP(false) : handleCloseLoginForm();
-
-    const handlePhoneNoValidation = (e) => e.target.value = e.target.value.replace(/\D/g, '');
     
     const handleFormSubmit  = () => {
 
@@ -66,6 +63,7 @@ const UserForm = ({handleCloseLoginForm}) => {
             setIsVerifyingOTP(true);
         }
         else{
+
             const otpCode = inputOtpRef.current.value;
             
             confirmationResult.confirm(otpCode)
@@ -74,7 +72,7 @@ const UserForm = ({handleCloseLoginForm}) => {
                 const {uid,displayName,email,phoneNumber,accessToken} = result.user;
                 
                 dispatch(setAuth(accessToken));
-                dispatch(setAccessToken(accessToken));
+                dispatch(setAuthToken(accessToken));
                 dispatch(addUser({
                     uid: uid,
                     name: displayName,

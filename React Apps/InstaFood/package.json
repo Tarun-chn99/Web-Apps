@@ -4,7 +4,7 @@
   "description": "React Course",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --dist-dir build",
     "test": "jest",
     "watch-test": "jest --watch"
   },

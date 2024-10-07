@@ -1,31 +1,41 @@
-import { useContext, useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UserLocation from "./UserLocation";
 import Login from "./Login";
+import { setAuth } from "../AppStore/appSlice";
+import generateHeaderItems from "../utils/generateHeaderItems";
+import { removeUser } from "../AppStore/userSlice";
 
 const Header = () => {
 
-    const [btnName,setBtnName] = useState("Login");
+    const auth = useSelector((store)=>store.app.auth);
+    const dispatch = useDispatch();
     const [showLoginWindow,setShowLoginWindow] = useState(false);
     const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store)=>store.cart.cartData.restaurantData.items);
+    
+    const {
+        company_name,
+        headerLinkClass,
+        headerButtonClass,
+        buttonLabel,
+        status_icon,
+        LOGO_URL
+    } = generateHeaderItems(auth);
 
-    const handleLogin = (e) => {
-        if(btnName === "Login"){
-            setBtnName("LogOut");
+    const handleLogin = () => {
+        if(!auth){
             setShowLoginWindow(true);
         }
-        else
-        setBtnName("Login")
+        else{
+            dispatch(setAuth(null));
+            dispatch(removeUser());
+        }
     }
-
-    const handleCloseLoginForm = () => {
-        setShowLoginWindow(false);
-        setBtnName('Login');
-    }
+        
+    const handleCloseLoginForm = () =>  setShowLoginWindow(false);
 
     return(
         <div title='header' className="flex justify-between items-center shadow-lg ">
@@ -33,22 +43,29 @@ const Header = () => {
             <div className="flex items-center mx-4">
                 <div className="w-20">
                     <Link to='/' className="logo-link">
-                        <img className='logo' src={LOGO_URL} alt="" width="100%"/>
+                        <img className='logo' src={LOGO_URL} alt="logo" width="100%"/>
                     </Link>
                 </div>
-                <Link to='/'><h3 className="text-xl italic font-bold">InstaFood</h3></Link>
+                <Link to='/'><h3 className="text-xl italic font-bold">{company_name}</h3></Link>
                 <UserLocation />
             </div>
 
             <div className="mx-4">
                 <ul className="flex list-none items-center">
-                    <li className="flex"><b>Status : </b> {onlineStatus === true ? <span className="inline-block p-[0.75rem] rounded-[2rem] w-[0.25rem] bg-[#52c152] mx-2"></span> : <span className="inline-block p-[0.75rem] rounded-[2rem] w-[0.25rem] bg-red-500 mx-2"></span>}</li>
-                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/">Search</Link></li>
-                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/about">About</Link></li>
-                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Help</Link></li>
-                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link>Sign In</Link></li>
-                    <li className='px-2 py-2 mx-1 cursor-pointer hover:text-orange-500 transition duration-500'><Link to="/cart"><b>Cart : {cartItems.length}</b></Link></li>
-                    <button className="px-6 py-2 mx-4 rounded-lg  outline-none cursor-pointer bg-gray-200 hover:bg-gray-400 font-bold" onClick={handleLogin}>{btnName}</button>                  
+                    <li className="flex">
+                        <b>Status : </b> 
+                        {
+                            onlineStatus === true 
+                            ? <span className={status_icon + " bg-[#52c152]"}></span> 
+                            : <span className={status_icon + " bg-red-500"}></span>
+                        }
+                    </li>
+                    <li className={headerLinkClass}><Link to="/">Search</Link></li>
+                    <li className={headerLinkClass}><Link to="/about">Offers</Link></li>
+                    <li className={headerLinkClass}><Link>Help</Link></li>
+                    <li className={headerLinkClass}><Link>Sign In</Link></li>
+                    <li className={headerLinkClass}><Link to="/cart"><b>Cart : {cartItems.length}</b></Link></li>
+                    <button className={headerButtonClass} onClick={handleLogin}>{buttonLabel}</button>                  
                 </ul>
             </div>
             {

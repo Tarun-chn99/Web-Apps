@@ -3,7 +3,7 @@ const part = "emckx";
 
 const removeOccurences = (s,part) => {
     
-    if(typeof s !== 'string' && typeof part !== 'string')  return new Error("Type error");
+    if((typeof s !== 'string') && (typeof part !== 'string'))  return new Error("Type error");
 
     if(s.length < part.length) return s;
 
@@ -37,10 +37,10 @@ const removeOccurences = (s,part) => {
     return s;
 }
 
-const checkSubstring = (s,partSum,i1,j) => {
+const checkSubstring = (s,partSum,a,b) => {
 
     let sum=0;
-    for(let i=i1; i<=j; ++i ){
+    for(let i=a; a<=b; ++i ){
         const ascii = s[i].charCodeAt(0);
         sum +=ascii;
     }
