@@ -12,14 +12,12 @@ const subSeqence = (str,output,index) => {
         return;
     }
 
-    subSeqence(str,output,index+1,ans);
+    subSeqence(str,output,index+1);
 
     let element = str[index];
     output+=element;
-    subSeqence(str,output,index+1,ans);
-
-    output='';
+    subSeqence(str,output,index+1);
 }
 
-subSeqence(str,output,0,ans);
+subSeqence(str,output,0);
 console.log(ans)

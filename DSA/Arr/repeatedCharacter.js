@@ -16,6 +16,4 @@ const repeatedCharacter = function(s) {
         
         arr[charCode-97]++;
     }
-
-    return 'No repeated character';
 };

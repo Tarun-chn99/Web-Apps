@@ -11,7 +11,6 @@ const permute = (str,index,ans) => {
     }
 
     for(let j=index; j<str.length; ++j){
-        
         [str[index],str[j]] = [str[j],str[index]];
         permute(str,index+1,ans);
         [str[index],str[j]] = [str[j],str[index]];

@@ -1,30 +1,50 @@
 // merge sort
 
-const arr = [1,4,2,77,13,65,85,-2,5,3];
-
-const sortArray = (arr,s,e) => {
-    
-    if(!e)  return;
-
-    for(let i=s; i<e; ++i)
-        if(arr[i]>arr[i+1])
-            [arr[i],arr[i+1]] = [arr[i+1],arr[i]];
-
-    sortArray(arr,s,e-1);
-}
+const arr = [9,5,1,2,0,-5,-1,3,3];
 
 const mergeSort = (arr,s,e) => {
+    
+    if(!Array.isArray(arr)) return 'Invalid input';
 
-    if(s>=e) 
-        return;
+    if(s>=e)   return [arr[s]];
 
-    let mid = Math.floor(((s+e)/2));
+    let mid = Math.floor((s+e)/2);
+    let arr1 = mergeSort(arr,s,mid);
+    let arr2 = mergeSort(arr,mid+1,e);
+    
+    return mergeArray(arr1,arr1.length,arr2,arr2.length);
 
-    mergeSort(arr,s,mid);
-    mergeSort(arr,mid+1,e);
-    sortArray(arr,s,e);
 }
 
+const mergeArray = (arr1,m,arr2,n) => {
 
-mergeSort(arr,0,arr.length-1);
-console.log("Merge sorted array: ",arr);
+    let arr = [];
+    let i=0,j=0;
+    
+    while(i<m && j<n){
+
+        if(arr1[i]<=arr2[j]){
+            arr.push(arr1[i]);
+            i++;
+        }
+        else{
+            arr.push(arr2[j]);
+            j++;
+        }
+
+    }
+
+    while(i<m){
+        arr.push(arr1[i]);
+        i++;
+    }
+
+    while(j<n){
+        arr.push(arr2[j]);
+        j++;
+    }
+
+    return arr;
+}
+
+console.log("Merge sorted array: ",mergeSort(arr,0,arr.length-1));

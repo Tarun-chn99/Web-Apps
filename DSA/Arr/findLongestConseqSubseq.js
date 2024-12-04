@@ -8,17 +8,17 @@ let arr =  [
   ];
 
 const findLongestConseqSubseq = arr => {
+
     arr.sort((a,b) =>a-b);
-    console.log(arr);
     let maxLen = 0;
     let len=1;
     
     for(let i=0; i<arr.length-1; ++i){
-        if(arr[i]+1 === arr[i+1] )
+        if(arr[i]+1 === arr[i+1] ){
             len++;
+        }
         else{ 
             maxLen = maxLen<len ? len : maxLen; 
-            console.log(i,maxLen);
             len=1;
         }
     }
