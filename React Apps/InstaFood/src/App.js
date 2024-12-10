@@ -1,4 +1,4 @@
-import React, { lazy, Suspense} from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,7 +8,6 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from 'react-redux';
 import appStore from "./AppStore/appStore";
 import Cart from "./components/Cart"
-
 
 const About = lazy(() => import("./components/About"));
 

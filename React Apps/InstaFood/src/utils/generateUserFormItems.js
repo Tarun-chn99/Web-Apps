@@ -1,5 +1,5 @@
 
-const generateUserFormItems = (isVerifyingOTP,isLoginForm) => {
+const generateUserFormItems = (isLoginForm,isVerifyingOTP) => {
     
     const formTitle = isVerifyingOTP ? 'Enter OTP' : (isLoginForm ? 'Login' : 'Sign Up');
     const toggleLoginForm = getToggleLoginFormText(isVerifyingOTP,isLoginForm);

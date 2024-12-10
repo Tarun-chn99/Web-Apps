@@ -13,7 +13,7 @@ const appSlice = createSlice({
     reducers: {
         setAuth: (state,action) => {
             state.auth = action.payload;
-            action.payload ? state.isLoggedIn = true : state.isLoggedIn = false;
+            state.isLoggedIn = action.payload ? true : false;
         },
         setLocation : (state,action) => {
             state.location = action.payload;

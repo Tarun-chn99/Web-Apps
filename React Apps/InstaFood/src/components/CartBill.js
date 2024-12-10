@@ -16,9 +16,9 @@ const CartBill = ({data}) => {
             {
                 items && items.map((element) => {
                     return <div className="py-2 w-full flex justify-between items-center">
-                        <span className="font-bold text-sm w-1/2">{element.name}</span>
-                        <span className="font-bold text-sm">रु{element.price/100}</span>
-                        </div>
+                            <span className="font-bold text-sm w-1/2">{element.name}</span>
+                            <span className="font-bold text-sm">रु{element.price/100}</span>
+                           </div>
                 })
             }
         </div>

@@ -15,7 +15,7 @@ const Header = () => {
     const [showLoginWindow,setShowLoginWindow] = useState(false);
     const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store)=>store.cart.cartData.restaurantData.items);
-    
+
     const {
         company_name,
         headerLinkClass,

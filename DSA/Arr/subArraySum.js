@@ -3,7 +3,7 @@
 function subArraySum(arr, x) {
         
     let n = arr.length;
-    let curr_sum = 0, min_len = n+1;
+    let curr_sum = 0;
     let i = 0, j = 0;
 
     while (j < n) {
@@ -20,3 +20,5 @@ function subArraySum(arr, x) {
     
     return [-1];
 }
+
+console.log("sum: ",subArraySum([-1,-1,1],0))

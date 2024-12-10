@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../AppStore/cartSlice";
 import {RES_IMG_URL} from "../utils/constants"
@@ -6,15 +6,15 @@ import {RES_IMG_URL} from "../utils/constants"
 
 const ItemCard = ({itemInfo,resInfo}) => {
 
-  const dispatch = useDispatch(); 
+  const moreButton = useRef(); 
+  const dispatch = useDispatch();
+  const [expand,setExpand] = useState(false);
   const {name,itemAttribute,price,defaultPrice,ratings,description,id,imageId} = itemInfo;  
-  const [moreBtn,setMoreBtn] = useState(false);
-  
-  const handleAddItems = () => dispatch(addItem({itemInfo,resInfo}));
 
-  const handleMoreBtn = () => {
-    (moreBtn === true) ?  setMoreBtn('false') : setMoreBtn('true');
-    document.getElementById(id).style.display = "none";
+  const handleAddItems = () => dispatch(addItem({itemInfo,resInfo}));
+  const handleExpand = () => {
+    (expand === true) ?  setExpand('false') : setExpand('true');
+    moreButton.current.style.display = "none";
   }
 
   return (
@@ -40,9 +40,9 @@ const ItemCard = ({itemInfo,resInfo}) => {
           <p><i>
             
             {(Object.keys(itemInfo).find((val)=>{return val==="description"}) === "description") ? 
-              ((moreBtn === false) ? description.slice(0,80) : description )  : ""}
+              ((expand === false) ? description.slice(0,80) : description )  : ""}
 
-            <button id={id} className="moreButton" onClick={handleMoreBtn}><b>...more</b></button>
+            <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>
           </i></p>
 
         </div>

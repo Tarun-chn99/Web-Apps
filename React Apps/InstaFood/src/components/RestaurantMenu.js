@@ -5,6 +5,7 @@ import MenuCategory from "./MenuCategory";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import { useSelector } from "react-redux";
 import CartResetPopupCard from "./CartResetPopupCard";
+import getMenuCategories from "../utils/getMenuCategories"
 
 
 const RestaurantMenu = () => {
@@ -16,9 +17,19 @@ const RestaurantMenu = () => {
 
     if(menu === null)   return <Shimmer/>;      // early return
 
-    const {name,avgRating,totalRatingsString,costForTwoMessage,cloudinaryImageId,areaName,sla,expectationNotifiers} = menu?.data?.cards?.[2].card?.card?.info;
-    const category = menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(element => element?.card?.card["@type"]?.includes("ItemCategory"));
+    const {
+        name,
+        avgRating,
+        totalRatingsString,
+        costForTwoMessage,
+        cloudinaryImageId,
+        areaName,
+        sla,
+        expectationNotifiers    
+    } = menu?.data?.cards?.[2].card?.card?.info;
+
     const resInfo = {id,name,areaName,cloudinaryImageId};
+    const category = getMenuCategories(menu);
 
     return (
         <div className="resMenu relative">
@@ -53,6 +64,7 @@ const RestaurantMenu = () => {
 
             <h3 className="heading margin-top2">MENU</h3>
 
+
             {/* Filter buttons */}
             <div className="search flex space-evenly">
                 <button className="menuSearchButton textLightGray"><b>Search for dishes</b></button>
@@ -62,6 +74,7 @@ const RestaurantMenu = () => {
                 <button className="margin-lr-half">Bestseller</button>
             </div>
             <hr className="margin-1 margin-top2" />
+
 
             {/* Menu categories */}
             {

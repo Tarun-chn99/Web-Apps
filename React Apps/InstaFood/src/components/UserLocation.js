@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { LOCATION_SUGGESTION_API } from "../utils/constants";
 import getLocation from '../utils/getLocation'
 import {debounce} from '../hooks/useDebounceSearchHandler';
@@ -8,12 +8,13 @@ import { setLocation } from "../AppStore/appSlice.js";
 
 const UserLocation = () => {
 
-    const locationInput = useRef();
+    const [locationInfo,setLocationInfo] = useState('')
     const [suggestions,setSuggestions] = useState(null);
     const [isSuggestionsOpen,setIsSuggestionsOpen] = useState(false);
     const dispatch = useDispatch();
-    
+
     const getLocationSuggestions = async (query) => {
+        
         try{
             const response = await fetch(LOCATION_SUGGESTION_API+query+'&types=');
             const data = await response.json();
@@ -26,23 +27,30 @@ const UserLocation = () => {
     
     const handleClick = async (location) => {
         
-        locationInput.current.value = location.description;
+        setLocationInfo(location.description);
         const locationId = location.place_id;
         const locationInfo = await getLocation(locationId);
         dispatch(setLocation(locationInfo));
     }
 
-    const fetchSuggestions = useCallback(debounce(getLocationSuggestions,200),[getLocationSuggestions]);
-    const onChange = () => fetchSuggestions(locationInput.current.value);
+    useEffect(()=>{
+
+        let timerid = setTimeout(()=>{
+            getLocationSuggestions(locationInfo);
+        },200);
+
+        return () => clearTimeout(timerid);
+
+    },[locationInfo]);
     
     return (
         <form className="relative mx-4" onSubmit={(e)=>e.preventDefault()}>
             <input 
-                ref={locationInput} 
                 className='p-4 rounded-xl mx-4 bg-gray-200 text-black outline-none border-none' 
                 type="text" 
+                value={locationInfo}
                 placeholder="Enter precise location..."
-                onChange={onChange}
+                onChange={(e)=>setLocationInfo(e.target.value)}
                 onFocus={() => setIsSuggestionsOpen(true)}
                 onBlur={() =>setTimeout(()=>setIsSuggestionsOpen(false),200)}
             />          

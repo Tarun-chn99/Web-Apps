@@ -7,7 +7,7 @@ const useRestaurantList = (setList) => {
 
     const [resList, setResList] = useState([]);
     const location = useSelector((store) => store.app.location);
-    
+
     const fetchList = async () => {
 
         try{
@@ -28,11 +28,13 @@ const useRestaurantList = (setList) => {
             else{
                 
                 const URL = RES_LIST_URL+'lat='+location.lat+'&lng='+location.lng+'&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
-                const response = await fetch(URL);
+                const response = await fetch(`${URL}/api`);
 
                 if (response.ok) {   // Check for successful response
                     
                     const data = await response.json();
+
+                    console.log(data);
                     const resListData = data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                     sessionStorage.setItem('resLocation',JSON.stringify(location));
                     sessionStorage.setItem("resList",JSON.stringify(resListData));

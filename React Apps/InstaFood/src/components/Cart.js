@@ -12,9 +12,7 @@ const Cart = () => {
     const {id,name,imgId,items} = useSelector((store)=>store.cart.cartData.restaurantData);
     const itemTotalPrice = items.reduce((acc,curr) => acc+=curr.price/100,0);
 
-    const handleClearCart = () => {
-        dispatch(clearCart());
-    }
+    const handleClearCart = () => dispatch(clearCart());
     
     return (
         id ? <div title='cart' className="bg-slate-200 h-full">

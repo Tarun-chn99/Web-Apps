@@ -24,9 +24,18 @@ const UserForm = ({handleCloseLoginForm}) => {
         buttonLabel,
         termsText,
         inputBoxClass
-    } = generateUserFormItems(isVerifyingOTP,isLoginForm);
+    } = generateUserFormItems(isLoginForm,isVerifyingOTP);
     
-    const handleCloseOrBackAction  = () => isVerifyingOTP ? setIsVerifyingOTP(false) : handleCloseLoginForm();
+    const handleCloseOrBackAction  = () => {
+        if(isVerifyingOTP){
+            setIsVerifyingOTP(false) 
+            inputPhoneNoRef.current.value = '';
+            inputPhoneNoRef.current.focus();
+        }
+        else 
+        handleCloseLoginForm();
+        
+    };
     const handlePhoneNoValidation = (e) => e.target.value = e.target.value.replace(/\D/g, '');
 
     
@@ -41,9 +50,9 @@ const UserForm = ({handleCloseLoginForm}) => {
     }
     
     const handleToggleLoginForm = () => {
-        if(!(isVerifyingOTP && isLoginForm)){
+        if(!(isVerifyingOTP)){
             setIsLoginForm(!isLoginForm);
-            if(!isLoginForm && showReferralBox) setShowReferralBox(false); 
+            // if(!isLoginForm && showReferralBox) setShowReferralBox(false); 
         }
     }
     
@@ -104,7 +113,7 @@ const UserForm = ({handleCloseLoginForm}) => {
         </button>
 
         <h1 className="my-2 text-2xl font-bold">{formTitle}</h1>
-        <p className="text-xs" onClick={handleToggleLoginForm}>or <span className={`cursor-pointer ${toggleTextColor}`}>{toggleLoginForm}</span></p>
+        <p className="text-xs" onClick={handleToggleLoginForm}>{!isVerifyingOTP ? "or " : ''}<span className={`cursor-pointer ${toggleTextColor}`}>{toggleLoginForm}</span></p>
 
         <form className='w-full my-8' onSubmit={(e)=>e.preventDefault()}>
             

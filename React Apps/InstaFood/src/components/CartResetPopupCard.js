@@ -5,7 +5,6 @@ const CartResetPopupCard = () => {
 
     const dispatch = useDispatch();
     const currentItem  = useSelector((store) => store.cart.cartData.tempItemInfo);
-    console.log(currentItem);
 
     const handleNoButton = () => dispatch(hideCartResetPopup());
 
