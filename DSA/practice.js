@@ -1,5 +1,29 @@
 
+// const handlerTrigger = () => {
+//     console.log("fire");
+// }
 
+// const throttleFunc = (func, interval) => {
+
+//     let shouldFire = true;
+    
+//     return function() {
+            
+//         if (shouldFire) {
+            
+//             func();
+//             shouldFire = false;
+
+//             setTimeout(() => {
+//             shouldFire = true;
+//             }, interval);
+//         }
+//     }
+// }
+    
+// const optimisedTriggerHandler = throttleFunc(handlerTrigger, 500);
+
+// document.getElementById('fire').addEventListener("click", optimisedTriggerHandler);
 
 
 

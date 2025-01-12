@@ -1,4 +1,4 @@
-// https://www.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1
+// https://leetcode.com/problems/3sum/
 
 const tripletSumPairs = (arr,target) => {
 
@@ -33,6 +33,31 @@ const tripletSumPairs = (arr,target) => {
     return ans;
 }
 
-let arr = [-1,0,1,2,-1,-4], target = 0; 
+const tripletSumPairs2 = (arr,target) => {
 
-console.log("Is triplet: ",tripletSumPairs(arr,target));
+    arr.sort((a,b) =>  a-b);
+    let ans = 0;
+
+    for(let i=0; i<arr.length; ++i){
+        
+        let j = i+1;
+        let k = arr.length-1;
+        
+        while(j<k){
+            
+            let total = arr[i]+arr[j]+arr[k];
+
+            if( total < target){
+                ans++
+                j++;
+            }
+            else
+                k--;
+        }
+    }
+    return ans;
+}
+
+let arr = [-2,0,1,3], target = 2; 
+
+console.log("Is triplet: ",tripletSumPairs2(arr,target));

@@ -31,7 +31,7 @@ const useRestaurantList = (setList) => {
                 const response = await fetch(`${URL}/api`);
 
                 if (response.ok) {   // Check for successful response
-                    
+                    console.log(response.body)
                     const data = await response.json();
 
                     console.log(data);

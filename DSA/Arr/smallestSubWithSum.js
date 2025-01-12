@@ -8,8 +8,7 @@ const smallestSubWithSum = (arr, x) => {
 
     while (j < n) {
 
-        while (curr_sum < x && j < n) 
-            curr_sum += arr[j++];
+        curr_sum += arr[j++];
 
         while (curr_sum >= x && i < n) {
 

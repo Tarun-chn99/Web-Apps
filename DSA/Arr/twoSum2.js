@@ -3,7 +3,6 @@
 const twoSum = function(arr, target) {
         
     if(!(Array.isArray(arr)))   return 'Invalid input';
-
     if(typeof target !== 'number')  return 'Expected target to be number';
 
     let n = arr.length;

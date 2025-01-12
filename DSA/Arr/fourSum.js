@@ -39,5 +39,5 @@ const fourSum = function(arr, target) {
     return ans;
 };
 
-let arr = [-2,-1,-1,1,1,2,2], target=0;
+let arr = [10 ,2 ,3 ,4 ,5 ,7 ,8], target=23;
 console.log(fourSum(arr,target));

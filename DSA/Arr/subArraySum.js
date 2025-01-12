@@ -21,4 +21,4 @@ function subArraySum(arr, x) {
     return [-1];
 }
 
-console.log("sum: ",subArraySum([-1,-1,1],0))
+console.log("sum: ",subArraySum([0,0,5,5,0,0],0))

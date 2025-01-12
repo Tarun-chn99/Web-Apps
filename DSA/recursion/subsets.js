@@ -1,4 +1,4 @@
-const nums = [1,2,3,4];
+const nums = [1,2,3];
 const ans = [];
 const output = [];
 
@@ -18,6 +18,7 @@ const powerSet = (nums, output, index, ans) => {
 
     output.pop();  // Backtrack
 };
+
 
 powerSet(nums, output, 0, ans);
 console.log('Power set:', ans);
