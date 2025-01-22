@@ -1,5 +1,5 @@
 
-export default getCategories = (menu) => {
+export default getMenuCategories = (menu) => {
 
     const items = menu?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     

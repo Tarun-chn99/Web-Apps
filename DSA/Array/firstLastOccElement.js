@@ -29,3 +29,33 @@ export const occurence = (arr,key,occurencePosition) => {
 
     return res;
 }
+
+const occ = (arr,k) => {
+
+    if(!Array.isArray(arr)) return 'Invalid array';
+    if(!arr.length) return 'Empty array';
+
+    let s = 0;
+    let e = arr.length-1;
+    let res = -1;
+
+    while(s<=e){
+
+        let mid = Math.floor((s+e)/2);
+
+        if(arr[mid] === k){
+            res = mid;
+            e = mid - 1;
+        }
+        else if(arr[mid] < k)
+            s = mid + 1;
+        else
+            e = mid - 1;
+    }
+
+    return res;
+}
+
+const arr = [1, 3, 5, 5, 5, 5, 7, 8, 9, 9, 9, 9, 9, 123, 125];
+
+console.log(occ(arr,9))

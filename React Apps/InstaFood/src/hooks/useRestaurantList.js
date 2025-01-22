@@ -28,7 +28,7 @@ const useRestaurantList = (setList) => {
             else{
                 
                 const URL = RES_LIST_URL+'lat='+location.lat+'&lng='+location.lng+'&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
-                const response = await fetch(`${URL}/api`);
+                const response = await fetch(URL);
 
                 if (response.ok) {   // Check for successful response
                     console.log(response.body)

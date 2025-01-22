@@ -54,7 +54,7 @@ function quickSort(arr, low, high)
 
         // pi is the partition return index of pivot
         let pi = partition2(arr, low, high);
-        console.log(low,high,pi)
+
         // Recursion calls for smaller elements
         // and greater or equals elements
         quickSort(arr, low, pi - 1);

@@ -90,7 +90,6 @@ function minSwap3 (arr,k) {
     return ans;
 }
 
+const arr = [2, 1, 5, 6, 3], k = 3 ;
 
-const arr = [2, 7, 9, 5, 4, 7, 8], k = 6 ;
-
-console.log("Swaps: ",minSwap3(arr,k));
+console.log("Swaps: ",minSwap(arr,k));

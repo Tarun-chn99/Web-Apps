@@ -2,7 +2,7 @@
 
 import { findPivot } from "./findPivot.js";
 
-const arr = [7,9,2,4,5,6];
+const arr = [4,5,6,7,0,1,2];
 
 function searchElement(arr,key){
     
@@ -10,10 +10,11 @@ function searchElement(arr,key){
     let e=arr.length-1;
     let mid;
     const pivot = findPivot(arr);
+    console.log(pivot)
 
     if(arr[pivot] === key)  return pivot;
-    if(pivot === e) e=arr.length-2;
-    if(arr[pivot]<key)  s=pivot+1;  
+    if(pivot === e) e=pivot-1;
+    if(arr[pivot]<key && key<=arr[e])  s=pivot+1;  
     else    e=pivot-1;
     
     mid = Math.floor(s + (e-s)/2);
@@ -31,7 +32,7 @@ function searchElement(arr,key){
 
 
 console.time();
-console.log(searchElement(arr,6));
+console.log(searchElement(arr,5));
 console.timeEnd();
 
 
