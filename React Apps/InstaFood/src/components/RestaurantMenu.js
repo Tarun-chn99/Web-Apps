@@ -5,7 +5,7 @@ import MenuCategory from "./MenuCategory";
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import { useSelector } from "react-redux";
 import CartResetPopupCard from "./CartResetPopupCard";
-import getMenuCategories from "../utils/getMenuCategories"
+import { getMenuCategories } from "../utils/getMenuCategories.js"
 
 
 const RestaurantMenu = () => {

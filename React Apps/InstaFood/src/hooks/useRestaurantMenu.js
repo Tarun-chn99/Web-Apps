@@ -17,11 +17,11 @@ const useRestaurantMenu = (id) => {
                 setMenu(JSON.parse(cachedData));
             }
             else{
-                const response = await fetch(RESTAURANT_MENU_URL + id);
+                const response = await fetch(RESTAURANT_MENU_URL + '&restaurantId=' + id);
                 const data = await response.json();
                 sessionStorage.setItem("resMenu"+id,JSON.stringify(data));
                 setMenu(data);
-            }
+            }``
 
         }catch(err){
             console.log(err);

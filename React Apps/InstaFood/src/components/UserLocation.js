@@ -16,7 +16,7 @@ const UserLocation = () => {
     const getLocationSuggestions = async (query) => {
         
         try{
-            const response = await fetch(LOCATION_SUGGESTION_API+query+'&types=');
+            const response = await fetch(LOCATION_SUGGESTION_API + 'input=' + query);
             const data = await response.json();
             setSuggestions(data?.data);
         }
