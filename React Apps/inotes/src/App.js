@@ -12,6 +12,7 @@ import { useState,useEffect } from 'react';
 function App() {
 
   const [alert,setAlert] = useState(null);
+  
   const showAlert = (message) => {
     setAlert(message);
 
@@ -19,6 +20,7 @@ function App() {
       setAlert(null);
     },1000);
   }
+  
   useEffect(() => {
     showAlert("Welcome!");
   }, [])

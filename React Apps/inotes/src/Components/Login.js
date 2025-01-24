@@ -8,7 +8,7 @@ const Login = (props) => {
 
     useEffect(() => {
       props.showAlert("Login Section!");
-    }, []);
+    }, [props]);
 
 
     const handleSubmit = async (e) => {
@@ -22,16 +22,17 @@ const Login = (props) => {
             },
             body: JSON.stringify({email: credentials.email, password: credentials.password}) 
             });
-          const json =  await response.json(); 
-          console.log(json);
-          if(json.success){
-            localStorage.setItem('session_token',json.authToken);
-            props.showAlert("Logged in successfully");
-            navigate("/");
-          }
-          else{
-            props.showAlert("Invalid credentials!")
-          }
+          
+        const json =  await response.json(); 
+        console.log(json);
+        if(json.success){
+          localStorage.setItem('session_token',json.authToken);
+          props.showAlert("Logged in successfully");
+          navigate("/");
+        }
+        else{
+          props.showAlert("Invalid credentials!")
+        }
     }
 
     const onChange = (e) => {
