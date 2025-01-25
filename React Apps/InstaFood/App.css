@@ -66,7 +66,7 @@
 }
 
 .body-container{
-    width: 80vw;
+    width: 80%;
     margin: auto;
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -122,30 +122,6 @@
     padding: 1rem;
 }
 
-.search{
-    margin: 1rem 1rem;
-}
-
-.search > input,button{
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-right: 0.15rem;
-}
-
-.search > input{
-    width: 60%;
-}
-
-
-.res-card{
-    margin: auto;
-    width: 15.5rem;
-    height: 20rem;
-    margin: 1rem;
-    transition: 0.1s;
-    background-color: #f0f0f0;
-    border-radius: 0.75rem;
-}
 
 .shimmer-card{
     margin: auto;
@@ -155,18 +131,6 @@
     padding: 0.5rem;
     transition: 0.1s;
     background-color: #f0f0f0;
-    border-radius: 0.75rem;
-}
-
-.res-card:hover{
-    /* border: 1px solid black; */
-    cursor: pointer;
-    transform: scale(0.95);
-}
-
-.res-card > img{
-    width: 100%;
-    height: 60%;
     border-radius: 0.75rem;
 }
 
@@ -189,30 +153,7 @@
     text-decoration: none;
 }
 
-.resMenu{
-    width: 45%;
-    margin: auto;
-}
 
-.resMenu > h2{
-    margin: 2rem 1rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: rgba(2, 6, 12, 0.92);
-}
-
-.resInfoContainer{
-    padding: 0rem 1rem 1rem;
-    border-radius: 2.5rem;
-    /* background-color: rgb(179, 161, 161); */
-    background-image: linear-gradient(rgb(255, 255, 255) -6.71%, rgb(235, 235, 242) 56.19%, rgb(223, 223, 231) 106.56%);
-}
-
-.resInfo{
-    border-radius: 2rem;
-    padding: 1rem;
-    background-color: white;
-}
 
 .margin-1{margin: 1rem;}
 .margin-2{margin: 2rem;}
@@ -229,7 +170,7 @@
 .dot{
     padding: 0.25rem;
     border-radius: 1rem;
-    width: 0.25rem;
+    /* width: 0.25rem; */
     background-color: #c4c4c4;
 }
 
@@ -250,7 +191,7 @@
 }
 
 .line{
-    height: 1.5rem;
+    height: 100%;
     background-color: #c4c4c4;
     width: 0.2rem;
     margin: 0rem 0.15rem;
@@ -273,15 +214,6 @@
     background-color: rgb(240, 240, 245);
 
     cursor: pointer;
-}
-
-.menuCategoryBtn{
-    width: 100%;
-    border: none;
-    padding: 1rem;
-    background-color: transparent;
-    cursor: pointer;
-    transition: 0.5s;
 }
 
 .seperator{

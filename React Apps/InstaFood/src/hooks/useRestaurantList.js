@@ -31,10 +31,9 @@ const useRestaurantList = (setList) => {
                 const response = await fetch(URL);
 
                 if (response.ok) {   // Check for successful response
-                    console.log(response.body)
+
                     const data = await response.json();
 
-                    console.log(data);
                     const resListData = data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                     sessionStorage.setItem('resLocation',JSON.stringify(location));
                     sessionStorage.setItem("resList",JSON.stringify(resListData));

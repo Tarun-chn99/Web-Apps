@@ -23,11 +23,11 @@ const Body = () => {
 
     return( 
 
-            <div className="body-container relative">
+            <div className="w-[75%] mx-auto my-16 relative">
 
                 <Filter resList={resList.current} setList={setList} restaurantList={restaurantList}  />
                 {restaurantList?.length !== 0 ?  
-                <div className="res-container flex wrap space-evenly" id="res-container" >
+                <div className="res-container flex wrap justify-between" id="res-container" >
                     {restaurantList?.map?.((res) => {
                         return  <Link className="linkStyle" key={res.info.id} to={`/restaurantMenu/${res.info.id}`} >
                                    <RestaurantCard resList={res}/>

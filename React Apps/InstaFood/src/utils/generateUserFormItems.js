@@ -6,7 +6,7 @@ const generateUserFormItems = (isLoginForm,isVerifyingOTP) => {
     const toggleTextColor = isVerifyingOTP && isLoginForm ? 'text-gray-800' : 'text-orange-500';
     const buttonLabel = isVerifyingOTP ? 'Verify OTP' : (isLoginForm ? 'Login' : 'Sign Up');
     const termsText = getTermsText(isVerifyingOTP,isLoginForm);
-    const inputBoxClass = 'p-4 border border-gray-200 outline-none cursor-text text-gray-800 w-full';
+    const inputBoxClass = 'p-3 text-sm border border-gray-200 outline-none cursor-text text-gray-800 w-full';
 
     return {
         formTitle,

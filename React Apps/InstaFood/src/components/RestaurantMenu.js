@@ -32,48 +32,47 @@ const RestaurantMenu = () => {
     const category = getMenuCategories(menu);
 
     return (
-        <div className="resMenu relative">
+        <div className="w-[50rem] m-auto relative">
             
-            <h2>{name}</h2>
+            <h2 className="my-8 mx-4 font-bold text-black tracking-wide">{name}</h2>
 
-            <div className="resInfoContainer">
-                <div className="resInfo">
-                    <div className="flex align-center">
-                        <div><b><i>Rating: </i>{avgRating}  ({totalRatingsString})</b></div>
-                        <div className="margin-lr1"><b>•</b></div>
+            <div className="px-4 pb-4 rounded-[2.5rem] bg-custom-gradient ">
+
+                <div className="rounded-[2rem] p-4 bg-white">
+
+                    <div className="flex items-center">
+                        <div ><b><i>Rating: </i>{avgRating}  ({totalRatingsString})</b></div>
+                        <div className="mx-4"><b>•</b></div>
                         <div><b>{costForTwoMessage}</b></div>
                     </div>
-                    <div className="flex margin-tb1 " style={{height:"3rem"}} >
-                        <div className="mapSymbol" >
+                    <div className="flex my-4 " style={{height:"3rem"}} >
+                        <div className="mapSymbol h-full" >
                             <div className="dot"></div>
                             <div className="line"></div>
                             <div className="dot"></div>
                         </div>
-                        <div className="flex flex-column margin-lr1 space-between font14px" >
-                            <p style={{marginTop:"0.2rem"}}><b>Outlet</b><span className="margin-lr1">{areaName}</span></p>
-                            <p style={{paddingTop:"1.1rem"}}><b>{sla.minDeliveryTime}-{sla.maxDeliveryTime} mins</b></p>
+                        <div className="flex flex-col mx-4 justify-between text-[0.875rem] h-full" >
+                            <p className='mt-[0.2rem]'><b>Outlet</b><span className="mx-4">{areaName}</span></p>
+                            <p className='pt-4'><b>{sla.minDeliveryTime}-{sla.maxDeliveryTime} mins</b></p>
                         </div>
                     </div>
-                    <hr />
-                    <div className="flex align-center padding-1 font14px">
-                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_40,h_40/v1648635511/Delivery_fee_new_cjxumu" alt="" width="20px"/>
-                        <p className="margin-lr-half textLightGray">{expectationNotifiers?.[0].text}</p>
-                    </div>
+
                 </div>
             </div>
 
-            <h3 className="heading margin-top2">MENU</h3>
+            <h3 className="text-center tracking-widest font-bold m-6 mt-8">MENU</h3>
 
 
             {/* Filter buttons */}
             <div className="search flex space-evenly">
                 <button className="menuSearchButton textLightGray"><b>Search for dishes</b></button>
             </div>
-            <div className="filter margin-lr1">
-                <button>Pure Veg</button>
-                <button className="margin-lr-half">Bestseller</button>
+
+            <div className="filter mx-4 my-4">
+                <button className="py-2 px-4 bg-gray-400 rounded-xl mr-2">Pure Veg</button>
+                <button className="py-2 px-4 bg-gray-400 rounded-xl mr-2">Bestseller</button>
             </div>
-            <hr className="margin-1 margin-top2" />
+            <hr className="mt-8" />
 
 
             {/* Menu categories */}

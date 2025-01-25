@@ -19,11 +19,12 @@ const ItemCard = ({itemInfo,resInfo}) => {
 
   return (
     <>
-    <div className="flex foodItem space-between">
+    <div className="flex w-full p-4 justify-between">
         
-        <div style={{width:"70%",paddingRight:"3rem"}}>
-          <h5><b>TYPE: </b>{itemAttribute.vegClassifier}</h5>
-          <h3 className="margin-top-half"><i>{name}</i></h3>
+        <div className='w-[80%] pr-8'>
+
+          <h5 className="font-bold">TYPE : {itemAttribute.vegClassifier}</h5>
+          <h3 className="mt-4 font-bold"><i>{name}</i></h3>
           <p ><i>Rs.{price ? price/100 : defaultPrice/100}</i></p>
 
             { 
@@ -37,17 +38,17 @@ const ItemCard = ({itemInfo,resInfo}) => {
               : <p className="margin-tb1"></p>
             }
 
-          <p><i>
+          <p className="text-sm"><i>
             
             {(Object.keys(itemInfo).find((val)=>{return val==="description"}) === "description") ? 
-              ((expand === false) ? description.slice(0,80) : description )  : ""}
+              ((expand === false) ? description.slice(0,140) : description )  : ""}
 
             <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>
           </i></p>
 
         </div>
         
-        <div className="mealImage pos-rel">
+        <div className="mealImage relative">
           <img src={RES_IMG_URL+imageId} alt="" width='100%' height='100%' />
           <p className="addToCartButtonContainer">
             <button className="addToCartButtn outline-none" onClick={handleAddItems}>Add</button>

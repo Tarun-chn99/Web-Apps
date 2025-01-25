@@ -8,8 +8,8 @@ const MenuCategory = (props) => {
     return (
         <div className="menuCategory margin-1">
             
-            <button className="flex space-between menuCategoryBtn" onClick={setshowCategory}>
-                <div><b>{title}</b></div>
+            <button className="flex justify-between w-full border-none p-4 bg-transparent cursor-pointer duration-500" onClick={setshowCategory}>
+                <div className="text-lg font-bold"><b>{title}</b></div>
                 <div className="downArrow">
                     <span>Down</span>
                 </div>

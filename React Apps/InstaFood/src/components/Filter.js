@@ -10,15 +10,14 @@ const Filter = (props) => {
     const [text, setText] = useState("");  
     const inputElement = useRef(null);
     const suggestionList = useRef(null);    
-        
+    const filterButtonClass = "p-3 outline-none text-sm bold rounded-xl bg-gray-400 cursor-pointer hover:bg-gray-600 hover:text-white mr-1 w-28";
+
     const handleTopRated = () => {
         const filteredList = resList.filter((res) => res.info.avgRating > 4.5);
         if (filteredList.length !== resList.length)  setList(filteredList);
     }
     
-    const handleDefault = () => {
-        setList(resList);
-    };
+    const handleDefault = () => setList(resList);
     
     function handleSearch(query){
         
@@ -36,18 +35,37 @@ const Filter = (props) => {
     }
 
     return (
-            <div className="filter">
-                <div className="search">
+            <div className="filter w-full">
+                
+                <div className="m-2">
                     
-                    <input  className='p-4 bg-gray-200 outline-none rounded-xl' 
+                    <input  className='p-3 text-sm bg-gray-200 outline-none rounded-xl w-6/12 mr-1 ' 
                             // onFocus = {() => {suggestionList.current.style.display = 'block'}}
                             // onBlur = {() => {setTimeout(()=>{suggestionList.current.style.display = 'none'},200)}}
-                            placeholder="Search..." type='text' ref={inputElement} data-testid="input" name="search" value={text} onChange={onChange} autoComplete='off' history='off'/>
-                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" id='searchButton' onClick={()=>handleSearch(text)}>Search</button>
-                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" onClick={handleTopRated}>Top Rated</button>
-                    <button className="p-4 outline-none rounded-xl bg-gray-200 cursor-pointer hover:bg-gray-400" onClick={handleDefault}>Default</button>
+                            placeholder="Search..." 
+                            type='text' 
+                            ref={inputElement} 
+                            data-testid="input" 
+                            name="search" 
+                            value={text} 
+                            onChange={onChange} 
+                        />
+
+                    <button className={filterButtonClass} 
+                            onClick={()=>handleSearch(text)}>Search</button>
+
+                    <button className={filterButtonClass} 
+                            onClick={handleTopRated}>Top Rated</button>
+
+                    <button className={filterButtonClass} 
+                            onClick={handleDefault}>Default</button>
+
                 </div>
-                <div className="suggestions-box flex flex-column wrap " style={{display:"none"}} id="suggestions" ref={suggestionList}>
+
+                <div className="suggestions-box flex flex-column wrap " 
+                     style={{display:"none"}} 
+                     id="suggestions" 
+                     ref={suggestionList}>
                     {
                         restaurantList?.map((res)=>{
                             return  <Link className="linkStyle" 
@@ -59,6 +77,7 @@ const Filter = (props) => {
                         }
                     )}
                 </div>
+
             </div>
     )
 }

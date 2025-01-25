@@ -38,21 +38,21 @@ const Header = () => {
     const handleCloseLoginForm = () =>  setShowLoginWindow(false);
 
     return(
-        <div title='header' className="flex justify-between items-center shadow-lg ">
+        <div title='header' className="flex justify-between items-center shadow-lg w-full overflow-hidden px-8">
 
             <div className="flex items-center mx-4">
-                <div className="w-20">
+                <div className="w-16">
                     <Link to='/' className="logo-link">
                         <img className='logo' src={LOGO_URL} alt="logo" width="100%"/>
                     </Link>
                 </div>
-                <Link to='/'><h3 className="text-xl italic font-bold">{company_name}</h3></Link>
+                <Link to='/'><h4 className="text-base italic font-bold">{company_name}</h4></Link>
                 <UserLocation />
             </div>
 
             <div className="mx-4">
                 <ul className="flex list-none items-center">
-                    <li className="flex">
+                    <li className="flex text-sm">
                         <b>Status : </b> 
                         {
                             onlineStatus === true 

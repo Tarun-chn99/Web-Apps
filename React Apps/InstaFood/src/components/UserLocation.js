@@ -44,9 +44,9 @@ const UserLocation = () => {
     },[locationInfo]);
     
     return (
-        <form className="relative mx-4" onSubmit={(e)=>e.preventDefault()}>
+        <form className="relative mx-2" onSubmit={(e)=>e.preventDefault()}>
             <input 
-                className='p-4 rounded-xl mx-4 bg-gray-200 text-black outline-none border-none' 
+                className='p-3 rounded-xl text-sm mx-4 bg-gray-200 text-black outline-none border-none' 
                 type="text" 
                 value={locationInfo}
                 placeholder="Enter precise location..."

@@ -14,7 +14,7 @@ const About = lazy(() => import("./components/About"));
 const App = () => {
     return  (
         <Provider store={appStore}>
-            <div className="app h-screen font-sans">
+            <div name='app' className="w-full font-sans">
                 <Header />
                 <Outlet /> 
             </div>
@@ -51,5 +51,4 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(root);
 root.render(<RouterProvider router={appRouter}/>);
