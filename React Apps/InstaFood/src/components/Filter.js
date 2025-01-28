@@ -10,7 +10,7 @@ const Filter = (props) => {
     const [text, setText] = useState("");  
     const inputElement = useRef(null);
     const suggestionList = useRef(null);    
-    const filterButtonClass = "p-3 outline-none text-sm bold rounded-xl bg-gray-400 cursor-pointer hover:bg-gray-600 hover:text-white mr-1 w-28";
+    const filterButtonClass = "p-2 lg:p-3 outline-none text-xs bold rounded-xl bg-gray-400 cursor-pointer hover:bg-gray-600 hover:text-white mr-1 w-24 md:w-28 lg:w-28";
 
     const handleTopRated = () => {
         const filteredList = resList.filter((res) => res.info.avgRating > 4.5);
@@ -39,7 +39,7 @@ const Filter = (props) => {
                 
                 <div className="m-2">
                     
-                    <input  className='p-3 text-sm bg-gray-200 outline-none rounded-xl w-6/12 mr-1 ' 
+                    <input  className='p-2 lg:p-3 text-xs bg-gray-200 outline-none rounded-xl mb-2 lg:mb-0 w-full md:w-6/12 lg:w-6/12 mr-1 ' 
                             // onFocus = {() => {suggestionList.current.style.display = 'block'}}
                             // onBlur = {() => {setTimeout(()=>{suggestionList.current.style.display = 'none'},200)}}
                             placeholder="Search..." 
@@ -50,16 +50,17 @@ const Filter = (props) => {
                             value={text} 
                             onChange={onChange} 
                         />
+                        <div className="md:inline-block lg:inline-block">
 
-                    <button className={filterButtonClass} 
-                            onClick={()=>handleSearch(text)}>Search</button>
+                            <button className={filterButtonClass} 
+                                    onClick={()=>handleSearch(text)}>Search</button>
 
-                    <button className={filterButtonClass} 
-                            onClick={handleTopRated}>Top Rated</button>
+                            <button className={filterButtonClass} 
+                                    onClick={handleTopRated}>Top Rated</button>
 
-                    <button className={filterButtonClass} 
-                            onClick={handleDefault}>Default</button>
-
+                            <button className={filterButtonClass} 
+                                    onClick={handleDefault}>Default</button>
+                        </div>
                 </div>
 
                 <div className="suggestions-box flex flex-column wrap " 

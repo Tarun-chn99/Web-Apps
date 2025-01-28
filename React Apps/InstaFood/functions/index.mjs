@@ -52,7 +52,9 @@ export const fetchRestaurantMenu = functions.https.onRequest(async (req, res) =>
         try {
 
             const id = req.query.restaurantId;
-            const URL = RESTAURANT_MENU_URL + id;
+            const lat = req.query.lat;
+            const lng = req.query.lng;
+            const URL = RESTAURANT_MENU_URL +`&lat=${lat}&lng=${lng}&restaurantId=`+ id;
 
             const headers = {
                 'User-Agent': 'Mozilla/5.0',

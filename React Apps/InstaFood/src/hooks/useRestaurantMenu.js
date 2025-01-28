@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { RESTAURANT_MENU_URL } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const useRestaurantMenu = (id) => {
 
     const [menu,setMenu] = useState(null);
+    const location = useSelector((store) => store.app.location);
 
     useEffect(() => {
         fetchMenu();
@@ -17,7 +19,7 @@ const useRestaurantMenu = (id) => {
                 setMenu(JSON.parse(cachedData));
             }
             else{
-                const response = await fetch(RESTAURANT_MENU_URL + '&restaurantId=' + id);
+                const response = await fetch(RESTAURANT_MENU_URL +`lat=${location.lat}&lng=${location.lng}`+ '&restaurantId=' + id);
                 const data = await response.json();
                 sessionStorage.setItem("resMenu"+id,JSON.stringify(data));
                 setMenu(data);

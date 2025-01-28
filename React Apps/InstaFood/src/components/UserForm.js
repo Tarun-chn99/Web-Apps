@@ -107,14 +107,14 @@ const UserForm = ({handleCloseLoginForm}) => {
 
 
     return (
-    <div className="w-96 my-8">
+    <div className="w-80 my-8 mr-auto h-full">
         
-        <button className="py-2 px-4 my-2 text-sm bg-slate-200 rounded-lg outline-none hover:bg-slate-500" 
+        <button className="py-2 px-4 my-2 text-base bg-slate-200 rounded-lg outline-none hover:bg-slate-500" 
                 onClick={handleCloseOrBackAction }>
-            { isVerifyingOTP ? <img className='w-6 py-2' src={BACK_ICON} alt='back'/> : 'X' }
+            { isVerifyingOTP ? <img className='w-8 py-2' src={BACK_ICON} alt='back'/> : 'X' }
         </button>
 
-        <h1 className="my-2 text-xl font-bold">{formTitle}</h1>
+        <h1 className="my-2 text-lg font-bold">{formTitle}</h1>
         <p  className="text-xs" onClick={handleToggleLoginForm}>
                 {!isVerifyingOTP ? "or " : ''}<span className={`cursor-pointer ${toggleTextColor}`}>{toggleLoginForm}</span>
         </p>
@@ -160,7 +160,7 @@ const UserForm = ({handleCloseLoginForm}) => {
             }
 
             <button id='sign-in-button' className="w-full p-3 text-sm mt-4 text-white bg-orange-500 font-bold rounded-none outline-none" onClick={handleFormSubmit}>{buttonLabel}</button>
-            <p className="text-xs text-gray-800 my-2"><b>{termsText}</b></p>
+            <p className="text-[0.65rem] text-gray-800 my-2"><b>{termsText}</b></p>
             
         </form>
     </div>

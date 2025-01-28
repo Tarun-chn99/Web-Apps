@@ -8,13 +8,16 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from 'react-redux';
 import appStore from "./AppStore/appStore";
 import Cart from "./components/Cart"
+import Search from "./components/Search";
+import Offers from "./components/Offers";
+import Help from "./components/Help";
 
-const About = lazy(() => import("./components/About"));
+// const About = lazy(() => import("./components/About"));
 
 const App = () => {
     return  (
         <Provider store={appStore}>
-            <div name='app' className="w-full font-sans">
+            <div name='app' className="w-full h-full overflow-hidden font-sans">
                 <Header />
                 <Outlet /> 
             </div>
@@ -33,10 +36,22 @@ const appRouter = createBrowserRouter([
                 element: <Body />
             },
             {
-                path: '/about',
-                element: <Suspense fallback={<h1>Loading...</h1>}>
-                            <About />
-                         </Suspense>
+                path: '/search',
+                element: <Search />
+            },
+            // {
+            //     path: '/about',
+            //     element: <Suspense fallback={<h1>Loading...</h1>}>
+            //                 <About />
+            //              </Suspense>
+            // },
+            {
+                path: '/offers',
+                element: <Offers />
+            },
+            {
+                path: '/help',
+                element: <Help />
             },
             {
                 path: '/restaurantMenu/:id',

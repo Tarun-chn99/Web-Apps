@@ -15,7 +15,7 @@ const Cart = () => {
     const handleClearCart = () => dispatch(clearCart());
     
     return (
-        id ? <div title='cart' className="bg-slate-200 h-full">
+        id ? <div title='cart' className="bg-slate-200 h-[120%]">
 
             <div title='cart container' className="w-3/4 mx-auto pt-12 " >
 

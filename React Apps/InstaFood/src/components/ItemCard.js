@@ -19,13 +19,21 @@ const ItemCard = ({itemInfo,resInfo}) => {
 
   return (
     <>
-    <div className="flex w-full p-4 justify-between">
+    <div className="flex w-full my-2 p-2 lg:p-4 justify-between items-center">
         
-        <div className='w-[80%] pr-8'>
+        <div className='w-3/5 lg:w-[80%] pr-4 lg:pr-8'>
 
-          <h5 className="font-bold">TYPE : {itemAttribute.vegClassifier}</h5>
-          <h3 className="mt-4 font-bold"><i>{name}</i></h3>
-          <p ><i>Rs.{price ? price/100 : defaultPrice/100}</i></p>
+          <h5 className="w-6">
+              <img src={itemAttribute.vegClassifier === 'VEG' ? 
+                          'https://i.pinimg.com/736x/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.jpg' 
+                          :'https://www.kindpng.com/picc/m/151-1515155_veg-icon-png-non-veg-symbol-png-transparent.png' }
+                   alt={itemAttribute.vegClassifier}
+                   width='100'    
+                 />
+          </h5>
+
+          <h3 className="mt-2 font-bold text-base lg:text-lg"><i>{name}</i></h3>
+          <p className="text-sm lg:text-lg"><i>Rs.{price ? price/100 : defaultPrice/100}</i></p>
 
             { 
               (Object.keys(ratings.aggregatedRating).length !== 0) ?
@@ -38,20 +46,31 @@ const ItemCard = ({itemInfo,resInfo}) => {
               : <p className="margin-tb1"></p>
             }
 
-          <p className="text-sm"><i>
+          <p className="hidden md:block lg:block"><i>
             
             {(Object.keys(itemInfo).find((val)=>{return val==="description"}) === "description") ? 
-              ((expand === false) ? description.slice(0,140) : description )  : ""}
+              ((expand === false) ? description.slice(0,120) : description )  : ""}
 
-            <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>
+            {(description.length > 120) && <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>}
+
           </i></p>
+
+          <p className="block md:hidden lg:hidden"><i>
+            
+            {(Object.keys(itemInfo).find((val)=>{return val==="description"}) === "description") ? 
+              ((expand === false) ? description.slice(0,50) : description )  : ""}
+
+            {(description?.length > 40) && <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>}
+
+          </i></p>
+
 
         </div>
         
-        <div className="mealImage relative">
-          <img src={RES_IMG_URL+imageId} alt="" width='100%' height='100%' />
-          <p className="addToCartButtonContainer">
-            <button className="addToCartButtn outline-none" onClick={handleAddItems}>Add</button>
+        <div className="w-[10rem] lg:w-[16rem] h-30 lg:h-40 relative rounded-xl overflow-hidden ">
+          <img className='object-fit' src={RES_IMG_URL+imageId} alt="" width='100%' height='100%' />
+          <p className="absolute bottom-[10%] left-0 right-0 w-full text-center ">
+            <button className="px-6 py-2 text-sm lg:text-base border-none cursor-pointer font-semibold text-[#f0f0f0] bg-gray-700 outline-none rounded-xl hover:bg-slate-800" onClick={handleAddItems}>Add</button>
           </p>
         </div>
 

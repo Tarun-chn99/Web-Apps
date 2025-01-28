@@ -32,20 +32,20 @@ const RestaurantMenu = () => {
     const category = getMenuCategories(menu);
 
     return (
-        <div className="w-[50rem] m-auto relative">
+        <div className="w-[100%] md:w-[40rem] lg:w-[50rem] m-auto">
             
-            <h2 className="my-8 mx-4 font-bold text-black tracking-wide">{name}</h2>
+            <h2 className="my-8 mx-4 font-bold text-black text-lg md:text-xl tracking-wide">{name}</h2>
 
             <div className="px-4 pb-4 rounded-[2.5rem] bg-custom-gradient ">
 
-                <div className="rounded-[2rem] p-4 bg-white">
+                <div className="rounded-[2rem] p-6 bg-white">
 
                     <div className="flex items-center">
-                        <div ><b><i>Rating: </i>{avgRating}  ({totalRatingsString})</b></div>
+                        <div className="text-base lg:text-lg"><b>⭐ {avgRating}  ({totalRatingsString})</b></div>
                         <div className="mx-4"><b>•</b></div>
-                        <div><b>{costForTwoMessage}</b></div>
+                        <div className="text-base lg:text-lg"><b>{costForTwoMessage}</b></div>
                     </div>
-                    <div className="flex my-4 " style={{height:"3rem"}} >
+                    <div className="flex my-4 h-10 lg:h-12" >
                         <div className="mapSymbol h-full" >
                             <div className="dot"></div>
                             <div className="line"></div>
@@ -68,9 +68,16 @@ const RestaurantMenu = () => {
                 <button className="menuSearchButton textLightGray"><b>Search for dishes</b></button>
             </div>
 
-            <div className="filter mx-4 my-4">
-                <button className="py-2 px-4 bg-gray-400 rounded-xl mr-2">Pure Veg</button>
-                <button className="py-2 px-4 bg-gray-400 rounded-xl mr-2">Bestseller</button>
+            <div className="filter mx-4 my-4 ">
+                <div className="py-2 px-4 my-1 bg-gray-400 text-sm md:text-base lg:text-base rounded-xl mr-2 inline-block cursor-pointer " onClick={()=>{}}>     
+                    <img className='w-4 inline-block mr-2' src='https://i.pinimg.com/736x/e4/1f/f3/e41ff3b10a26b097602560180fb91a62.jpg' alt='' />
+                    <span>Veg</span>
+                </div>
+                <div className="py-2 px-4 my-1 bg-gray-400 text-sm md:text-base lg:text-base rounded-xl mr-2 inline-block cursor-pointer " onClick={()=>{}}>     
+                    <img className='w-4 inline-block mr-2' src='https://www.kindpng.com/picc/m/151-1515155_veg-icon-png-non-veg-symbol-png-transparent.png' alt='' />
+                    <span>Non Veg</span>
+                </div>
+                <button className="py-2 px-4 my-1 bg-gray-400 text-sm md:text-base lg:text-base rounded-xl mr-2">Bestseller</button>
             </div>
             <hr className="mt-8" />
 

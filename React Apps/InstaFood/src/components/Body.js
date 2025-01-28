@@ -23,19 +23,21 @@ const Body = () => {
 
     return( 
 
-            <div className="w-[75%] mx-auto my-16 relative">
+            <div className=" w-[22rem] md:w-[45rem] lg:w-[60rem] mx-auto my-12 md:my-16 lg:my-16">
 
                 <Filter resList={resList.current} setList={setList} restaurantList={restaurantList}  />
-                {restaurantList?.length !== 0 ?  
-                <div className="res-container flex wrap justify-between" id="res-container" >
-                    {restaurantList?.map?.((res) => {
-                        return  <Link className="linkStyle" key={res.info.id} to={`/restaurantMenu/${res.info.id}`} >
-                                   <RestaurantCard resList={res}/>
-                                </Link>
-                    })}
-                </div>
-                :
-                <Shimmer/>}
+                {
+                    restaurantList?.length !== 0 ?  
+                    <div className="res-container flex wrap justify-between gap-1 lg:gap-2" id="res-container" >
+                        {restaurantList?.map?.((res) => {
+                            return  <Link className="linkStyle" key={res.info.id} to={`/restaurantMenu/${res.info.id}`} >
+                                        <RestaurantCard resList={res}/>
+                                    </Link>
+                        })}
+                    </div>
+                    :
+                    <Shimmer/>
+                }
 
             </div>
     ); 
