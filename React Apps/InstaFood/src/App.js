@@ -4,15 +4,15 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from 'react-redux';
 import appStore from "./AppStore/appStore";
 import Cart from "./components/Cart"
 import Search from "./components/Search";
 import Offers from "./components/Offers";
 import Help from "./components/Help";
+import Shimmer from "./components/resListShimmer";
 
-// const About = lazy(() => import("./components/About"));
+const Menu = lazy(() => import("./components/RestaurantMenu"));
 
 const App = () => {
     return  (
@@ -39,12 +39,6 @@ const appRouter = createBrowserRouter([
                 path: '/search',
                 element: <Search />
             },
-            // {
-            //     path: '/about',
-            //     element: <Suspense fallback={<h1>Loading...</h1>}>
-            //                 <About />
-            //              </Suspense>
-            // },
             {
                 path: '/offers',
                 element: <Offers />
@@ -55,7 +49,9 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: '/restaurantMenu/:id',
-                element: <RestaurantMenu />
+                element: <Suspense fallback={<Shimmer/>}>
+                            <Menu />
+                        </Suspense>
             },
             {
                 path: '/cart',

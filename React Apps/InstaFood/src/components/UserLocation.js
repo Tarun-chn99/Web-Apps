@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { BACK_ICON, LOCATION_SUGGESTION_API } from "../utils/constants";
 import getLocation from '../utils/getLocation'
 import { useDispatch } from "react-redux";
@@ -7,7 +7,7 @@ import { setLocation } from "../AppStore/appSlice.js";
 
 const UserLocation = () => {
 
-    const [locationInfo,setLocationInfo] = useState('')
+    const [locationInfo,setLocationInfo] = useState('');
     const [suggestions,setSuggestions] = useState(null);
     const [isSuggestionsOpen,setIsSuggestionsOpen] = useState(false);
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const UserLocation = () => {
     
     const handleClick = async (location) => {
 
-        setIsSuggestionsOpen(false)
+        setIsSuggestionsOpen(false);
         setLocationInfo(location.description);
         const locationId = location.place_id;
         const locationInfo = await getLocation(locationId);
@@ -72,7 +72,9 @@ const UserLocation = () => {
             </div>
 
             {/* For Mobile devices */}
-            <span className="md:hidden bg-black cursor-pointer" onClick={() => setIsSuggestionsOpen(true)}>🔽</span>  
+            <span className="md:hidden bg-black cursor-pointer w-20" onClick={() => setIsSuggestionsOpen(true)}>
+                <img className="w-6 rounded-md mx-2 p-1 bg-gray-400" src="https://cdn-icons-png.flaticon.com/512/0/619.png" alt="location"/>
+            </span>  
             {
                 isSuggestionsOpen && 
                     

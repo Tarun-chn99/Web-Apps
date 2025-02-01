@@ -12,6 +12,7 @@ const ItemCard = ({itemInfo,resInfo}) => {
   const {name,itemAttribute,price,defaultPrice,ratings,description,id,imageId} = itemInfo;  
 
   const handleAddItems = () => dispatch(addItem({itemInfo,resInfo}));
+
   const handleExpand = () => {
     (expand === true) ?  setExpand('false') : setExpand('true');
     moreButton.current.style.display = "none";
@@ -51,7 +52,7 @@ const ItemCard = ({itemInfo,resInfo}) => {
             {(Object.keys(itemInfo).find((val)=>{return val==="description"}) === "description") ? 
               ((expand === false) ? description.slice(0,120) : description )  : ""}
 
-            {(description.length > 120) && <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>}
+            {(description?.length > 120) && <button ref={moreButton} className="moreButton" onClick={handleExpand}><b>...more</b></button>}
 
           </i></p>
 

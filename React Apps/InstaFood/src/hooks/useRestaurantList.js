@@ -51,6 +51,7 @@ const useRestaurantList = (setList) => {
     }
 
     useEffect(()=>{
+        setList([]);
         fetchList();
     },[location]);
 
