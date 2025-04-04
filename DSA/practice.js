@@ -245,25 +245,26 @@
 
 
 
-// const getData = () => {
-//     console.log("Hello...")
-// }
+const getData = () => {
+    console.log("Hello...")
+}
 
 
-// function x(){
-//     let timer;
-//     return function(){
-//         console.log("Before setTimeout: ",timer);
-//         clearTimeout(timer);
-//         timer = setTimeout(()=>{
-//             getData.apply(this,arguments);
-//         },500);
-//         console.log("After setTimeout: ",timer);
+function x(){
+    let timer;
+    return function(){
+        console.log("Before setTimeout: ",timer);
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            getData.apply(this,arguments);
+        },500);
+        console.log("After setTimeout: ",timer);
 
-//     }
-// }
+    }
+}
 
-// const y = x();
+const y = x();
+y();
 
 
 

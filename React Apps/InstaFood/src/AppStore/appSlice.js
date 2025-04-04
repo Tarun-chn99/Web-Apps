@@ -23,4 +23,3 @@ const appSlice = createSlice({
 
 export const { setLocation,setAuth } = appSlice.actions;
 export default appSlice.reducer;
-

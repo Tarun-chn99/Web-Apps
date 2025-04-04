@@ -14,60 +14,60 @@
 
 
 
-function countValidWords(s) {
+// function countValidWords(s) {
 
-    if(typeof s !== 'string' || !s.length) return 0;
+//     if(typeof s !== 'string' || !s.length) return 0;
     
-    let isAlphanumeric = false, 
-        isVowel = false, 
-        isConsonant = false,
-        count = 0,
-        i=0,
-        j=0,
-        n = s.length;
+//     let isAlphanumeric = false, 
+//         isVowel = false, 
+//         isConsonant = false,
+//         count = 0,
+//         i=0,
+//         j=0,
+//         n = s.length;
         
-    while(j<n){
-        if(s[j] !== ' '){
+//     while(j<n){
+//         if(s[j] !== ' '){
             
-            let charCode = s.charCodeAt(j);
+//             let charCode = s.charCodeAt(j);
             
-            if((charCode >= 49 && charCode <= 57) || (charCode >=65 && charCode <= 90) || (charCode >=97 && charCode <=122) )
-                isAlphanumeric = true;
-            else
-                isAlphanumeric = false;
+//             if((charCode >= 49 && charCode <= 57) || (charCode >=65 && charCode <= 90) || (charCode >=97 && charCode <=122) )
+//                 isAlphanumeric = true;
+//             else
+//                 isAlphanumeric = false;
                 
-            if(s[j] === 'a' || s[j] === 'e' || s[j] === 'i' || s[j] === 'o' || s[j] === 'u')
-                isVowel = true;
+//             if(s[j] === 'a' || s[j] === 'e' || s[j] === 'i' || s[j] === 'o' || s[j] === 'u')
+//                 isVowel = true;
                 
-            if((charCode >=65 && charCode <= 90) || (charCode >=97 && charCode <=122))
-                isConsonant = true;
+//             if((charCode >=65 && charCode <= 90) || (charCode >=97 && charCode <=122))
+//                 isConsonant = true;
                 
-            if(j+1 === n){
-                if(isAlphanumeric && isVowel && isConsonant && (j-i+1) >= 3)
-                    count++;
-            }
-            else
-                j++;
-        }
-        else{
+//             if(j+1 === n){
+//                 if(isAlphanumeric && isVowel && isConsonant && (j-i+1) >= 3)
+//                     count++;
+//             }
+//             else
+//                 j++;
+//         }
+//         else{
             
-            if(isAlphanumeric && isVowel && isConsonant && ((j-i) >= 3))
-                count++;
+//             if(isAlphanumeric && isVowel && isConsonant && ((j-i) >= 3))
+//                 count++;
 
-            isAlphanumeric = false;
-            isConsonant = false;
-            isVowel = false;
-            j++;
-            i = j;
-        }
-    }
+//             isAlphanumeric = false;
+//             isConsonant = false;
+//             isVowel = false;
+//             j++;
+//             i = j;
+//         }
+//     }
     
-    return count;
+//     return count;
 
-}
+// }
 
 
-console.log(countValidWords("this is  an example string234"))
+// console.log(countValidWords("this is  an example string234"))
 
 
 

@@ -133,7 +133,7 @@ const UserForm = ({handleCloseLoginForm}) => {
             {
                 !isLoginForm && !isVerifyingOTP &&
                     <>
-                        <input className={`${inputBoxClass} border-t-0`}  type='text' name='name' placeholder="Name"/>
+                        <input className={`${inputBoxClass} border-t-0`} type='text' name='name' placeholder="Name"/>
                         <input className={`${inputBoxClass} border-t-0`}  type='text' name='email' placeholder="Email"/>
                         { 
                             showReferralBox ? 
